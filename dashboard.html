@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | NBF Connect - Shurveer Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo">
+                <img src="nbf-emblem.png" alt="National Bharat Force Emblem" class="navbar-emblem">
+                <span class="logo-text">NATIONAL BHARAT FORCE</span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-user-circle"></i>
+                <span>My Profile</span>
+            </a>
+            <a href="opportunities.html" class="nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-file-lines"></i>
+                <span>Applications</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training Hub</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge">3</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-gear"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="logout-btn" id="logout-btn">
+                <i class="fas fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search missions, training...">
+            </div>
+            <div class="user-actions">
+                <div class="notification-trigger">
+                    <i class="fas fa-bell"></i>
+                    <span class="dot"></span>
+                </div>
+                <div class="user-profile">
+                    <div class="user-info text-right">
+                        <span class="user-name">Arjun Singh</span>
+                        <span class="user-rank">Senior Shurveer</span>
+                    </div>
+                    <img src="avatar.png" alt="Profile" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Welcome Banner -->
+            <section class="welcome-banner">
+                <div class="banner-content">
+                    <h1>Ready for your next <span class="gold-text">mission?</span></h1>
+                    <p>Your dedication is recognized. New opportunities matching your skills are waiting.</p>
+                    <a href="opportunities.html" class="btn btn-gold">Explore Now</a>
+                </div>
+                <div class="banner-viz">
+                    <div class="abstract-shape"></div>
+                </div>
+            </section>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon orange"><i class="fas fa-user-check"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Profile Completion</span>
+                        <div class="progress-container">
+                            <span class="stat-value">85%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fas fa-paper-plane"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Applications</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon gold"><i class="fas fa-bullseye"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Matched Ops</span>
+                        <span class="stat-value">08</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fas fa-medal"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Certifications</span>
+                        <span class="stat-value">04</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Dashboard Row -->
+            <div class="dashboard-row">
+                <!-- Left Column: Opportunities & Training -->
+                <div class="dashboard-col left">
+                    <!-- Featured Opportunities Carousel -->
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Featured Opportunities</h2>
+                            <a href="opportunities.html" class="view-all">View All</a>
+                        </div>
+                        <div class="opportunity-carousel">
+                            <div class="opp-card">
+                                <div class="opp-img-placeholder" style="background: linear-gradient(135deg, #f49f1c, #e08e15);">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="opp-details">
+                                    <span class="opp-tag">Operations</span>
+                                    <h3>Event Operations</h3>
+                                    <p>Global Summit 2026</p>
+                                    <div class="opp-footer">
+                                        <span><i class="fas fa-location-dot"></i> New Delhi</span>
+                                        <button class="btn-apply-sm">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="opp-card">
+                                <div class="opp-img-placeholder" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                                    <i class="fas fa-cart-shopping"></i>
+                                </div>
+                                <div class="opp-details">
+                                    <span class="opp-tag">Support</span>
+                                    <h3>Retail Support</h3>
+                                    <p>IPL Fan Zone Store</p>
+                                    <div class="opp-footer">
+                                        <span><i class="fas fa-location-dot"></i> Mumbai</span>
+                                        <button class="btn-apply-sm">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="opp-card">
+                                <div class="opp-img-placeholder" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                    <i class="fas fa-volleyball"></i>
+                                </div>
+                                <div class="opp-details">
+                                    <span class="opp-tag">Management</span>
+                                    <h3>Sports Management</h3>
+                                    <p>National Youth Games</p>
+                                    <div class="opp-footer">
+                                        <span><i class="fas fa-location-dot"></i> Pune</span>
+                                        <button class="btn-apply-sm">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Training Progress -->
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Training Progress</h2>
+                        </div>
+                        <div class="training-tracker">
+                            <div class="training-item">
+                                <div class="training-icon"><i class="fas fa-shield-halved"></i></div>
+                                <div class="training-info">
+                                    <div class="training-meta">
+                                        <h4>Disaster Management 101</h4>
+                                        <span>70%</span>
+                                    </div>
+                                    <div class="progress-bar sm"><div class="progress-fill" style="width: 70%;"></div></div>
+                                </div>
+                            </div>
+                            <div class="training-item">
+                                <div class="training-icon"><i class="fas fa-microphone"></i></div>
+                                <div class="training-info">
+                                    <div class="training-meta">
+                                        <h4>Public Speaking Mastery</h4>
+                                        <span>45%</span>
+                                    </div>
+                                    <div class="progress-bar sm"><div class="progress-fill" style="width: 45%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Skill Badges -->
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Earned Skill Badges</h2>
+                        </div>
+                        <div class="badge-row">
+                            <div class="skill-badge" title="Leadership">
+                                <i class="fas fa-crown"></i>
+                                <span>Leader</span>
+                            </div>
+                            <div class="skill-badge" title="Discipline">
+                                <i class="fas fa-bullseye"></i>
+                                <span>Disciplined</span>
+                            </div>
+                            <div class="skill-badge" title="Teamwork">
+                                <i class="fas fa-people-group"></i>
+                                <span>Team Player</span>
+                            </div>
+                            <div class="skill-badge locked">
+                                <i class="fas fa-lock"></i>
+                                <span>Logistic Pro</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column: Feed & Calendar -->
+                <div class="dashboard-col right">
+                    <!-- Leaderboard -->
+                    <section class="dashboard-section side-section">
+                        <div class="section-header">
+                            <h2>Top Shurveers</h2>
+                        </div>
+                        <div class="leaderboard">
+                            <div class="lb-item rank-1">
+                                <div class="lb-rank">1</div>
+                                <div class="lb-user">
+                                    <img src="https://ui-avatars.com/api/?name=Rahul+Kumar&background=f49f1c&color=000" alt="Rahul">
+                                    <div class="lb-info">
+                                        <span class="name">Rahul Kumar</span>
+                                        <span class="points">2450 pts</span>
+                                    </div>
+                                </div>
+                                <i class="fas fa-crown gold"></i>
+                            </div>
+                            <div class="lb-item">
+                                <div class="lb-rank">2</div>
+                                <div class="lb-user">
+                                    <img src="https://ui-avatars.com/api/?name=Sneha+Patil&background=10b981&color=fff" alt="Sneha">
+                                    <div class="lb-info">
+                                        <span class="name">Sneha Patil</span>
+                                        <span class="points">2100 pts</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lb-item">
+                                <div class="lb-rank">3</div>
+                                <div class="lb-user">
+                                    <img src="https://ui-avatars.com/api/?name=Amit+Shah&background=3b82f6&color=fff" alt="Amit">
+                                    <div class="lb-info">
+                                        <span class="name">Amit Shah</span>
+                                        <span class="points">1950 pts</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Upcoming Events -->
+                    <section class="dashboard-section side-section">
+                        <div class="section-header">
+                            <h2>Upcoming Events</h2>
+                        </div>
+                        <div class="calendar-mini">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">15</span>
+                                    <span class="month">MAY</span>
+                                </div>
+                                <div class="event-info">
+                                    <h4>NSS Clean India Drive</h4>
+                                    <span>09:00 AM - Connaught Place</span>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">22</span>
+                                    <span class="month">MAY</span>
+                                </div>
+                                <div class="event-info">
+                                    <h4>NCC Drill Competition</h4>
+                                    <span>07:30 AM - Garrison Ground</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Notifications Feed -->
+                    <section class="dashboard-section side-section">
+                        <div class="section-header">
+                            <h2>Recent Notifications</h2>
+                        </div>
+                        <div class="notification-feed">
+                            <div class="feed-item">
+                                <div class="feed-icon"><i class="fas fa-check-circle"></i></div>
+                                <div class="feed-content">
+                                    <p>Your application for <strong>Event Ops</strong> was viewed.</p>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="feed-item">
+                                <div class="feed-icon"><i class="fas fa-star"></i></div>
+                                <div class="feed-content">
+                                    <p>You earned a new badge: <strong>Disciplined!</strong></p>
+                                    <span class="time">Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sidebar active state
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    <script type="module" src="./src/dashboard.js"></script>
+</body>
+</html>

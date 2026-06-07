@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Control Center | NBF Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+        <a href="index.html" class="logo">
+            <img src="nbf-emblem.png" alt="National Bharat Force Emblem" class="navbar-emblem">
+            <span class="logo-text">NATIONAL BHARAT FORCE</span>
+        </a>
+    </div>
+    <nav class="sidebar-nav">
+        <a class="nav-item active" data-section="dashboard"><i class="fas fa-gauge-high"></i><span>Dashboard</span></a>
+        <a class="nav-item" data-section="users"><i class="fas fa-users"></i><span>Users</span><span class="badge">12</span></a>
+        <a class="nav-item" data-section="employers"><i class="fas fa-briefcase"></i><span>Employers</span></a>
+        <a class="nav-item" data-section="organizations"><i class="fas fa-building"></i><span>Organizations</span></a>
+        <a class="nav-item" data-section="opportunities"><i class="fas fa-bullseye"></i><span>Opportunities</span></a>
+        <a class="nav-item" data-section="approvals"><i class="fas fa-check-double"></i><span>Approvals</span><span class="badge red">7</span></a>
+        <a class="nav-item" data-section="reports"><i class="fas fa-flag"></i><span>Reports</span></a>
+        <a class="nav-item" data-section="analytics"><i class="fas fa-chart-line"></i><span>Analytics</span></a>
+        <a class="nav-item" data-section="messages"><i class="fas fa-envelope"></i><span>Messages</span></a>
+        <a class="nav-item" data-section="settings"><i class="fas fa-gear"></i><span>Settings</span></a>
+    </nav>
+    <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn"><i class="fas fa-arrow-right-from-bracket"></i><span>Logout</span></a>
+    </div>
+</aside>
+
+<!-- Main -->
+<main class="main-content">
+    <!-- Topbar -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+            <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search users, employers..."></div>
+        </div>
+        <div class="topbar-right">
+            <div class="alert-bell"><i class="fas fa-bell"></i><span class="dot"></span></div>
+            <div class="admin-pill"><img src="https://ui-avatars.com/api/?name=Admin&background=f49f1c&color=000" class="admin-av"><div class="admin-info"><span class="an">Super Admin</span><span class="ar">Full Access</span></div></div>
+        </div>
+    </header>
+
+    <div class="page-body">
+
+        <!-- DASHBOARD SECTION -->
+        <section id="sec-dashboard" class="page-section active">
+            <div class="page-title"><h1>Control <span class="gold">Center</span></h1><span class="page-subtitle">Welcome back, Admin. Here's your overview.</span></div>
+
+            <!-- Alert Banner -->
+            <div class="alert-bar">
+                <div class="alert-item danger"><i class="fas fa-exclamation-triangle"></i><span><strong>3 Fake Profiles</strong> flagged for review</span><button>Review</button></div>
+                <div class="alert-item warn"><i class="fas fa-clock"></i><span><strong>7 Applications</strong> pending approval</span><button>View</button></div>
+                <div class="alert-item info"><i class="fas fa-shield-halved"></i><span><strong>5 Verifications</strong> awaiting</span><button>Verify</button></div>
+            </div>
+
+            <!-- Top Stats -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="sb-icon" style="background:rgba(244,159,28,.1);color:#f49f1c"><i class="fas fa-users"></i></div>
+                    <div class="sb-data"><span class="sb-val">25,482</span><span class="sb-lbl">Total Users</span></div>
+                    <span class="sb-trend up"><i class="fas fa-arrow-up"></i>12%</span>
+                </div>
+                <div class="stat-box">
+                    <div class="sb-icon" style="background:rgba(16,185,129,.1);color:#10b981"><i class="fas fa-user-shield"></i></div>
+                    <div class="sb-data"><span class="sb-val">8,541</span><span class="sb-lbl">Verified Shurveers</span></div>
+                    <span class="sb-trend up"><i class="fas fa-arrow-up"></i>8%</span>
+                </div>
+                <div class="stat-box">
+                    <div class="sb-icon" style="background:rgba(59,130,246,.1);color:#3b82f6"><i class="fas fa-briefcase"></i></div>
+                    <div class="sb-data"><span class="sb-val">352</span><span class="sb-lbl">Employers</span></div>
+                    <span class="sb-trend up"><i class="fas fa-arrow-up"></i>5%</span>
+                </div>
+                <div class="stat-box">
+                    <div class="sb-icon" style="background:rgba(168,85,247,.1);color:#a855f7"><i class="fas fa-rocket"></i></div>
+                    <div class="sb-data"><span class="sb-val">1,246</span><span class="sb-lbl">Open Opportunities</span></div>
+                    <span class="sb-trend up"><i class="fas fa-arrow-up"></i>3%</span>
+                </div>
+                <div class="stat-box">
+                    <div class="sb-icon" style="background:rgba(249,115,22,.1);color:#f97316"><i class="fas fa-file-lines"></i></div>
+                    <div class="sb-data"><span class="sb-val">4,920</span><span class="sb-lbl">Applications</span></div>
+                    <span class="sb-trend down"><i class="fas fa-arrow-down"></i>2%</span>
+                </div>
+                <div class="stat-box">
+                    <div class="sb-icon" style="background:rgba(20,184,166,.1);color:#14b8a6"><i class="fas fa-indian-rupee-sign"></i></div>
+                    <div class="sb-data"><span class="sb-val">₹9.4L</span><span class="sb-lbl">Revenue</span></div>
+                    <span class="sb-trend up"><i class="fas fa-arrow-up"></i>21%</span>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-card big">
+                    <div class="chart-header"><h3>User Growth</h3><select><option>Last 7 Days</option><option>Last 30 Days</option></select></div>
+                    <div class="chart-area" id="chart-growth">
+                        <svg viewBox="0 0 600 180" preserveAspectRatio="none">
+                            <defs><linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f49f1c" stop-opacity="0.3"/><stop offset="100%" stop-color="#f49f1c" stop-opacity="0"/></linearGradient></defs>
+                            <polyline fill="url(#gfill)" stroke="#f49f1c" stroke-width="2.5" points="0,160 80,130 160,100 240,80 320,60 400,45 480,30 600,20 600,180 0,180"/>
+                            <polyline fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="5,4" points="0,170 80,155 160,140 240,120 320,100 400,85 480,70 600,60"/>
+                        </svg>
+                        <div class="chart-legend"><span class="cl-dot gold"></span>Users <span class="cl-dot green"></span>Verifications</div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header"><h3>Applications</h3></div>
+                    <div class="bar-chart">
+                        <div class="bar-group"><div class="bar" style="height:65%"><span>65%</span></div><span class="bar-lbl">Mon</span></div>
+                        <div class="bar-group"><div class="bar" style="height:80%"><span>80%</span></div><span class="bar-lbl">Tue</span></div>
+                        <div class="bar-group"><div class="bar" style="height:50%"><span>50%</span></div><span class="bar-lbl">Wed</span></div>
+                        <div class="bar-group"><div class="bar" style="height:90%"><span>90%</span></div><span class="bar-lbl">Thu</span></div>
+                        <div class="bar-group"><div class="bar" style="height:70%"><span>70%</span></div><span class="bar-lbl">Fri</span></div>
+                        <div class="bar-group"><div class="bar" style="height:40%"><span>40%</span></div><span class="bar-lbl">Sat</span></div>
+                        <div class="bar-group"><div class="bar" style="height:55%"><span>55%</span></div><span class="bar-lbl">Sun</span></div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header"><h3>Conversion Rate</h3></div>
+                    <div class="donut-wrap">
+                        <svg viewBox="0 0 100 100" class="donut-svg">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#1e3354" stroke-width="12"/>
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#f49f1c" stroke-width="12" stroke-dasharray="165 87" stroke-dashoffset="25" stroke-linecap="round"/>
+                        </svg>
+                        <div class="donut-label"><span class="dl-val">65%</span><span class="dl-sub">Conversion</span></div>
+                    </div>
+                    <div class="conv-legend">
+                        <div><span class="cl-dot gold"></span>Placed <strong>65%</strong></div>
+                        <div><span class="cl-dot muted"></span>Pending <strong>35%</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regional Data -->
+            <div class="card-wide">
+                <div class="card-header"><h3>Regional Distribution</h3></div>
+                <div class="region-table">
+                    <div class="rg-row header"><span>State</span><span>Shurveers</span><span>Employers</span><span>Match Rate</span></div>
+                    <div class="rg-row"><span>Uttar Pradesh</span><span>2,415</span><span>48</span><div class="mini-bar"><div style="width:80%"></div></div></div>
+                    <div class="rg-row"><span>Maharashtra</span><span>1,880</span><span>62</span><div class="mini-bar"><div style="width:72%"></div></div></div>
+                    <div class="rg-row"><span>Delhi NCR</span><span>1,310</span><span>55</span><div class="mini-bar"><div style="width:65%"></div></div></div>
+                    <div class="rg-row"><span>Karnataka</span><span>980</span><span>40</span><div class="mini-bar"><div style="width:55%"></div></div></div>
+                    <div class="rg-row"><span>Rajasthan</span><span>740</span><span>22</span><div class="mini-bar"><div style="width:40%"></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPROVALS SECTION -->
+        <section id="sec-approvals" class="page-section">
+            <div class="page-title"><h1>Approval <span class="gold">Queue</span></h1></div>
+            <div class="approval-list">
+                <div class="approval-card">
+                    <img src="https://ui-avatars.com/api/?name=Arjun+Singh&background=f49f1c&color=000" class="ap-av">
+                    <div class="ap-info"><strong>Arjun Singh</strong><span>NCC Cadet — Delhi</span><span class="ap-type">Shurveer Registration</span></div>
+                    <div class="ap-actions">
+                        <button class="btn-approve"><i class="fas fa-check"></i> Approve</button>
+                        <button class="btn-reject"><i class="fas fa-times"></i> Reject</button>
+                        <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                </div>
+                <div class="approval-card">
+                    <img src="https://ui-avatars.com/api/?name=Meera+Joshi&background=10b981&color=fff" class="ap-av">
+                    <div class="ap-info"><strong>Meera Joshi</strong><span>NSS Volunteer — Mumbai</span><span class="ap-type">Shurveer Registration</span></div>
+                    <div class="ap-actions">
+                        <button class="btn-approve"><i class="fas fa-check"></i> Approve</button>
+                        <button class="btn-reject"><i class="fas fa-times"></i> Reject</button>
+                        <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                </div>
+                <div class="approval-card">
+                    <img src="https://ui-avatars.com/api/?name=TechSphere+Pvt&background=3b82f6&color=fff" class="ap-av">
+                    <div class="ap-info"><strong>TechSphere Pvt Ltd</strong><span>IT Company — Bengaluru</span><span class="ap-type employer-tag">Employer Verification</span></div>
+                    <div class="ap-actions">
+                        <button class="btn-approve"><i class="fas fa-check"></i> Approve</button>
+                        <button class="btn-reject"><i class="fas fa-times"></i> Reject</button>
+                        <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- USERS SECTION -->
+        <section id="sec-users" class="page-section">
+            <div class="page-title"><h1>User <span class="gold">Management</span></h1></div>
+            <div class="table-toolbar">
+                <input type="text" class="tbl-search" placeholder="Search users...">
+                <select><option>All Roles</option><option>Shurveer</option><option>Employer</option><option>Admin</option></select>
+                <button class="btn-export"><i class="fas fa-download"></i> Export CSV</button>
+            </div>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>State</th><th>Status</th><th>Joined</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td><div class="td-user"><img src="https://ui-avatars.com/api/?name=Arjun+Singh&background=f49f1c&color=000">Arjun Singh</div></td><td>arjun@mail.com</td><td><span class="tag shurveer">Shurveer</span></td><td>Delhi</td><td><span class="status active">Active</span></td><td>01 May 2026</td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-ban"></i></button></td></tr>
+                        <tr><td><div class="td-user"><img src="https://ui-avatars.com/api/?name=Sneha+Patil&background=10b981&color=fff">Sneha Patil</div></td><td>sneha@mail.com</td><td><span class="tag shurveer">Shurveer</span></td><td>Mumbai</td><td><span class="status pending">Pending</span></td><td>29 Apr 2026</td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-ban"></i></button></td></tr>
+                        <tr><td><div class="td-user"><img src="https://ui-avatars.com/api/?name=Raj+Verma&background=3b82f6&color=fff">Raj Verma</div></td><td>raj@techsphere.com</td><td><span class="tag employer">Employer</span></td><td>Bengaluru</td><td><span class="status active">Active</span></td><td>28 Apr 2026</td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-ban"></i></button></td></tr>
+                        <tr><td><div class="td-user"><img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=a855f7&color=fff">Priya Sharma</div></td><td>priya@mail.com</td><td><span class="tag shurveer">Shurveer</span></td><td>Jaipur</td><td><span class="status flagged">Flagged</span></td><td>27 Apr 2026</td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-ban"></i></button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- EMPLOYERS SECTION -->
+        <section id="sec-employers" class="page-section">
+            <div class="page-title"><h1>Employer <span class="gold">Management</span></h1></div>
+            <div class="table-toolbar">
+                <input type="text" class="tbl-search" placeholder="Search employers...">
+                <select><option>All Industries</option><option>Events</option><option>Retail</option><option>Sports</option></select>
+                <button class="btn-export"><i class="fas fa-download"></i> Export</button>
+            </div>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Company</th><th>Contact</th><th>Industry</th><th>Hired</th><th>Status</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>TechSphere Pvt Ltd</td><td>Raj Verma</td><td>IT / Events</td><td>150</td><td><span class="status active">Verified</span></td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-trash"></i></button></td></tr>
+                        <tr><td>GreenCity NGO</td><td>Ananya Sharma</td><td>NGO / CSR</td><td>80</td><td><span class="status active">Verified</span></td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-trash"></i></button></td></tr>
+                        <tr><td>SportZone India</td><td>Vikram Rao</td><td>Sports</td><td>45</td><td><span class="status pending">Pending</span></td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button><button class="tbl-btn red"><i class="fas fa-trash"></i></button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ORGANIZATIONS SECTION -->
+        <section id="sec-organizations" class="page-section">
+            <div class="page-title"><h1>Organization <span class="gold">Management</span></h1></div>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Organization</th><th>Type</th><th>Members</th><th>State</th><th>Status</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>Delhi NCC Battalion 12</td><td><span class="tag ncc">NCC</span></td><td>420</td><td>Delhi</td><td><span class="status active">Active</span></td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button></td></tr>
+                        <tr><td>Mumbai NSS Unit 3</td><td><span class="tag nss">NSS</span></td><td>310</td><td>Maharashtra</td><td><span class="status active">Active</span></td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button></td></tr>
+                        <tr><td>Scouts Jaipur Troop 7</td><td><span class="tag scouts">Scouts</span></td><td>180</td><td>Rajasthan</td><td><span class="status pending">Pending</span></td><td><button class="tbl-btn"><i class="fas fa-eye"></i></button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- OTHER SECTIONS (Placeholder) -->
+        <section id="sec-opportunities" class="page-section"><div class="page-title"><h1>Opportunity <span class="gold">Posts</span></h1></div><div class="placeholder-msg"><i class="fas fa-rocket"></i><p>1,246 Active opportunities across India. Full table view coming soon.</p></div></section>
+        <section id="sec-reports" class="page-section"><div class="page-title"><h1>System <span class="gold">Reports</span></h1></div><div class="placeholder-msg"><i class="fas fa-flag"></i><p>3 Fake profiles flagged. Alert review system active.</p></div></section>
+        <section id="sec-analytics" class="page-section"><div class="page-title"><h1>Platform <span class="gold">Analytics</span></h1></div><div class="placeholder-msg"><i class="fas fa-chart-line"></i><p>Deep analytics dashboard — showing growth trends, regional data, and conversion funnels.</p></div></section>
+        <section id="sec-messages" class="page-section"><div class="page-title"><h1>System <span class="gold">Messages</span></h1></div><div class="placeholder-msg"><i class="fas fa-envelope"></i><p>Broadcast messages to users, employers, and organizations from here.</p></div></section>
+        <section id="sec-settings" class="page-section"><div class="page-title"><h1>Admin <span class="gold">Settings</span></h1></div><div class="placeholder-msg"><i class="fas fa-gear"></i><p>Platform configuration, roles, and permissions management.</p></div></section>
+
+    </div>
+</main>
+
+<script>
+    // Section navigation
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            item.classList.add('active');
+            const sec = item.getAttribute('data-section');
+            const el = document.getElementById('sec-' + sec);
+            if (el) el.classList.add('active');
+        });
+    });
+
+    // Approve/Reject actions
+    document.querySelectorAll('.btn-approve').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.approval-card');
+            card.style.borderColor = '#10b981';
+            card.style.opacity = '0.5';
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Approved';
+            btn.disabled = true;
+        });
+    });
+
+    document.querySelectorAll('.btn-reject').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.approval-card');
+            card.style.borderColor = '#ef4444';
+            card.style.opacity = '0.5';
+        });
+    });
+
+    // Mobile sidebar toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+    });
+</script>
+</body>
+</html>

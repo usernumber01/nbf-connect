@@ -1,0 +1,483 @@
+/* WHAT IS NBF CONNECT - Premium Homepage Section Styles */
+
+:root {
+    --nbf-dark: #04342C;
+    --nbf-medium: #1D9E75;
+    --nbf-amber: #EF9F27;
+    --nbf-light: #E1F5EE;
+    --nbf-off-white: #F7F6F2;
+    --nbf-muted: rgba(255, 255, 255, 0.62);
+    --nbf-text-white: #FFFFFF;
+    --nbf-glow: rgba(29, 158, 117, 0.10);
+    --nbf-glass: rgba(255, 255, 255, 0.04);
+    --nbf-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+.nbf-what-is {
+    background-color: var(--nbf-dark);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--nbf-text-white);
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Subtle background effects */
+.nbf-what-is::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 20%, var(--nbf-glow), transparent 70%);
+    pointer-events: none;
+}
+
+.nbf-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(29, 158, 117, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(29, 158, 117, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.nbf-what-is .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Pill Badge */
+.nbf-badge-pill-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.nbf-badge-pill-wrapper.nbf-hero-pill {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.nbf-badge-pill {
+    background: rgba(29, 158, 117, 0.18);
+    border: 1px solid rgba(29, 158, 117, 0.35);
+    border-radius: 999px;
+    padding: 12px 24px;
+    color: #9FE1CB;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Main Hero Grid */
+.nbf-hero-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.nbf-hero-left {
+    flex: 0 0 60%;
+}
+
+.nbf-hero-right {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nbf-hero-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--nbf-text-white);
+}
+
+.nbf-hero-heading span.highlight {
+    color: var(--nbf-amber);
+}
+
+.nbf-hero-subtext {
+    font-size: 18px;
+    color: var(--nbf-muted);
+    max-width: 620px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+}
+
+.nbf-hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.nbf-btn {
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nbf-btn-primary {
+    background-color: var(--nbf-medium);
+    color: var(--nbf-text-white);
+    box-shadow: 0 10px 25px rgba(29, 158, 117, 0.2);
+    border: none;
+}
+
+.nbf-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(29, 158, 117, 0.3);
+    filter: brightness(1.1);
+}
+
+.nbf-btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--nbf-text-white);
+}
+
+.nbf-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.nbf-trust-notes {
+    display: flex;
+    gap: 20px;
+    color: #9FE1CB;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nbf-trust-notes span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Ecosystem Graphic */
+.nbf-ecosystem {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nbf-eco-center {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, var(--nbf-medium), #0a4d3a);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 0 40px rgba(29, 158, 117, 0.4);
+    z-index: 5;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.nbf-eco-node {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    transition: all 0.4s ease;
+    z-index: 4;
+}
+
+.nbf-eco-node i {
+    font-size: 20px;
+    color: #9FE1CB;
+}
+
+.nbf-eco-node span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.nbf-eco-node:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--nbf-medium);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(29, 158, 117, 0.2);
+}
+
+/* Orbit Positions */
+.node-1 { top: 10px; left: 50%; transform: translateX(-50%); animation: orbit1 10s linear infinite; }
+.node-2 { right: 10px; top: 50%; transform: translateY(-50%); animation: orbit2 10s linear infinite; }
+.node-3 { bottom: 10px; left: 50%; transform: translateX(-50%); animation: orbit3 10s linear infinite; }
+.node-4 { left: 10px; top: 50%; transform: translateY(-50%); animation: orbit4 10s linear infinite; }
+
+@keyframes orbit1 { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 10px); } }
+@keyframes orbit2 { 0%, 100% { transform: translate(0, -50%); } 50% { transform: translate(-10px, -50%); } }
+@keyframes orbit3 { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -10px); } }
+@keyframes orbit4 { 0%, 100% { transform: translate(0, -50%); } 50% { transform: translate(10px, -50%); } }
+
+/* SVG Lines */
+.nbf-eco-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nbf-eco-lines line {
+    stroke: rgba(29, 158, 117, 0.2);
+    stroke-width: 1;
+    stroke-dasharray: 5, 5;
+    animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: 100; }
+}
+
+/* Value Strip */
+.nbf-value-strip {
+    margin-top: 70px;
+    background: var(--nbf-glass);
+    border: 1px solid var(--nbf-glass-border);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.nbf-hero-value-strip {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.nbf-value-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.nbf-value-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nbf-value-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.nbf-value-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--nbf-text-white);
+}
+
+.nbf-value-desc {
+    font-size: 14px;
+    color: var(--nbf-muted);
+}
+
+.nbf-value-number {
+    position: absolute;
+    font-size: 70px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 1);
+    opacity: 0.06;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    font-family: 'Syne', sans-serif;
+}
+
+/* Highlight Bar */
+.nbf-highlight-bar {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 15px;
+}
+
+.nbf-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9FE1CB;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nbf-highlight-item i {
+    font-size: 12px;
+}
+
+.nbf-highlight-sep {
+    width: 4px;
+    height: 4px;
+    background: rgba(29, 158, 117, 0.4);
+    border-radius: 50%;
+}
+
+/* Bottom Statement */
+.nbf-bottom-statement {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.nbf-quote {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.nbf-subtext-join {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+.btn-join-small {
+    padding: 11px 26px !important;
+    font-size: 0.95rem !important;
+    border-radius: 4px !important;
+    min-width: unset !important;
+    height: auto !important;
+    font-weight: 700 !important;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .nbf-hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .nbf-hero-left, .nbf-hero-right {
+        flex: 0 0 100%;
+    }
+    
+    .nbf-hero-subtext {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .nbf-hero-actions {
+        justify-content: center;
+    }
+    
+    .nbf-trust-notes {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nbf-what-is {
+        padding: 60px 0;
+    }
+    
+    .nbf-hero-heading {
+        font-size: 38px;
+    }
+    
+    .nbf-value-strip {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 32px;
+    }
+    
+    .nbf-value-item:not(:last-child)::after {
+        display: none;
+    }
+    
+    .nbf-highlight-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .nbf-highlight-sep {
+        display: none;
+    }
+    
+    .nbf-hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nbf-btn {
+        width: 100%;
+    }
+    
+    .nbf-ecosystem {
+        width: 100%;
+        height: 350px;
+    }
+    
+    .nbf-eco-center {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .nbf-eco-node {
+        width: 75px;
+        height: 75px;
+    }
+}

@@ -1,0 +1,589 @@
+/* NBF Connect - Resources Page Styles */
+
+:root {
+    --res-dark-green: #04342C;
+    --res-med-green: #1D9E75;
+    --res-amber: #EF9F27;
+    --res-bg-light: #E1F5EE;
+    --res-off-white: #F7F6F2;
+    --res-text-body: #2C2C2A;
+    --res-text-muted: #5F5E5A;
+    --res-white: #ffffff;
+    
+    --font-syne: 'Syne', sans-serif;
+    --font-dm-sans: 'DM Sans', sans-serif;
+}
+
+.container {
+    width: 92%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.container-wide {
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 6%;
+}
+
+.container-text {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resources-page {
+    font-family: var(--font-dm-sans);
+    color: var(--res-text-body);
+    background-color: var(--res-white);
+    line-height: 1.6;
+}
+
+/* Global Section Styles */
+.res-section {
+    padding: 90px 0;
+}
+
+.bg-off-white { background-color: var(--res-off-white); }
+.bg-white { background-color: var(--res-white); }
+.bg-dark-green { background-color: var(--res-dark-green); }
+
+.res-header {
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.res-header.text-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.res-label {
+    display: inline-block;
+    color: var(--res-med-green);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.res-label-dark {
+    display: inline-block;
+    color: var(--res-dark-green);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.res-heading {
+    font-family: var(--font-syne);
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.res-subtext {
+    font-size: 1.15rem;
+    color: var(--res-text-muted);
+}
+
+.white-text { color: var(--res-white); }
+.gray-text { color: #94a3b8; }
+
+/* Grid Systems */
+.res-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 36px;
+}
+
+.res-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 36px;
+}
+
+.res-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.res-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+/* SECTION 1: HERO */
+.res-hero {
+    background: var(--res-dark-green);
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+    opacity: 0.5;
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.2;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--res-med-green);
+    top: -100px;
+    right: -100px;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--res-amber);
+    bottom: -50px;
+    left: -50px;
+}
+
+.res-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.res-title {
+    font-family: var(--font-syne);
+    color: var(--res-white);
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 10px 0 20px;
+    line-height: 1;
+}
+
+.res-subtitle {
+    color: #cbd5e1;
+    font-size: 1.4rem;
+    max-width: 650px;
+    margin: 0 auto 50px;
+    line-height: 1.5;
+}
+
+.hero-mini-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.mini-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: var(--res-white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+/* SECTION 2: SHURVEER CARDS */
+.res-card-premium {
+    background: var(--res-white);
+    padding: 40px;
+    border-radius: 18px;
+    border-left: 4px solid var(--res-med-green);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.res-card-premium:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon-circle {
+    width: 60px;
+    height: 60px;
+    background: var(--res-bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--res-med-green);
+    margin-bottom: 25px;
+}
+
+.card-title {
+    font-family: var(--font-syne);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.card-desc {
+    color: var(--res-text-muted);
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.btn-res-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--res-med-green);
+    color: var(--res-white);
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-res-download:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 20px rgba(29, 158, 117, 0.3);
+}
+
+/* SECTION 3: GOV CARDS */
+.gov-card {
+    background: var(--res-bg-light);
+    padding: 35px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.gov-card:hover {
+    border-color: var(--res-med-green);
+    background: var(--res-white);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.gov-title {
+    font-family: var(--font-syne);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.gov-desc {
+    color: var(--res-text-muted);
+}
+
+.gov-link {
+    white-space: nowrap;
+    color: var(--res-med-green);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gov-link i {
+    transition: transform 0.3s ease;
+}
+
+.gov-card:hover .gov-link i {
+    transform: translateX(5px);
+}
+
+/* SECTION 4: GLASS CARDS */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 35px;
+    border-radius: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(29, 158, 117, 0.2);
+}
+
+.glass-icon {
+    font-size: 2rem;
+    color: var(--res-med-green);
+    margin-bottom: 20px;
+}
+
+.glass-title {
+    font-family: var(--font-syne);
+    color: var(--res-white);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.glass-desc {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.btn-glass-action {
+    display: block;
+    padding: 10px 20px;
+    border: 1px solid var(--res-med-green);
+    color: var(--res-med-green);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-glass-action:hover {
+    background: var(--res-med-green);
+    color: var(--res-white);
+}
+
+/* SECTION 5: PARTNER CARDS */
+.res-card-partner {
+    background: var(--res-white);
+    padding: 40px;
+    border-radius: 18px;
+    border-left: 4px solid var(--res-amber);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.res-card-partner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(239, 159, 39, 0.1);
+}
+
+.btn-res-partner {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: var(--res-amber);
+    color: var(--res-dark-green);
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-res-partner:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* SECTION 6: PROGRAM CARDS */
+.program-card {
+    background: var(--res-bg-light);
+    padding: 30px 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.program-card:hover {
+    background: var(--res-white);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.program-icon {
+    font-size: 2.5rem;
+    color: var(--res-dark-green);
+    margin-bottom: 15px;
+}
+
+.program-name {
+    font-family: var(--font-syne);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.program-info {
+    font-size: 0.85rem;
+    color: var(--res-text-muted);
+    margin-bottom: 20px;
+}
+
+.program-link {
+    color: var(--res-med-green);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* SECTION 7: NEWS CARDS */
+.news-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.news-tag {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.news-tag.launch { background: #10b981; color: white; }
+.news-tag.partner { background: #f59e0b; color: white; }
+.news-tag.update { background: #3b82f6; color: white; }
+
+.news-date {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.news-title {
+    font-family: var(--font-syne);
+    color: var(--res-white);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.news-desc {
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.news-link {
+    color: var(--res-white);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* SECTION 8: CTA BANNER */
+.res-cta {
+    background: linear-gradient(135deg, var(--res-med-green), #147a5b);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(239, 159, 39, 0.2), transparent);
+}
+
+.relative-pos { position: relative; z-index: 2; }
+
+.cta-heading {
+    font-family: var(--font-syne);
+    color: var(--res-white);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.cta-sub {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.4rem;
+    margin-bottom: 45px;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-res-cta-solid {
+    padding: 18px 40px;
+    background: var(--res-dark-green);
+    color: var(--res-white);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-res-cta-outline {
+    padding: 18px 40px;
+    background: transparent;
+    border: 2px solid var(--res-white);
+    color: var(--res-white);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-res-cta-solid:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.btn-res-cta-outline:hover { background: var(--res-white); color: var(--res-med-green); }
+
+/* FOOTER */
+.res-footer {
+    padding: 60px 0;
+    background: var(--res-white);
+}
+
+.footer-note {
+    color: var(--res-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .res-title { font-size: 4rem; }
+    .res-heading { font-size: 2.2rem; }
+    .cta-heading { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+    .res-title { font-size: 3rem; }
+    .res-subtitle { font-size: 1.1rem; }
+    .res-grid-3, .res-grid-2 { grid-template-columns: 1fr; }
+    .res-grid-4 { grid-template-columns: 1fr 1fr; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    .btn-res-cta-solid, .btn-res-cta-outline { width: 100%; max-width: 300px; }
+}
+
+@media (max-width: 480px) {
+    .res-title { font-size: 2.5rem; }
+    .res-grid-4, .res-grid-5 { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,249 @@
+/* NBF Connect - Minimalist Premium Shurveers & Ecosystem */
+
+:root {
+    --navy-dark: #07122A;
+    --gold: #F4A621;
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --step-blue: #2b6cb0;
+    --step-green: #2f855a;
+    --step-orange: #dd6b20;
+    --step-purple: #553c9a;
+    --step-navy: #1a365d;
+}
+
+/* WHO ARE SHURVEERS SECTION */
+.shurveers-minimal {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.shurveers-minimal .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--navy-dark);
+}
+
+.shurveers-minimal .section-title span {
+    color: var(--gold);
+}
+
+.shurveers-minimal .shurveers-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.values-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.value-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    min-width: 150px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.value-item i {
+    font-size: 2rem;
+    color: var(--gold);
+    transition: all 0.3s ease;
+}
+
+.value-text {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--navy-dark);
+    letter-spacing: 0.5px;
+}
+
+.value-item:hover {
+    background: var(--navy-dark);
+    border-color: var(--navy-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(7, 18, 42, 0.15);
+}
+
+.value-item:hover i {
+    transform: scale(1.15);
+}
+
+.value-item:hover .value-text {
+    color: #fff;
+}
+
+/* ECOSYSTEM FLOW (Matching Reference Image) */
+.ecosystem-minimal {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.ecosystem-minimal .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--navy-dark);
+}
+
+.ecosystem-minimal .section-title span {
+    color: var(--gold);
+}
+
+.ecosystem-minimal .section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 60px;
+    font-size: 1rem;
+}
+
+.flow-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.flow-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Tail/Point below circle like in image */
+.step-circle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+.step-1 .step-circle { background-color: var(--step-blue); }
+.step-1 .step-circle::after { border-top: 8px solid var(--step-blue); }
+
+.step-2 .step-circle { background-color: var(--step-green); }
+.step-2 .step-circle::after { border-top: 8px solid var(--step-green); }
+
+.step-3 .step-circle { background-color: var(--step-orange); }
+.step-3 .step-circle::after { border-top: 8px solid var(--step-orange); }
+
+.step-4 .step-circle { background-color: var(--step-purple); }
+.step-4 .step-circle::after { border-top: 8px solid var(--step-purple); }
+
+.step-5 .step-circle { background-color: var(--step-navy); }
+.step-5 .step-circle::after { border-top: 8px solid var(--step-navy); }
+
+.step-title-text {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--navy-dark);
+    margin-bottom: 8px;
+}
+
+.step-desc-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Arrow connectors */
+.flow-arrow {
+    position: absolute;
+    top: 35px;
+    width: calc(100% - 70px);
+    left: calc(50% + 35px);
+    height: 1px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flow-arrow::after {
+    content: '\f061';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    background: #fff;
+    padding: 0 5px;
+}
+
+/* CTA Button */
+.ecosystem-cta {
+    margin-top: 60px;
+}
+
+.btn-join-nbf {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: var(--navy-dark);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(7, 18, 42, 0.2);
+}
+
+.btn-join-nbf:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(7, 18, 42, 0.3);
+    background-color: #0c1c3e;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .flow-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+    .flow-arrow {
+        display: none;
+    }
+    .step-circle::after {
+        display: none;
+    }
+}

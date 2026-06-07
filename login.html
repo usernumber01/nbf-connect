@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | NBF Connect</title>
+    <meta name="description" content="Login to NBF Connect. Continue your mission as a Shurveer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <!-- Back to Home -->
+    <a href="index.html" class="back-home" id="back-home">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Home</span>
+    </a>
+
+    <div class="login-wrapper">
+        <!-- Left: Login Form -->
+        <div class="login-form-section">
+            <div class="form-inner">
+                <!-- Logo -->
+                <a href="index.html" class="login-logo">
+                    <img src="nbf-emblem.png" alt="National Bharat Force Emblem" class="navbar-emblem">
+                    <span class="logo-text">NATIONAL BHARAT FORCE</span>
+                </a>
+
+                <!-- Header -->
+                <div class="login-header">
+                    <h1 class="login-title">Welcome <span class="gold-text">Back</span></h1>
+                    <p class="login-subtitle">Continue your mission.</p>
+                </div>
+
+                <!-- Role Selector -->
+                <div class="role-selector">
+                    <p class="role-label">Login as</p>
+                    <div class="role-cards">
+                        <label class="role-card active" data-role="shurveer">
+                            <input type="radio" name="role" value="shurveer" checked>
+                            <div class="role-icon"><i class="fas fa-user-shield"></i></div>
+                            <span class="role-name">Shurveer</span>
+                        </label>
+                        <label class="role-card" data-role="employer">
+                            <input type="radio" name="role" value="employer">
+                            <div class="role-icon"><i class="fas fa-briefcase"></i></div>
+                            <span class="role-name">Employer</span>
+                        </label>
+                        <label class="role-card" data-role="org-admin">
+                            <input type="radio" name="role" value="org-admin">
+                            <div class="role-icon"><i class="fas fa-building"></i></div>
+                            <span class="role-name">Org Admin</span>
+                        </label>
+                        <label class="role-card" data-role="super-admin">
+                            <input type="radio" name="role" value="super-admin">
+                            <div class="role-icon"><i class="fas fa-crown"></i></div>
+                            <span class="role-name">Super Admin</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="login-form" novalidate>
+                    <div id="error-message" style="display:none; color:#ef4444; background:rgba(239, 68, 68, 0.1); border:1px solid #ef4444; padding:1rem; border-radius:8px; margin-bottom:1rem; font-size:0.9rem;"></div>
+
+                    <div class="form-group">
+                        <label for="loginEmail">Email or Mobile Number</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="text" id="loginEmail" name="loginEmail" placeholder="Enter email or mobile number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required>
+                            <button type="button" class="toggle-password" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span class="checkmark-sm"></span>
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link" id="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login" id="btn-login">
+                        <i class="fas fa-arrow-right-to-bracket"></i>
+                        <span>Login</span>
+                    </button>
+                </form>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+
+                <!-- Social Logins -->
+                <div class="social-buttons">
+                    <button class="btn-social btn-google" id="btn-google">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                    <button class="btn-social btn-linkedin" id="btn-linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>Continue with LinkedIn</span>
+                    </button>
+                </div>
+
+                <!-- Register Link -->
+                <p class="register-link">
+                    Don't have an account? <a href="register.html">Become a Shurveer</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Right: Hero Section -->
+        <div class="login-hero">
+            <div class="hero-overlay"></div>
+            <img src="login-hero.png" alt="Disciplined Youth" class="hero-bg-img">
+            <div class="hero-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <h2 class="hero-quote">Discipline<br>Creates <span class="gold-text">Opportunity</span></h2>
+                <p class="hero-tagline">Your training is your qualification. Your character is your resume.</p>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>25K+ Shurveers</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>1.2K+ Opportunities</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>350+ Partners</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Floating Decorations -->
+            <div class="float-shape shape-1"></div>
+            <div class="float-shape shape-2"></div>
+            <div class="float-shape shape-3"></div>
+        </div>
+    </div>
+
+    <script>
+        // Role selector
+        document.querySelectorAll('.role-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+            });
+        });
+
+        // Toggle password
+        document.getElementById('toggle-password').addEventListener('click', () => {
+            const input = document.getElementById('loginPassword');
+            const icon = document.querySelector('#toggle-password i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+    </script>
+    <script type="module" src="./src/login.js"></script>
+
+    <!-- Premium Footer Section -->
+    <footer class="premium-footer" id="footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- COLUMN 1 — BRAND SECTION -->
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-shield-halved logo-icon"></i>
+                        <span class="logo-text">NBF <span class="highlight-orange">CONNECT</span></span>
+                    </a>
+                    <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2 — QUICK LINKS -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">About NBF CONNECT</a></li>
+                        <li><a href="opportunities.html">Opportunities</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#shurveers">Shurveers</a></li>
+                        <li><a href="#footer">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3 — RESOURCES -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="resources.html#shurveer-tools">Career Guide</a></li>
+                        <li><a href="resources.html">Government Schemes</a></li>
+                        <li><a href="resources.html#shurveer-tools">Interview Prep</a></li>
+                        <li><a href="resources.html">FAQs</a></li>
+                        <li><a href="resources.html#partner-tools">Partner Downloads</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 4 — SUPPORT -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 5 — MOBILE APP SECTION -->
+                <div class="footer-col app-col">
+                    <h4 class="footer-heading">Download App</h4>
+                    <div class="app-badges">
+                        <a href="#" class="app-badge glass">
+                            <i class="fab fa-google-play"></i>
+                            <div class="badge-text">
+                                <span>GET IT ON</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="app-badge glass">
+                            <i class="fab fa-apple"></i>
+                            <div class="badge-text">
+                                <span>Download on the</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+
+                <!-- COLUMN 6 — NEWSLETTER -->
+                <div class="footer-col newsletter-col">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="newsletter-text">Stay updated with the latest opportunities and mission updates.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" class="subscribe-btn" aria-label="Subscribe">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="bottom-left">
+                    <p>© 2026 NBF Connect. All Rights Reserved.</p>
+                </div>
+                <div class="bottom-center">
+                    <p>Built for Bharat's disciplined youth.</p>
+                </div>
+                <div class="bottom-right">
+                    <p>Made in India <i class="fas fa-heart text-gold"></i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
