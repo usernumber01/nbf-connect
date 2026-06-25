@@ -255,6 +255,7 @@ a {
 .nav-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     min-height: 72px;
 }
@@ -264,7 +265,8 @@ a {
     align-items: center;
     gap: 18px;
     text-decoration: none;
-    margin-right: auto;
+    flex: 1;
+    justify-content: flex-start;
     background: transparent !important;
     border: none !important;
 }
@@ -278,8 +280,6 @@ a {
     padding: 0 !important;
     margin: 0 !important;
     display: block;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     filter: drop-shadow(0 0 6px rgba(244, 159, 28, 0.25));
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -387,6 +387,8 @@ a {
 .new-nav-actions {
     display: flex;
     gap: 12px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .btn-login {
@@ -814,12 +816,13 @@ a {
     font-size: 0.9rem;
 }
 
-/* For Employers */
-.employer-tags {
+/* For Partners */
+.partner-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 40px;
+    justify-content: center;
 }
 
 .emp-tag {
@@ -918,6 +921,38 @@ a {
 
     .mobile-menu-btn {
         display: flex;
+    }
+}
+
+@media (max-width: 1140px) {
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+    .mobile-menu-btn {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .utility-left {
+        display: none;
+    }
+    
+    .utility-container {
+        justify-content: center;
+    }
+    
+    .utility-branding {
+        gap: 8px;
+    }
+    
+    .hindi-text {
+        font-size: 0.65rem;
+    }
+    
+    .english-text {
+        font-size: 0.52rem;
     }
 
     .hero-content-wrapper {

@@ -8,9 +8,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="footer.css">
+    <style>
+        .inline-error {
+            color: #e05a1e;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        .inline-success {
+            color: #22c55e;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        .inline-success i {
+            margin-right: 4px;
+        }
+        .strength-bar {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 10px 0 8px;
+            overflow: hidden;
+            display: block;
+        }
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            display: block;
+        }
+        .strength-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #888888;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+        }
+        .check-item.met {
+            color: #22c55e;
+        }
+        .check-icon {
+            font-size: 10px;
+            margin-right: 6px;
+        }
+        .login-instead-link {
+            color: #f59e0b;
+            text-decoration: underline;
+            margin-left: 4px;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,23 +82,23 @@
             <img src="register-hero.png" alt="Disciplined Youth" class="hero-bg-img">
             <div class="hero-content">
                 <a href="index.html" class="hero-logo">
-                    <img src="nbf-emblem.png" alt="National Bharat Force Emblem" class="navbar-emblem">
-                    <span class="logo-text">NATIONAL BHARAT FORCE</span>
+                    <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                    <span class="logo-text">NBF Connect</span>
                 </a>
                 <h1 class="hero-heading">Your Discipline<br>Is Your <span class="gold-text">Superpower</span></h1>
                 <p class="hero-desc">Join thousands of verified Shurveers building their careers through India's largest disciplined youth network.</p>
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <span class="stat-num">25K+</span>
-                        <span class="stat-label">Youth Registered</span>
+                        <span class="stat-num">Verified</span>
+                        <span class="stat-label">Shurveers</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="stat-num">1.2K+</span>
+                        <span class="stat-num">Real</span>
                         <span class="stat-label">Opportunities</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="stat-num">15+</span>
-                        <span class="stat-label">States</span>
+                        <span class="stat-num">Trusted</span>
+                        <span class="stat-label">Organizations</span>
                     </div>
                 </div>
             </div>
@@ -52,9 +107,20 @@
         <!-- Right: Registration Form -->
         <div class="register-form-section">
             <div class="form-scroll-area">
-                <div class="form-header">
+                <div class="form-header" id="form-header">
                     <h2 class="form-title">Become a <span class="gold-text">Shurveer</span></h2>
                     <p class="form-subtitle">Join India's disciplined youth opportunity network.</p>
+                </div>
+
+                <div id="registration-success" style="display:none; text-align:center; padding: 4rem 1rem; background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; border-radius: 12px; margin-top: 2rem;">
+                    <div style="font-size: 4rem; color: #22c55e; margin-bottom: 1.5rem;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 style="color: #22c55e; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Registration Successfully Completed</h2>
+                    <p style="color: #555555; font-size: 1.1rem;">Please wait while we redirect you to the login page...</p>
+                    <div style="margin-top: 2rem;">
+                        <i class="fas fa-spinner fa-spin" style="color: #FF9933; font-size: 2rem;"></i>
+                    </div>
                 </div>
 
                 <form id="register-form" class="register-form" novalidate>
@@ -78,6 +144,8 @@
                                 <span class="input-prefix">+91</span>
                                 <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
                             </div>
+                            <div id="mobile-error" class="inline-error"></div>
+                            <div id="mobile-success" class="inline-success"><i class="fas fa-check"></i></div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address <span class="required">*</span></label>
@@ -85,6 +153,8 @@
                                 <i class="fas fa-envelope input-icon"></i>
                                 <input type="email" id="email" name="email" placeholder="Enter email address" required>
                             </div>
+                            <div id="email-error" class="inline-error"></div>
+                            <div id="email-success" class="inline-success"><i class="fas fa-check"></i></div>
                         </div>
                     </div>
 
@@ -96,6 +166,23 @@
                                 <input type="password" id="password" name="password" placeholder="Create password" required>
                                 <button type="button" class="toggle-password" data-target="password"><i class="fas fa-eye"></i></button>
                             </div>
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strength-fill"></div>
+                            </div>
+                            <div class="strength-checklist">
+                                <div class="check-item" id="check-length">
+                                    <span class="check-icon">●</span> At least 8 characters
+                                </div>
+                                <div class="check-item" id="check-upper">
+                                    <span class="check-icon">●</span> One uppercase letter (A-Z)
+                                </div>
+                                <div class="check-item" id="check-number">
+                                    <span class="check-icon">●</span> One number (0-9)
+                                </div>
+                                <div class="check-item" id="check-special">
+                                    <span class="check-icon">●</span> One special character (!@#$%^&*)
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
@@ -104,6 +191,8 @@
                                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
                                 <button type="button" class="toggle-password" data-target="confirmPassword"><i class="fas fa-eye"></i></button>
                             </div>
+                            <div id="confirm-password-error" class="inline-error"></div>
+                            <div id="confirm-password-success" class="inline-success"><i class="fas fa-check"></i></div>
                         </div>
                     </div>
 
@@ -254,36 +343,44 @@
                     </div>
 
                     <!-- Uploads -->
-                    <div class="form-section-label"><i class="fas fa-cloud-upload-alt"></i> Uploads</div>
+                    <div class="form-section-label"><i class="fas fa-cloud-upload-alt"></i> Uploads <span class="required">*</span></div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="resume">Upload Resume</label>
+                            <label for="resume">Upload Resume <span class="required">*</span></label>
                             <div class="file-upload" id="resume-upload">
                                 <i class="fas fa-file-pdf"></i>
                                 <span class="file-label">Drop PDF here or <em>browse</em></span>
-                                <span class="file-hint">PDF, DOC up to 5MB</span>
+                                <span class="file-hint">PDF, DOC up to 300KB</span>
                                 <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" hidden>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="photo">Upload Profile Photo</label>
+                            <label for="photo">Upload Profile Photo <span class="required">*</span></label>
                             <div class="file-upload" id="photo-upload">
                                 <i class="fas fa-camera"></i>
                                 <span class="file-label">Drop image here or <em>browse</em></span>
-                                <span class="file-hint">JPG, PNG up to 2MB</span>
+                                <span class="file-hint">JPG, PNG up to 20KB</span>
                                 <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" hidden>
                             </div>
                         </div>
                     </div>
 
                     <!-- Commitment -->
-                    <div class="form-group commitment-group">
-                        <label class="checkbox-wrapper">
-                            <input type="checkbox" id="commitment" name="commitment" required>
-                            <span class="checkmark"></span>
-                            <span class="checkbox-text">I commit to <strong>discipline and integrity</strong> as a Shurveer of NBF Connect.</span>
-                        </label>
+                    <div class="form-group commitment-group" style="text-align: center; margin-top: 20px;">
+                        <div class="declaration-wrapper" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                            <input 
+                                type="checkbox" 
+                                id="declaration" 
+                                name="declaration"
+                                required
+                                style="margin: 0; width: 18px; height: 18px; cursor: pointer;"
+                            >
+                            <label for="declaration" style="font-size: 0.95rem; color: #333333; cursor: pointer; margin: 0; line-height: 1.4;">
+                                I commit to <strong style="color:#e05a1e">discipline and integrity</strong> as a Shurveer of NBF Connect.
+                            </label>
+                        </div>
+                        <div id="declaration-error" style="color: #ff4444; font-size: 12px; margin-top: 6px; display: none; text-align: center;">Please accept the declaration to continue.</div>
                     </div>
 
                     <!-- Submit -->
@@ -320,35 +417,30 @@
         <div class="footer-glow"></div>
         <div class="container">
             <div class="footer-grid">
-                <!-- COLUMN 1 — BRAND SECTION -->
                 <div class="footer-col brand-col">
                     <a href="index.html" class="footer-logo">
-                        <i class="fas fa-shield-halved logo-icon"></i>
-                        <span class="logo-text">NBF <span class="highlight-orange">CONNECT</span></span>
+                        <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                        <span class="logo-text">NBF Connect</span>
                     </a>
-                    <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."</p>
+                    <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."<br><br><strong>Ministry of Youth Affairs & Sports</strong></p>
                     <div class="social-icons">
-                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@NationalBharatForce" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/nbf-connect-7037a6414/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/nbfconnect" class="social-link" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-
-                <!-- COLUMN 2 — QUICK LINKS -->
                 <div class="footer-col">
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html#home">About NBF CONNECT</a></li>
+                        <li><a href="index.html#home-hero">About NBF CONNECT</a></li>
                         <li><a href="opportunities.html">Opportunities</a></li>
                         <li><a href="index.html#how-it-works">How It Works</a></li>
-                        <li><a href="index.html#shurveers">Shurveers</a></li>
+                        <li><a href="index.html#who-are-shurveers">Shurveers</a></li>
                         <li><a href="#footer">Contact Us</a></li>
                     </ul>
                 </div>
-
-                <!-- COLUMN 3 — RESOURCES -->
                 <div class="footer-col">
                     <h4 class="footer-heading">Resources</h4>
                     <ul class="footer-links">
@@ -359,19 +451,15 @@
                         <li><a href="resources.html#partner-tools">Partner Downloads</a></li>
                     </ul>
                 </div>
-
-                <!-- COLUMN 4 — SUPPORT -->
                 <div class="footer-col">
-                    <h4 class="footer-heading">Support</h4>
+                    <h4 class="footer-heading">Govt Policies</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Grievance Redressal</a></li>
+                        <li><a href="#">RTI Directory</a></li>
                     </ul>
                 </div>
-
-                <!-- COLUMN 5 — MOBILE APP SECTION -->
                 <div class="footer-col app-col">
                     <h4 class="footer-heading">Download App</h4>
                     <div class="app-badges">
@@ -392,8 +480,6 @@
                     </div>
                     <span class="coming-soon">Coming Soon</span>
                 </div>
-
-                <!-- COLUMN 6 — NEWSLETTER -->
                 <div class="footer-col newsletter-col">
                     <h4 class="footer-heading">Newsletter</h4>
                     <p class="newsletter-text">Stay updated with the latest opportunities and mission updates.</p>
@@ -407,22 +493,92 @@
                     </form>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <div class="bottom-left">
-                    <p>© 2026 NBF Connect. All Rights Reserved.</p>
+                    <p>© 2026 NBF Connect | All Rights Reserved.</p>
                 </div>
                 <div class="bottom-center">
-                    <p>Built for Bharat's disciplined youth.</p>
+                    <p style="font-size: 11px; color: #a0a0a0;">This site is best viewed in Chrome, Firefox at 1024x768 resolution.</p>
                 </div>
                 <div class="bottom-right">
-                    <p>Made in India <i class="fas fa-heart text-gold"></i></p>
+                    <p>Made in India</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const passwordInput = document.getElementById('password');
+
+          if (!passwordInput) {
+            console.error('Password input not found');
+            return;
+          }
+
+          passwordInput.addEventListener('input', function() {
+            const val = this.value;
+
+            // Check each requirement
+            const checks = {
+              length:  val.length >= 8,
+              upper:   /[A-Z]/.test(val),
+              number:  /[0-9]/.test(val),
+              special: /[^A-Za-z0-9]/.test(val)
+            };
+
+            const passedCount = Object.values(checks).filter(Boolean).length;
+
+            // Update strength bar color and width
+            const fillEl = document.getElementById('strength-fill');
+            if (fillEl) {
+              const widths  = ['0%','25%','50%','75%','100%'];
+              const colors  = [
+                'transparent',
+                '#ef4444',
+                '#f97316',
+                '#facc15',
+                '#22c55e'
+              ];
+              fillEl.style.width      = widths[passedCount];
+              fillEl.style.background = colors[passedCount];
+              fillEl.style.transition = 'width 0.3s, background 0.3s';
+            }
+
+            // Update checklist items
+            const checkMap = {
+              length:  'check-length',
+              upper:   'check-upper',
+              number:  'check-number',
+              special: 'check-special'
+            };
+
+            Object.entries(checks).forEach(([key, passed]) => {
+              const el = document.getElementById(checkMap[key]);
+              if (!el) return;
+              if (passed) {
+                el.style.color = '#22c55e';
+                const icon = el.querySelector('.check-icon');
+                if (icon) {
+                  icon.textContent = '✓';
+                  icon.style.color = '#22c55e';
+                }
+              } else {
+                el.style.color = 'rgba(255,255,255,0.4)';
+                const icon = el.querySelector('.check-icon');
+                if (icon) {
+                  icon.textContent = '●';
+                  icon.style.color = 'rgba(255,255,255,0.4)';
+                }
+              }
+            });
+            
+            // Sync with register.js
+            window.isPasswordStrong = passedCount >= 3;
+            passwordInput.dispatchEvent(new Event('strengthUpdated'));
+          });
+        });
+
         // Toggle password visibility
         document.querySelectorAll('.toggle-password').forEach(btn => {
             btn.addEventListener('click', () => {

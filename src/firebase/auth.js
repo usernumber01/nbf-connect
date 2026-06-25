@@ -24,7 +24,7 @@ export async function registerWithEmail(email, password, profileData) {
     await createUserProfile(user.uid, {
         email,
         displayName: profileData.fullName,
-        role: profileData.role,           // 'shurveer' | 'employer' | 'org_admin'
+        role: profileData.role,           // 'shurveer' | 'partner' | 'org_admin'
         mobile: profileData.mobile,
         state: profileData.state,
         orgType: profileData.orgType,

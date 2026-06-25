@@ -1,0 +1,399 @@
+/* partner.css - Premium Partner Page Styles */
+
+/* 1. HERO SECTION */
+.partner-hero {
+    background: linear-gradient(135deg, #0a192f 0%, #1a3a5c 100%);
+    color: #ffffff;
+    padding: 100px 0 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.partner-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 153, 51, 0.1) 0%, rgba(0,0,0,0) 60%);
+    pointer-events: none;
+}
+
+.partner-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.partner-pill {
+    display: inline-block;
+    background: rgba(255, 153, 51, 0.15);
+    color: #FF9933;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 153, 51, 0.3);
+}
+
+.partner-hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #ffffff !important;
+}
+
+.partner-hero-title span {
+    color: #FF9933;
+}
+
+.partner-hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin-bottom: 40px;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partner-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-partner-primary {
+    background: #FF9933;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #FF9933;
+}
+
+.btn-partner-primary:hover {
+    background: #e68a2e;
+    border-color: #e68a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 153, 51, 0.3);
+}
+
+.btn-partner-secondary {
+    background: transparent;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-partner-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* 2. PREMIUM TRUST SECTION */
+.partner-trust {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 48px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.trust-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.trust-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.trust-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(26, 58, 92, 0.05);
+    color: #1a3a5c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 24px auto;
+}
+
+.trust-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+}
+
+.trust-card p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+/* 3. PARTNER IMPACT SECTION */
+.partner-impact {
+    padding: 100px 0;
+    background: url('hero-shurveer.jpg') center/cover fixed no-repeat;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+}
+
+.partner-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85);
+}
+
+.impact-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.impact-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #FF9933;
+}
+
+.impact-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    font-weight: 400;
+}
+
+
+/* SHURVEER EDGE SECTION */
+.shurveer-edge {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.edge-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.edge-title span {
+    color: #FF9933;
+}
+
+.edge-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 60px;
+}
+
+.edge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.edge-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.edge-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+}
+
+.edge-icon {
+    width: 48px;
+    height: 48px;
+    background: #fff5eb;
+    color: #FF9933;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+}
+
+.edge-card h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.edge-card p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* 4. PARTNER TYPES SECTION */
+.partner-types {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.type-card {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.type-card:hover {
+    background: #1a3a5c;
+    color: #ffffff;
+    border-color: #1a3a5c;
+}
+
+.type-card i {
+    font-size: 2rem;
+    color: #FF9933;
+}
+
+.type-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+/* 5. CLOSING CAPTION */
+.partner-closing {
+    padding: 100px 0;
+    background: #1a3a5c;
+    color: #ffffff;
+    text-align: center;
+}
+
+.closing-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #ffffff !important;
+}
+
+.closing-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.btn-partner-cta {
+    display: inline-block;
+    background: #FF9933;
+    color: #ffffff;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 153, 51, 0.2);
+}
+
+.btn-partner-cta:hover {
+    background: #e68a2e;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 153, 51, 0.4);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .partner-hero-title {
+        font-size: 2.5rem;
+    }
+    .partner-hero-subtitle {
+        font-size: 1rem;
+    }
+    .partner-hero-actions {
+        flex-direction: column;
+    }
+    .btn-partner-primary, .btn-partner-secondary {
+        width: 100%;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .impact-title {
+        font-size: 2rem;
+    }
+    .impact-text {
+        font-size: 1rem;
+    }
+    .closing-title {
+        font-size: 2rem;
+    }
+}

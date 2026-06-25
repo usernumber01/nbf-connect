@@ -73,8 +73,7 @@ body { font-family: var(--fb); background: var(--bg); color: var(--text); displa
     padding: 0 !important;
     margin: 0 !important;
     display: block;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    filter: drop-shadow(0 0 6px rgba(244, 159, 28, 0.25));
     transition: transform var(--tr);
 }
 
@@ -331,7 +330,7 @@ body { font-family: var(--fb); background: var(--bg); color: var(--text); displa
 .ap-info strong { display: block; font-weight: 700; margin-bottom: 3px; }
 .ap-info span { display: block; font-size: 0.8rem; color: var(--sub); }
 .ap-type { display: inline-block !important; margin-top: 6px; padding: 2px 8px; background: rgba(244,159,28,0.1); color: var(--gold); border-radius: 4px; font-size: 0.7rem !important; font-weight: 700; }
-.ap-type.employer-tag { background: rgba(59,130,246,0.1); color: var(--blue); }
+.ap-type.partner-tag { background: rgba(59,130,246,0.1); color: var(--blue); }
 .ap-actions { display: flex; gap: 10px; }
 .btn-approve { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: var(--green); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: var(--tr); }
 .btn-approve:hover { background: var(--green); color: #fff; }
@@ -366,7 +365,7 @@ body { font-family: var(--fb); background: var(--bg); color: var(--text); displa
 .td-user img { width: 30px; height: 30px; border-radius: 50%; }
 .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 .tag.shurveer { background: rgba(244,159,28,0.1); color: var(--gold); }
-.tag.employer { background: rgba(59,130,246,0.1); color: var(--blue); }
+.tag.partner { background: rgba(59,130,246,0.1); color: var(--blue); }
 .tag.ncc { background: rgba(239,68,68,0.1); color: #fca5a5; }
 .tag.nss { background: rgba(16,185,129,0.1); color: var(--green); }
 .tag.scouts { background: rgba(168,85,247,0.1); color: var(--purple); }

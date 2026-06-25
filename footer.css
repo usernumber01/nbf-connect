@@ -84,8 +84,7 @@
     padding: 0 !important;
     margin: 0 !important;
     display: block;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    filter: drop-shadow(0 0 4px rgba(244, 159, 28, 0.3));
     transition: transform var(--transition);
 }
 

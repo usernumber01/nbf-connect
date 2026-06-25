@@ -7,27 +7,111 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Gov Portal Overrides -->
+    <style id="gov-overrides">
+        :root {
+            --gov-navy: #1a3a5c;
+            --gov-saffron: #FF9933;
+        }
+        .gov-top-bar {
+            background-color: var(--gov-navy);
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 4px 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .gov-top-bar .container-wide {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gov-top-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .gov-top-bar a:hover {
+            text-decoration: underline;
+        }
+        .navbar.new-nav {
+            border-top: 3px solid var(--gov-saffron);
+        }
+        .navbar .btn-login {
+            background: transparent !important;
+            border: 1.5px solid #ffffff !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+        .navbar .btn-register {
+            background: var(--gov-saffron) !important;
+            border: 2px solid var(--gov-saffron) !important;
+            color: #ffffff !important;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="opportunities.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 <body class="opp-body">
 
-    <!-- Navbar -->
-    <nav class="opp-nav">
+    <!-- Gov Top Bar -->
+    <div class="gov-top-bar">
         <div class="container-wide">
-            <a href="index.html" class="logo">
-                <img src="nbf-emblem.png" alt="National Bharat Force Emblem" class="navbar-emblem">
-                <span class="logo-text">NATIONAL BHARAT FORCE</span>
-            </a>
-            <div class="nav-actions">
-                <a href="dashboard.html" class="btn-profile">
-                    <img src="avatar.png" alt="Profile" class="nav-avatar">
-                    <span>Arjun Singh</span>
-                </a>
+            <div class="gov-left">
+                <img src="nbf-emblem.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
+                <span>राष्ट्रीय भारत बल | NATIONAL BHARAT FORCE</span>
+            </div>
+            <div class="gov-right">
+                <a href="index.html#home-hero">Skip to main content</a>
+                <a href="#">Screen Reader Access</a>
+                <a href="#">हिंदी</a>
             </div>
         </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar new-nav">
+        <div class="container-wide nav-container">
+            <a href="index.html" class="logo new-logo">
+                <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                <span class="logo-text nbf-brand">NBF <span class="brand-accent">Connect</span></span>
+            </a>
+            <div class="nav-links new-nav-links">
+                <a href="index.html#home-hero">Home</a>
+                <a href="index.html#who-are-shurveers">Shurveers</a>
+                <a href="opportunities.html" class="active">Opportunities</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="partner.html">Organizations</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="nav-actions new-nav-actions">
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="register.html" class="btn btn-register">Register</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-links new-mobile-links">
+            <a href="index.html#home-hero">Home</a>
+            <a href="index.html#who-are-shurveers">Shurveers</a>
+            <a href="opportunities.html" class="active">Opportunities</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="partner.html">Organizations</a>
+            <a href="resources.html">Resources</a>
+            <div class="mobile-actions">
+                <a href="login.html" class="btn btn-login w-full">Login</a>
+                <a href="register.html" class="btn btn-register w-full">Register</a>
+            </div>
+        </div>
+    </div>
 
     <main class="opp-main">
         <div class="container">
@@ -59,177 +143,12 @@
             </div>
 
             <!-- Opportunities Grid -->
-            <div class="opp-grid">
-                
-                <!-- Card 1: Event Operations Staff -->
-                <div class="opp-card">
-                    <div class="card-banner" style="background: linear-gradient(rgba(7, 18, 42, 0.4), rgba(7, 18, 42, 0.8)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
-                        <span class="urgent-ribbon">Urgent Hiring</span>
-                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="org-badge"><i class="fas fa-check-circle verified"></i> EventSphere India</span>
-                            <span class="duration">3-5 Days</span>
-                        </div>
-                        <h2 class="card-title">Event Operations Staff</h2>
-                        <div class="card-info">
-                            <span><i class="fas fa-location-dot"></i> New Delhi / Mumbai / Bangalore</span>
-                            <span class="pay-badge">₹800 - ₹1800/day</span>
-                        </div>
-                        <p class="card-desc">Marathons, exhibitions, sports events, crowd coordination, event logistics.</p>
-                        <div class="skill-tags">
-                            <span class="tag">Leadership</span>
-                            <span class="tag">Coordination</span>
-                            <span class="tag">Discipline</span>
-                        </div>
-                        <div class="card-actions">
-                            <button class="btn btn-gold btn-full">Apply Now</button>
-                            <button class="btn btn-save"><i class="far fa-heart"></i> Save</button>
-                        </div>
-                    </div>
+            <div class="opp-grid" id="opp-feed">
+                <!-- Skeletons will be injected by JS or we can leave it empty and let JS handle loading state -->
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted);">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
+                    <p>Loading opportunities...</p>
                 </div>
-
-                <!-- Card 2: Retail Operations Associate -->
-                <div class="opp-card">
-                    <div class="card-banner" style="background: linear-gradient(rgba(7, 18, 42, 0.4), rgba(7, 18, 42, 0.8)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
-                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="org-badge"><i class="fas fa-check-circle verified"></i> RetailPro Corp</span>
-                            <span class="duration">Weekends Only</span>
-                        </div>
-                        <h2 class="card-title">Retail Operations Associate</h2>
-                        <div class="card-info">
-                            <span><i class="fas fa-location-dot"></i> Hyderabad / Pune / Chennai</span>
-                            <span class="pay-badge">₹700 - ₹1500/day</span>
-                        </div>
-                        <p class="card-desc">Weekend staffing, launch events, customer flow management, sports retail operations.</p>
-                        <div class="skill-tags">
-                            <span class="tag">Communication</span>
-                            <span class="tag">Teamwork</span>
-                            <span class="tag">Retail</span>
-                        </div>
-                        <div class="card-actions">
-                            <button class="btn btn-gold btn-full">Apply Now</button>
-                            <button class="btn btn-save"><i class="far fa-heart"></i> Save</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Disaster Relief Volunteer -->
-                <div class="opp-card">
-                    <div class="card-banner" style="background: linear-gradient(rgba(7, 18, 42, 0.4), rgba(7, 18, 42, 0.8)), url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
-                        <span class="urgent-ribbon mission">Active Mission</span>
-                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="org-badge"><i class="fas fa-check-circle verified"></i> NBF Central Command</span>
-                            <span class="duration">On-Call</span>
-                        </div>
-                        <h2 class="card-title">Disaster Relief Volunteer</h2>
-                        <div class="card-info">
-                            <span><i class="fas fa-location-dot"></i> Pan India</span>
-                            <span class="type-badge volunteer">Volunteer / Certified Hours</span>
-                        </div>
-                        <p class="card-desc">Emergency support, relief distribution, community response missions.</p>
-                        <div class="skill-tags">
-                            <span class="tag">Service</span>
-                            <span class="tag">Response</span>
-                            <span class="tag">Courage</span>
-                        </div>
-                        <div class="card-actions">
-                            <button class="btn btn-gold btn-full">Join Mission</button>
-                            <button class="btn btn-save"><i class="far fa-heart"></i> Save</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: Community Project Volunteer -->
-                <div class="opp-card">
-                    <div class="card-banner" style="background: linear-gradient(rgba(7, 18, 42, 0.4), rgba(7, 18, 42, 0.8)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
-                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="org-badge"><i class="fas fa-check-circle verified"></i> GreenIndia Foundation</span>
-                            <span class="duration">Seasonal</span>
-                        </div>
-                        <h2 class="card-title">Community Project Volunteer</h2>
-                        <div class="card-info">
-                            <span><i class="fas fa-location-dot"></i> Multiple Locations</span>
-                            <span class="type-badge volunteer">Volunteer + Certificate</span>
-                        </div>
-                        <p class="card-desc">NGO drives, cleanliness missions, youth mobilization, civic initiatives.</p>
-                        <div class="skill-tags">
-                            <span class="tag">Social Impact</span>
-                            <span class="tag">Leadership</span>
-                        </div>
-                        <div class="card-actions">
-                            <button class="btn btn-gold btn-full">Join Now</button>
-                            <button class="btn btn-save"><i class="far fa-heart"></i> Save</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5: Sports Tournament Staff -->
-                <div class="opp-card">
-                    <div class="card-banner" style="background: linear-gradient(rgba(7, 18, 42, 0.4), rgba(7, 18, 42, 0.8)), url('https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
-                        <span class="urgent-ribbon">Limited Slots</span>
-                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="org-badge"><i class="fas fa-check-circle verified"></i> National Sports Auth</span>
-                            <span class="duration">10 Days</span>
-                        </div>
-                        <h2 class="card-title">Sports Tournament Staff</h2>
-                        <div class="card-info">
-                            <span><i class="fas fa-location-dot"></i> Bangalore / Delhi / Ahmedabad</span>
-                            <span class="pay-badge">₹900 - ₹2000/day</span>
-                        </div>
-                        <p class="card-desc">Tournament operations, registration desk, athlete support, venue coordination.</p>
-                        <div class="skill-tags">
-                            <span class="tag">Sports</span>
-                            <span class="tag">Event Ops</span>
-                        </div>
-                        <div class="card-actions">
-                            <button class="btn btn-gold btn-full">Apply Now</button>
-                            <button class="btn btn-save"><i class="far fa-heart"></i> Save</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6: Campus Leadership Internship -->
-                <div class="opp-card">
-                    <div class="card-banner" style="background: linear-gradient(rgba(7, 18, 42, 0.4), rgba(7, 18, 42, 0.8)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
-                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="org-badge"><i class="fas fa-check-circle verified"></i> NBF Connect Official</span>
-                            <span class="duration">3-6 Months</span>
-                        </div>
-                        <h2 class="card-title">Campus Leadership Internship</h2>
-                        <div class="card-info">
-                            <span><i class="fas fa-location-dot"></i> Remote + Campus Based</span>
-                            <span class="pay-badge stipend">₹5000 - ₹15000/mo</span>
-                        </div>
-                        <p class="card-desc">College ambassador, youth leader, operations intern, community builder.</p>
-                        <div class="skill-tags">
-                            <span class="tag">Leadership</span>
-                            <span class="tag">Internship</span>
-                            <span class="tag">Growth</span>
-                        </div>
-                        <div class="card-actions">
-                            <button class="btn btn-gold btn-full">Apply Now</button>
-                            <button class="btn btn-save"><i class="far fa-heart"></i> Save</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </main>
@@ -247,11 +166,11 @@
                     </a>
                     <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."</p>
                     <div class="social-icons">
-                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@NationalBharatForce" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/nbf-connect-7037a6414/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/nbfconnect" class="social-link" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
 
@@ -335,7 +254,7 @@
                     <p>Built for Bharat's disciplined youth.</p>
                 </div>
                 <div class="bottom-right">
-                    <p>Made in India <i class="fas fa-heart text-gold"></i></p>
+                    <p>Made in India</p>
                 </div>
             </div>
         </div>
@@ -351,19 +270,22 @@
         });
 
         // Bookmark toggle
-        document.querySelectorAll('.bookmark-btn, .btn-save').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.bookmark-btn, .btn-save');
+            if (btn) {
                 e.preventDefault();
-                const icon = this.querySelector('i');
-                if (icon.classList.contains('far')) {
+                const icon = btn.querySelector('i');
+                if (icon && icon.classList.contains('far')) {
                     icon.classList.replace('far', 'fas');
                     icon.style.color = '#F4A621';
-                } else {
+                } else if (icon) {
                     icon.classList.replace('fas', 'far');
                     icon.style.color = '';
                 }
-            });
+            }
         });
     </script>
+    <script src="theme-script.js"></script>
+    <script type="module" src="./src/opportunities.js"></script>
 </body>
 </html>

@@ -1,5 +1,9 @@
 import { loginWithEmail, loginWithGoogle, resetPassword } from "./firebase/auth.js";
 
+// TODO: Partner portal login — Phase 2
+// Partners will get login credentials via email 
+// after manual verification by NBF Connect team
+
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("login-form");
     const googleBtn = document.getElementById("btn-google");
@@ -25,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
                 
                 setTimeout(() => {
-                    window.location.href = "dashboard.html";
+                    window.location.href = "shurveerdashboard.html";
                 }, 1000);
             } catch (err) {
                 btn.disabled = false;
@@ -43,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 await loginWithGoogle();
-                window.location.href = "dashboard.html";
+                window.location.href = "shurveerdashboard.html";
             } catch (err) {
                 showError(getErrorMessage(err.code || err.message));
             }

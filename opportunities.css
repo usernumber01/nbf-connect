@@ -81,8 +81,6 @@ body.opp-body {
     padding: 0 !important;
     margin: 0 !important;
     display: block;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     filter: drop-shadow(0 0 6px rgba(244, 159, 28, 0.25));
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -115,34 +113,7 @@ body.opp-body {
     }
 }
 
-.btn-profile {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--white);
-    background: var(--glass);
-    padding: 6px 16px 6px 6px;
-    border-radius: 40px;
-    border: 1px solid var(--border);
-    transition: var(--transition);
-}
 
-.btn-profile:hover {
-    background: rgba(255,255,255,0.08);
-}
-
-.nav-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.btn-profile span {
-    font-size: 0.85rem;
-    font-weight: 600;
-}
 
 /* Header */
 .opp-header {
@@ -168,6 +139,7 @@ body.opp-body {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 16px;
+    color: var(--white);
 }
 
 .gold-text {
