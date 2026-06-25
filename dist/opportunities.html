@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Opportunities | NBF Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Gov Portal Overrides -->
+    <style id="gov-overrides">
+        :root {
+            --gov-navy: #1a3a5c;
+            --gov-saffron: #FF9933;
+        }
+        .gov-top-bar {
+            background-color: var(--gov-navy);
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 4px 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .gov-top-bar .container-wide {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gov-top-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .gov-top-bar a:hover {
+            text-decoration: underline;
+        }
+        .navbar.new-nav {
+            border-top: 3px solid var(--gov-saffron);
+        }
+        .navbar .btn-login {
+            background: transparent !important;
+            border: 1.5px solid #ffffff !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+        .navbar .btn-register {
+            background: var(--gov-saffron) !important;
+            border: 2px solid var(--gov-saffron) !important;
+            color: #ffffff !important;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+  <script type="module" crossorigin src="/assets/opportunities-BcGkMYnA.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-CwuZNuQA.js">
+  <link rel="modulepreload" crossorigin href="/assets/config-Dd28I3sq.js">
+  <link rel="stylesheet" crossorigin href="/assets/opportunities-foZlZVv6.css">
+  <link rel="stylesheet" crossorigin href="/assets/footer-1SxhnhUq.css">
+  <link rel="stylesheet" crossorigin href="/assets/styles-XQbmIuif.css">
+</head>
+<body class="opp-body">
+
+    <!-- Gov Top Bar -->
+    <div class="gov-top-bar">
+        <div class="container-wide">
+            <div class="gov-left">
+                <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
+                <span>राष्ट्रीय भारत बल | NATIONAL BHARAT FORCE</span>
+            </div>
+            <div class="gov-right">
+                <a href="/index.html#home-hero">Skip to main content</a>
+                <a href="#">Screen Reader Access</a>
+                <a href="#">हिंदी</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar new-nav">
+        <div class="container-wide nav-container">
+            <a href="/index.html" class="logo new-logo">
+                <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                <span class="logo-text nbf-brand">NBF <span class="brand-accent">Connect</span></span>
+            </a>
+            <div class="nav-links new-nav-links">
+                <a href="/index.html#home-hero">Home</a>
+                <a href="/index.html#who-are-shurveers">Shurveers</a>
+                <a href="/opportunities.html" class="active">Opportunities</a>
+                <a href="/index.html#how-it-works">How It Works</a>
+                <a href="/partner.html">Organizations</a>
+                <a href="/resources.html">Resources</a>
+            </div>
+            <div class="nav-actions new-nav-actions">
+                <a href="/login.html" class="btn btn-login">Login</a>
+                <a href="/register.html" class="btn btn-register">Register</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-links new-mobile-links">
+            <a href="/index.html#home-hero">Home</a>
+            <a href="/index.html#who-are-shurveers">Shurveers</a>
+            <a href="/opportunities.html" class="active">Opportunities</a>
+            <a href="/index.html#how-it-works">How It Works</a>
+            <a href="/partner.html">Organizations</a>
+            <a href="/resources.html">Resources</a>
+            <div class="mobile-actions">
+                <a href="/login.html" class="btn btn-login w-full">Login</a>
+                <a href="/register.html" class="btn btn-register w-full">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="opp-main">
+        <div class="container">
+            <!-- Header Section -->
+            <header class="opp-header">
+                <div class="header-left">
+                    <span class="section-label">MISSION DISCOVERY</span>
+                    <h1 class="section-heading">EXPLORE <span class="gold-text">OPPORTUNITIES</span></h1>
+                    <p class="section-subheading">Mission-ready roles for disciplined youth across India.</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-outline">View All</button>
+                </div>
+            </header>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs-wrapper">
+                <div class="filter-tabs">
+                    <button class="tab active">All</button>
+                    <button class="tab">Event Management</button>
+                    <button class="tab">Retail Operations</button>
+                    <button class="tab">Security & Safety</button>
+                    <button class="tab">Sports</button>
+                    <button class="tab">Community Service</button>
+                    <button class="tab">Disaster Response</button>
+                    <button class="tab">Leadership</button>
+                    <button class="tab">Internships</button>
+                </div>
+            </div>
+
+            <!-- Opportunities Grid -->
+            <div class="opp-grid" id="opp-feed">
+                <!-- Skeletons will be injected by JS or we can leave it empty and let JS handle loading state -->
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted);">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
+                    <p>Loading opportunities...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Premium Footer Section -->
+    <footer class="premium-footer" id="footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- COLUMN 1 — BRAND SECTION -->
+                <div class="footer-col brand-col">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-shield-halved logo-icon"></i>
+                        <span class="logo-text">NBF <span class="highlight-orange">CONNECT</span></span>
+                    </a>
+                    <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."</p>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com/@NationalBharatForce" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/nbf-connect-7037a6414/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/nbfconnect" class="social-link" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2 — QUICK LINKS -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/index.html#home">About NBF CONNECT</a></li>
+                        <li><a href="/opportunities.html">Opportunities</a></li>
+                        <li><a href="/index.html#how-it-works">How It Works</a></li>
+                        <li><a href="/index.html#shurveers">Shurveers</a></li>
+                        <li><a href="#footer">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3 — RESOURCES -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/resources.html#shurveer-tools">Career Guide</a></li>
+                        <li><a href="/resources.html">Government Schemes</a></li>
+                        <li><a href="/resources.html#shurveer-tools">Interview Prep</a></li>
+                        <li><a href="/resources.html">FAQs</a></li>
+                        <li><a href="/resources.html#partner-tools">Partner Downloads</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 4 — SUPPORT -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 5 — MOBILE APP SECTION -->
+                <div class="footer-col app-col">
+                    <h4 class="footer-heading">Download App</h4>
+                    <div class="app-badges">
+                        <a href="#" class="app-badge glass">
+                            <i class="fab fa-google-play"></i>
+                            <div class="badge-text">
+                                <span>GET IT ON</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="app-badge glass">
+                            <i class="fab fa-apple"></i>
+                            <div class="badge-text">
+                                <span>Download on the</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+
+                <!-- COLUMN 6 — NEWSLETTER -->
+                <div class="footer-col newsletter-col">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="newsletter-text">Stay updated with the latest opportunities and mission updates.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" class="subscribe-btn" aria-label="Subscribe">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="bottom-left">
+                    <p>© 2026 NBF Connect. All Rights Reserved.</p>
+                </div>
+                <div class="bottom-center">
+                    <p>Built for Bharat's disciplined youth.</p>
+                </div>
+                <div class="bottom-right">
+                    <p>Made in India</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Bookmark toggle
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.bookmark-btn, .btn-save');
+            if (btn) {
+                e.preventDefault();
+                const icon = btn.querySelector('i');
+                if (icon && icon.classList.contains('far')) {
+                    icon.classList.replace('far', 'fas');
+                    icon.style.color = '#F4A621';
+                } else if (icon) {
+                    icon.classList.replace('fas', 'far');
+                    icon.style.color = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

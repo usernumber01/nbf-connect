@@ -114,7 +114,7 @@ function renderWelcomeBanner(profileData) {
         badgesHTML += `<span class="badge white"><i class="fas fa-map-marker-alt"></i> ${profileData.state}</span>`;
     }
 
-    badgesEl.innerHTML = badgesHTML;
+    badgesEl.innerHTML = DOMPurify.sanitize(badgesHTML);
 }
 
 function renderProfileCompletion(profileData) {
@@ -206,7 +206,7 @@ async function fetchAndRenderOpportunities(profileData) {
             `;
         });
 
-        oppFeed.innerHTML = html;
+        oppFeed.innerHTML = DOMPurify.sanitize(html);
 
     } catch (error) {
         console.error("Error fetching opportunities:", error);
@@ -270,7 +270,7 @@ async function fetchAndRenderApplications(uid) {
             `;
         });
 
-        appFeed.innerHTML = html;
+        appFeed.innerHTML = DOMPurify.sanitize(html);
 
     } catch (error) {
         console.error("Error fetching applications:", error);
@@ -311,7 +311,7 @@ function renderCertificateStatus(profileData) {
         `;
     }
 
-    certBox.innerHTML = html;
+    certBox.innerHTML = DOMPurify.sanitize(html);
 
     // Attach event listeners after rendering
     const uploadBtn = document.getElementById("cert-upload-btn");

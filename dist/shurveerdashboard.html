@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shurveer Dashboard | NBF Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+  <script type="module" crossorigin src="/assets/shurveerdashboard-V5Y2wsB4.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-CwuZNuQA.js">
+  <link rel="modulepreload" crossorigin href="/assets/config-Dd28I3sq.js">
+  <link rel="modulepreload" crossorigin href="/assets/auth-B-zOuKI2.js">
+  <link rel="stylesheet" crossorigin href="/assets/shurveerdashboard-DBMtm1Hf.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header" style="padding: 1rem 1.5rem;">
+            <a href="/index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff;">
+                <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Emblem" style="height: 48px; width: auto; filter: drop-shadow(0 0 6px rgba(244, 159, 28, 0.25));">
+                <span style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;">NBF <span style="color: #f4a621;">Connect</span></span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#" class="nav-item"><i class="fas fa-user"></i> My Profile</a>
+            <a href="#" class="nav-item"><i class="fas fa-search"></i> Opportunities</a>
+            <a href="#" class="nav-item"><i class="fas fa-clipboard-list"></i> My Applications</a>
+            <a href="#" class="nav-item"><i class="fas fa-certificate"></i> My Certificate</a>
+            <div style="flex:1"></div>
+            <a href="#" class="nav-item" id="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="dashboard-inner">
+            <!-- Section 1: Welcome Banner -->
+        <section class="welcome-banner">
+            <div class="welcome-info">
+                <h1 id="welcome-name" class="skeleton sk-title"></h1>
+                <div class="badge-row" id="welcome-badges">
+                    <!-- Badges populated by JS -->
+                </div>
+            </div>
+            <div class="welcome-action" id="welcome-action-container">
+                <!-- Action button populated by JS -->
+            </div>
+        </section>
+
+        <!-- Section 2: Profile Completion -->
+        <section class="section-card">
+            <h2 class="section-title">Profile Completion</h2>
+            <div class="progress-meta">
+                <span>Completed</span>
+                <span id="profile-percent-text" class="skeleton sk-text" style="width: 40px"></span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="profile-progress-bar" style="width: 0%; background-color: var(--border-color);"></div>
+            </div>
+            <div id="profile-action" class="hidden" style="margin-top: 1rem;">
+                <button class="btn btn-primary" id="complete-profile-btn">Complete your profile</button>
+            </div>
+        </section>
+
+        <!-- Section 3: Stats Row -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Applications Sent</span>
+                <span class="stat-value skeleton sk-text" id="stat-apps" style="width: 50px; height: 30px; margin-top: 10px;"></span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Opportunities Available</span>
+                <span class="stat-value skeleton sk-text" id="stat-opps" style="width: 50px; height: 30px; margin-top: 10px;"></span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Profile Views</span>
+                <span class="stat-value" id="stat-views">0</span>
+            </div>
+        </section>
+
+        <!-- Section 4: Opportunities Feed -->
+        <section class="section-card">
+            <h2 class="section-title">Opportunities for You</h2>
+            <div class="opp-grid" id="opp-feed">
+                <!-- Skeletons -->
+                <div class="skeleton sk-card"></div>
+                <div class="skeleton sk-card"></div>
+            </div>
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="#" style="color: var(--orange); font-weight: 600;">View All Opportunities <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Section 5: My Applications -->
+        <section class="section-card">
+            <h2 class="section-title">My Recent Applications</h2>
+            <div class="app-list" id="app-feed">
+                <!-- Skeletons -->
+                <div class="skeleton sk-text" style="height: 60px;"></div>
+                <div class="skeleton sk-text" style="height: 60px;"></div>
+            </div>
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="#" style="color: var(--navy); font-weight: 600;">View All Applications <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Section 6: Certificate Status -->
+        <section class="section-card">
+            <h2 class="section-title">My Certificate</h2>
+            <div class="cert-box" id="cert-box">
+                <div class="skeleton sk-title" style="margin: 0 auto;"></div>
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Nav -->
+    <nav class="bottom-nav">
+        <a href="#" class="bottom-nav-item active"><i class="fas fa-home"></i> Home</a>
+        <a href="#" class="bottom-nav-item"><i class="fas fa-search"></i> Opps</a>
+        <a href="#" class="bottom-nav-item"><i class="fas fa-clipboard-list"></i> Apps</a>
+        <a href="#" class="bottom-nav-item"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" class="bottom-nav-item" id="mobile-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+</div>
+
+</body>
+</html>

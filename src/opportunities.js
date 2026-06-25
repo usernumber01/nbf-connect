@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             `;
         });
 
-        oppFeed.innerHTML = html;
+        oppFeed.innerHTML = DOMPurify.sanitize(html);
 
     } catch (err) {
         console.error("Error fetching opportunities:", err);

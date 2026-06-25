@@ -3,6 +3,34 @@ import { auth, storage } from "./firebase/config.js";
 import { fetchSignInMethodsForEmail } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+function checkRateLimit() {
+    const attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
+    const lockoutUntil = parseInt(localStorage.getItem('nbf_auth_lockout_until') || '0');
+    const now = Date.now();
+    if (lockoutUntil && now < lockoutUntil) {
+        const minutesLeft = Math.ceil((lockoutUntil - now) / 60000);
+        return { locked: true, minutesLeft };
+    }
+    return { locked: false };
+}
+
+function recordFailedAttempt() {
+    let attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
+    attempts++;
+    localStorage.setItem('nbf_auth_attempts', attempts);
+    if (attempts >= 5) {
+        const lockoutUntil = Date.now() + (15 * 60 * 1000);
+        localStorage.setItem('nbf_auth_lockout_until', lockoutUntil);
+    }
+}
+
+function clearRateLimit() {
+    localStorage.removeItem('nbf_auth_attempts');
+    localStorage.removeItem('nbf_auth_lockout_until');
+}
+
+
+
 // Validation logic
 const emailInput = document.getElementById("email");
 const emailError = document.getElementById("email-error");
@@ -138,6 +166,19 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         return;
     }
 
+    const rlCheck = checkRateLimit();
+    if (rlCheck.locked) {
+        showError(`Too many attempts. Please wait ${rlCheck.minutesLeft} minutes before trying again.`);
+        return;
+    }
+
+    const captchaResponse = hcaptcha.getResponse();
+    if (!captchaResponse) {
+        showError('Please complete the security check (CAPTCHA) before registering.');
+        document.querySelector('.h-captcha').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+
     const submitBtn = document.getElementById("btn-submit");
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Creating account...</span>';
@@ -203,11 +244,15 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         const trustBadges = document.querySelector('.trust-badges');
         if (trustBadges) trustBadges.style.display = "none";
 
+        clearRateLimit();
+
         setTimeout(() => {
             window.location.href = "login.html";
         }, 10000);
 
     } catch (err) {
+        recordFailedAttempt();
+        if (window.hcaptcha) hcaptcha.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-rocket"></i> <span>Join Mission</span>';
         showError(getErrorMessage(err.code || err.message));
@@ -239,8 +284,11 @@ function getErrorMessage(code) {
 
 function showError(message) {
     const errorEl = document.getElementById("error-message");
-    errorEl.textContent = message;
-    errorEl.style.display = "block";
+    if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.style.display = "block";
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 }
 
 // Remove error styling when declaration is checked

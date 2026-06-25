@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="partner.css">
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <style>
         .inline-error {
             color: #e05a1e;
@@ -248,7 +249,7 @@
                 <span>राष्ट्रीय भारत बल | NATIONAL BHARAT FORCE</span>
             </div>
             <div class="gov-right">
-                <a href="index.html#home-hero">Skip to main content</a>
+                <a href="/index.html#home-hero">Skip to main content</a>
                 <a href="#">Screen Reader Access</a>
                 <a href="#">हिंदी</a>
             </div>
@@ -256,7 +257,7 @@
     </div>
 
     <!-- Back to Home -->
-    <a href="index.html" class="back-home" id="back-home">
+    <a href="/index.html" class="back-home" id="back-home">
         <i class="fas fa-arrow-left"></i>
         <span>Back to Home</span>
     </a>
@@ -267,7 +268,7 @@
             <div class="hero-overlay"></div>
             <img src="hero-shurveer.jpg" alt="Disciplined Youth" class="hero-bg-img" onerror="this.src='register-hero.png'">
             <div class="hero-content">
-                <a href="index.html" class="hero-logo">
+                <a href="/index.html" class="hero-logo">
                     <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
                     <span class="logo-text">NBF Connect</span>
                 </a>
@@ -388,7 +389,7 @@
                             <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
                             <label for="termsAccepted">
                                 <strong>Terms Agreement *</strong><br>
-                                I agree to NBF Connect's <a href="terms-and-conditions.html" target="_blank">Partner Terms & Conditions</a> and understand the platform's role as a connector, not an employment agency.
+                                I agree to NBF Connect's <a href="/terms-and-conditions.html" target="_blank">Partner Terms & Conditions</a> and understand the platform's role as a connector, not an employment agency.
                             </label>
                         </div>
 
@@ -404,7 +405,7 @@
                             <input type="checkbox" id="dataConsent" name="dataConsent" required>
                             <label for="dataConsent">
                                 <strong>Data Consent *</strong><br>
-                                I consent to NBF Connect storing our organisation's information for the purpose of matching with suitable Shurveer candidates. See our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+                                I consent to NBF Connect storing our organisation's information for the purpose of matching with suitable Shurveer candidates. See our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>.
                             </label>
                         </div>
                         
@@ -428,11 +429,31 @@
                         </div>
                     </div>
 
+                    <!-- CAPTCHA -->
+                    <div class="captcha-wrapper" style="margin-bottom: 16px; display: flex; flex-direction: column; align-items: center;">
+                        <!-- 
+                          TODO: Replace YOUR_HCAPTCHA_SITE_KEY with your actual key.
+                          Get your free site key at: https://dashboard.hcaptcha.com
+                          Sign up free → Add Site → Copy Site Key → paste here.
+                          Also add your Secret Key to Firebase Functions or 
+                          your backend for server-side verification.
+                        -->
+                        <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY" data-theme="dark" data-size="normal"></div>
+                        <p style="font-size: 12px; color: #64748B; margin-top: 6px;">Complete the security check to register.</p>
+                    </div>
+
                     <!-- Submit -->
                     <button type="submit" class="btn-submit" id="btn-submit" style="background: #e05a1e; color: #ffffff;">
                         <i class="fas fa-paper-plane"></i>
                         <span>Submit</span>
                     </button>
+                    
+                    <p style="color: #64748B; font-size: 12px; text-align: center; margin-top: 12px;">For security, login is temporarily locked after 5 failed attempts.</p>
+
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+                      <span style="font-size: 18px;">🔒</span>
+                      <span style="font-size: 12px; color: #64748B; text-align: center;">Your data is protected. NBF Connect uses encrypted, secure registration.</span>
+                    </div>
 
                 </form>
 
@@ -465,7 +486,7 @@
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="#home-hero">About NBF CONNECT</a></li>
-                        <li><a href="opportunities.html">Opportunities</a></li>
+                        <li><a href="/opportunities.html">Opportunities</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#who-are-shurveers">Shurveers</a></li>
                         <li><a href="#footer">Contact Us</a></li>
@@ -476,11 +497,11 @@
                 <div class="footer-col">
                     <h4 class="footer-heading">Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="resources.html#shurveer-tools">Career Guide</a></li>
-                        <li><a href="resources.html">Government Schemes</a></li>
-                        <li><a href="resources.html#shurveer-tools">Interview Prep</a></li>
-                        <li><a href="resources.html">FAQs</a></li>
-                        <li><a href="resources.html#partner-tools">Partner Downloads</a></li>
+                        <li><a href="/resources.html#shurveer-tools">Career Guide</a></li>
+                        <li><a href="/resources.html">Government Schemes</a></li>
+                        <li><a href="/resources.html#shurveer-tools">Interview Prep</a></li>
+                        <li><a href="/resources.html">FAQs</a></li>
+                        <li><a href="/resources.html#partner-tools">Partner Downloads</a></li>
                     </ul>
                 </div>
 

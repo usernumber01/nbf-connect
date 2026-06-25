@@ -1,8 +1,15 @@
-import { db } from "./firebase/config.js";
+import { auth, db } from "./firebase/config.js";
 import { collection, addDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("partner-form");
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            window.location.href = './login.html';
+            return;
+        }
+
+        const form = document.getElementById("partner-form");
     const descInput = document.getElementById("description");
     const charCount = document.getElementById("char-count");
     const deadlineInput = document.getElementById("deadline");
@@ -157,5 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Requirement</span>';
         }
+    });
     });
 });

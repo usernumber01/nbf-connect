@@ -1,8 +1,15 @@
-import { db } from "./firebase/config.js";
+import { auth, db } from "./firebase/config.js";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const tableBody = document.getElementById("partners-table-body");
+document.addEventListener("DOMContentLoaded", () => {
+    onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+            window.location.href = './login.html';
+            return;
+        }
+
+        const tableBody = document.getElementById("partners-table-body");
     if (!tableBody) return;
 
     try {
@@ -55,10 +62,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             `;
         });
 
-        tableBody.innerHTML = html;
+        tableBody.innerHTML = DOMPurify.sanitize(html);
         
-    } catch (error) {
-        console.error("Error fetching partners:", error);
-        tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#ef4444;">Failed to load partners database. Check Firebase rules.</td></tr>`;
-    }
+        } catch (error) {
+            console.error("Error fetching partners:", error);
+            tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#ef4444;">Failed to load partners database. Check Firebase rules.</td></tr>`;
+        }
+    });
 });
