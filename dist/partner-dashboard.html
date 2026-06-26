@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partner Registration | NBF Connect</title>
+    <title>Partner Dashboard | NBF Connect</title>
     <meta name="description" content="Register your organization as an NBF Connect partner to access disciplined youth.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="partner.css">
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <style>
         .inline-error {
             color: #e05a1e;
@@ -121,123 +117,14 @@
             margin-bottom: 12px;
             display: none;
         }
-
-        /* New Styles for Audit fixes */
-        .invalid-field {
-            border: 1.5px solid #DC2626 !important;
-        }
-        
-        /* Global Error Banner */
-        .global-error-banner, .global-failure-banner {
-            display: none;
-            background: #FEE2E2;
-            border-left: 4px solid #DC2626;
-            border-radius: 8px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            align-items: flex-start;
-            gap: 12px;
-            transition: all 0.3s ease;
-        }
-        .global-error-banner i, .global-failure-banner i {
-            color: #DC2626;
-            font-size: 20px;
-            margin-top: 2px;
-        }
-        .error-banner-text {
-            display: flex;
-            flex-direction: column;
-        }
-        .error-banner-title {
-            color: #991B1B;
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 4px;
-            font-family: 'Inter', sans-serif;
-        }
-        .error-banner-desc {
-            color: #DC2626;
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Success Card Styling */
-        .success-card-wrapper {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
-            width: 100%;
-        }
-        .success-card {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            max-width: 480px;
-            width: 100%;
-            padding: 40px 30px;
-            text-align: center;
-            margin: 0 auto;
-        }
-        .success-icon-wrap {
-            width: 48px;
-            height: 48px;
-            background: #D1FAE5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px auto;
-        }
-        .success-icon-wrap i {
-            color: #059669;
-            font-size: 24px;
-        }
-        .success-heading {
-            font-family: 'Inter', sans-serif;
-            color: #0A1628;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        .success-subtext {
-            color: #64748B;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-family: 'Inter', sans-serif;
-        }
-        .progress-bar-container {
-            width: 100%;
-            height: 4px;
-            background: #F1F5F9;
-            border-radius: 2px;
-            overflow: hidden;
-            margin-bottom: 12px;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            background: #C8861A;
-            width: 0%;
-        }
-        .animate-progress {
-            animation: fillProgress 4s linear forwards;
-        }
-        @keyframes fillProgress {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-        .redirect-text {
-            color: #94A3B8;
-            font-size: 12px;
-            font-family: 'Inter', sans-serif;
-        }
-        @media (max-width: 768px) {
-            .success-card {
-                padding: 30px 20px;
-            }
-        }
     </style>
+  <script type="module" crossorigin src="/assets/partnerdashboard-C6yJ1UU8.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-CwuZNuQA.js">
+  <link rel="modulepreload" crossorigin href="/assets/config-Dd28I3sq.js">
+  <link rel="modulepreload" crossorigin href="/assets/partnershipsignup-DThaQTKO.js">
+  <link rel="stylesheet" crossorigin href="/assets/footer-1SxhnhUq.css">
+  <link rel="stylesheet" crossorigin href="/assets/partner-D0A6e64L.css">
+  <link rel="stylesheet" crossorigin href="/assets/register-B8Q2GZ6E.css">
 </head>
 <body>
 
@@ -245,7 +132,7 @@
     <div class="gov-top-bar">
         <div class="container-wide">
             <div class="gov-left">
-                <img src="nbf-emblem.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
+                <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
                 <span>à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°à¥€à¤¯ à¤­à¤¾à¤°à¤¤ à¤¬à¤² | NATIONAL BHARAT FORCE</span>
             </div>
             <div class="gov-right">
@@ -266,10 +153,10 @@
         <!-- Left: Hero Section -->
         <div class="register-hero">
             <div class="hero-overlay"></div>
-            <img src="hero-shurveer.jpg" alt="Disciplined Youth" class="hero-bg-img" onerror="this.src='register-hero.png'">
+            <img src="/assets/hero-shurveer-IzxJgROr.jpg" alt="Disciplined Youth" class="hero-bg-img" onerror="this.src='register-hero.png'">
             <div class="hero-content">
                 <a href="/index.html" class="hero-logo">
-                    <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                    <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Emblem" class="navbar-emblem">
                     <span class="logo-text">NBF Connect</span>
                 </a>
                 <h1 class="hero-heading">Partner With <br><span class="gold-text" style="color: #e05a1e;">NBF Connect</span></h1>
@@ -298,162 +185,198 @@
         <div class="register-form-section">
             <div class="form-scroll-area" id="main-content">
                 <div class="form-header" id="form-header">
-                    <h2 class="form-title">Organisation <span class="gold-text" style="color: #e05a1e;">Partnership</span></h2>
+                    <h2 class="form-title">Partner <span class="gold-text" style="color: #e05a1e;">Dashboard</span></h2>
                     <p class="form-subtitle">Join us to create opportunities and build leaders.</p>
                 </div>
 
-                <div id="registration-success" class="success-card-wrapper">
-                    <div class="success-card">
-                        <div class="success-icon-wrap">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h2 class="success-heading">Registration Completed!</h2>
-                        <p class="success-subtext">Welcome to NBF Connect Partner Network. Your registration has been received.<br><br>Our team will review your request and contact you within 24 hours at your registered email.</p>
+                <div id="registration-success" style="display:none; text-align:center; padding: 4rem 1rem; background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; border-radius: 12px; margin-top: 2rem;">
+                    <div style="font-size: 4rem; color: #22c55e; margin-bottom: 1.5rem;">
+                        <i class="fas fa-check-circle"></i>
                     </div>
+                    <h2 style="color: #22c55e; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">âœ… Partnership request submitted successfully!</h2>
+                    <p style="color: #555555; font-size: 1.1rem; line-height: 1.6;">Our team will review your requirement and reach out within 24 hours at <strong id="success-email"></strong>.</p>
                 </div>
 
                 <form id="partner-form" class="register-form" novalidate>
-                    <div id="error-message" style="display:none;"></div>
+                    <div id="error-message" style="display:none; color:#ef4444; background:rgba(239, 68, 68, 0.1); border:1px solid #ef4444; padding:1rem; border-radius:8px; margin-bottom:1rem; font-size:0.9rem;"></div>
 
-                    <!-- Section 1: Contact Information -->
-                    <div class="form-section-label"><i class="fas fa-address-card"></i> Section 1: Contact Information</div>
+                    <!-- Section 1: Organisation Details -->
+                    <div class="form-section-label"><i class="fas fa-building"></i> Section 1: Organisation Details</div>
+
+                    <div class="form-group">
+                        <label for="companyName">Company Name <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-building input-icon"></i>
+                            <input type="text" id="companyName" name="companyName" placeholder="Enter full company or organisation name" required>
+                        </div>
+                    </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="contactPerson">Contact Person Name <span class="required">*</span></label>
+                            <label for="industry">Industry <span class="required">*</span></label>
                             <div class="input-wrapper">
-                                <i class="fas fa-user input-icon"></i>
-                                <input type="text" id="contactPerson" name="contactPerson" placeholder="Enter full name" required>
+                                <i class="fas fa-industry input-icon"></i>
+                                <select id="industry" name="industry" required>
+                                    <option value="" disabled selected>Select industry</option>
+                                    <option value="Event Management">Event Management</option>
+                                    <option value="Retail & Logistics">Retail & Logistics</option>
+                                    <option value="Security Services">Security Services</option>
+                                    <option value="Sports & Athletics">Sports & Athletics</option>
+                                    <option value="Corporate CSR">Corporate CSR</option>
+                                    <option value="Government/Public Sector">Government/Public Sector</option>
+                                    <option value="IT/Technology">IT/Technology</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="designation">Designation <span class="required">*</span></label>
+                            <label for="companySize">Company Size <span class="required">*</span></label>
                             <div class="input-wrapper">
-                                <i class="fas fa-id-badge input-icon"></i>
-                                <input type="text" id="designation" name="designation" placeholder="e.g. HR Manager, Founder, Operations Head" required>
+                                <i class="fas fa-users input-icon"></i>
+                                <select id="companySize" name="companySize" required>
+                                    <option value="" disabled selected>Select size</option>
+                                    <option value="1-10 employees">1-10 employees</option>
+                                    <option value="11-50 employees">11-50 employees</option>
+                                    <option value="51-200 employees">51-200 employees</option>
+                                    <option value="200+ employees">200+ employees</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" id="email" name="email" placeholder="official email address" required>
-                        </div>
-                        <div id="email-error" class="inline-error"></div>
-                    </div>
-
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <label for="website">Company Website</label>
                             <div class="input-wrapper">
-                                <span class="input-prefix">+91</span>
-                                <input type="tel" id="phone" name="phone" placeholder="10 digit mobile number" required>
+                                <i class="fas fa-globe input-icon"></i>
+                                <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
                             </div>
-                            <div id="phone-error" class="inline-error"></div>
                         </div>
                         <div class="form-group">
-                            <label for="alternateContact">Alternate Contact</label>
+                            <label for="gstNumber">GST Number</label>
                             <div class="input-wrapper">
-                                <i class="fas fa-phone-alt input-icon"></i>
-                                <input type="text" id="alternateContact" name="alternateContact" placeholder="Backup phone or email for urgent coordination">
+                                <i class="fas fa-file-invoice input-icon"></i>
+                                <input type="text" id="gstNumber" name="gstNumber" placeholder="15-digit GSTIN (optional for NGOs/Govt)">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Section 2: Additional Info -->
-                    <div class="form-section-label"><i class="fas fa-info-circle"></i> Section 2: Additional Info</div>
+                    <div class="form-section-label"><i class="fas fa-clipboard-list"></i> Section 3: Requirement Details</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="requirementType">Requirement Type <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-tasks input-icon"></i>
+                                <select id="requirementType" name="requirementType" required>
+                                    <option value="" disabled selected>Select type</option>
+                                    <option value="One-time Event">One-time Event</option>
+                                    <option value="Seasonal Contract">Seasonal Contract</option>
+                                    <option value="Full-time Placement">Full-time Placement</option>
+                                    <option value="Volunteer Program">Volunteer Program</option>
+                                    <option value="Internship Program">Internship Program</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="numberOfShurveers">Number of Shurveers Needed <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-users-cog input-icon"></i>
+                                <input type="number" id="numberOfShurveers" name="numberOfShurveers" placeholder="min 1, max 1000" min="1" max="1000" required>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="hearAboutUs">How did you hear about NBF Connect?</label>
+                        <label>Preferred Organisation Type <span class="required">*</span></label>
+                        <div class="skills-grid" id="preferredOrgTypeGrid">
+                            <label class="skill-chip">
+                                <input type="checkbox" name="preferredOrgType" value="NCC">
+                                <span>NCC</span>
+                            </label>
+                            <label class="skill-chip">
+                                <input type="checkbox" name="preferredOrgType" value="NSS">
+                                <span>NSS</span>
+                            </label>
+                            <label class="skill-chip">
+                                <input type="checkbox" name="preferredOrgType" value="Scouts">
+                                <span>Scouts</span>
+                            </label>
+                            <label class="skill-chip">
+                                <input type="checkbox" name="preferredOrgType" value="NYKS">
+                                <span>NYKS</span>
+                            </label>
+                            <label class="skill-chip">
+                                <input type="checkbox" name="preferredOrgType" value="Civil Defence">
+                                <span>Civil Defence</span>
+                            </label>
+                            <label class="skill-chip">
+                                <input type="checkbox" name="preferredOrgType" value="Any">
+                                <span>Any</span>
+                            </label>
+                        </div>
+                        <div id="orgType-error" class="inline-error">Please select at least one organisation type.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locationAndDates">Location & Dates <span class="required">*</span></label>
                         <div class="input-wrapper">
-                            <i class="fas fa-bullhorn input-icon"></i>
-                            <select id="hearAboutUs" name="hearAboutUs">
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Social Media">Social Media</option>
-                                <option value="Referral">Referral</option>
-                                <option value="Search Engine">Search Engine</option>
-                                <option value="Event">Event</option>
-                                <option value="News Article">News Article</option>
-                                <option value="Other">Other</option>
-                            </select>
+                            <i class="fas fa-map-marker-alt input-icon"></i>
+                            <input type="text" id="locationAndDates" name="locationAndDates" placeholder="City, State and Start/End dates" required>
                         </div>
                     </div>
 
-                    <!-- Section 3: Declarations -->
-                    <div class="form-section-label"><i class="fas fa-check-square"></i> Section 3: Declarations</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="proposedBudget">Proposed Budget</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-rupee-sign input-icon"></i>
+                                <input type="text" id="proposedBudget" name="proposedBudget" placeholder="e.g. â‚¹500/day per person">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentTerms">Payment Terms <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-hand-holding-usd input-icon"></i>
+                                <select id="paymentTerms" name="paymentTerms" required>
+                                    <option value="" disabled selected>Select terms</option>
+                                    <option value="Per Day">Per Day</option>
+                                    <option value="Per Project">Per Project</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Stipend-based">Stipend-based</option>
+                                    <option value="Unpaid/Volunteer">Unpaid/Volunteer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Additional Details -->
+                    <div class="form-section-label"><i class="fas fa-info-circle"></i> Section 4: Additional Details</div>
 
                     <div class="form-group">
-                        <div class="declaration-box" id="box-terms">
-                            <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
-                            <label for="termsAccepted">
-                                <strong>Terms Agreement *</strong><br>
-                                I agree to NBF Connect's <a href="/terms-and-conditions.html" target="_blank">Partner Terms & Conditions</a> and understand the platform's role as a connector, not an employment agency.
-                            </label>
-                        </div>
-
-                        <div class="declaration-box" id="box-nofee">
-                            <input type="checkbox" id="noFeeDeclared" name="noFeeDeclared" required>
-                            <label for="noFeeDeclared">
-                                <strong>No-Fee Declaration *</strong><br>
-                                I confirm that our organisation will NOT charge any Shurveer fees, deposits, or payments at any stage of recruitment or placement.
-                            </label>
-                        </div>
-
-                        <div class="declaration-box" id="box-data">
-                            <input type="checkbox" id="dataConsent" name="dataConsent" required>
-                            <label for="dataConsent">
-                                <strong>Data Consent *</strong><br>
-                                I consent to NBF Connect storing our organisation's information for the purpose of matching with suitable Shurveer candidates. See our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>.
-                            </label>
-                        </div>
-                        
-                        <div id="declarations-error" class="declaration-error">Please accept all declarations to continue</div>
+                        <label for="description">Requirement Description <span class="required">*</span></label>
+                        <textarea id="description" name="description" maxlength="500" placeholder="Describe roles, responsibilities, and any specific requirements..." required></textarea>
+                        <div class="character-counter" id="descriptionCounter">0/500</div>
                     </div>
 
-                    <!-- Global Banners -->
-                    <div id="global-error-banner" class="global-error-banner">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <div class="error-banner-text">
-                            <span class="error-banner-title">Fix the Errors</span>
-                            <span class="error-banner-desc">Please correct the highlighted fields before submitting.</span>
-                        </div>
-                    </div>
-                    
-                    <div id="global-failure-banner" class="global-failure-banner">
-                        <i class="fas fa-times-circle"></i>
-                        <div class="error-banner-text">
-                            <span class="error-banner-title">Submission Failed</span>
-                            <span class="error-banner-desc">Something went wrong while saving your details. Please check your connection and try again.</span>
+                    <div class="form-group">
+                        <label for="requirementFile">Upload Requirement File</label>
+                        <div class="file-upload" id="requirementFile-upload">
+                            <i class="fas fa-file-upload"></i>
+                            <span class="file-label">Drop JD or PDF here or <em>browse</em></span>
+                            <span class="file-hint">PDF, DOC up to 300KB</span>
+                            <input type="file" id="requirementFile" name="requirementFile" accept=".pdf,.doc,.docx" hidden>
                         </div>
                     </div>
 
-                    <!-- CAPTCHA -->
-                    <div class="captcha-wrapper" style="margin-bottom: 16px; display: flex; flex-direction: column; align-items: center;">
-                        <!-- 
-                          TODO: Replace YOUR_HCAPTCHA_SITE_KEY with your actual key.
-                          Get your free site key at: https://dashboard.hcaptcha.com
-                          Sign up free â†’ Add Site â†’ Copy Site Key â†’ paste here.
-                          Also add your Secret Key to Firebase Functions or 
-                          your backend for server-side verification.
-                        -->
-                        <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY" data-theme="dark" data-size="normal"></div>
-                        <p style="font-size: 12px; color: #64748B; margin-top: 6px;">Complete the security check to register.</p>
-                    </div>
-
+                    <div class="form-group">
                     <!-- Submit -->
                     <button type="submit" class="btn-submit" id="btn-submit" style="background: #e05a1e; color: #ffffff;">
                         <i class="fas fa-paper-plane"></i>
-                        <span>Submit</span>
+                        <span>Submit Partnership Request</span>
                     </button>
-                    
-                    <p style="color: #64748B; font-size: 12px; text-align: center; margin-top: 12px;">For security, login is temporarily locked after 5 failed attempts.</p>
-
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
-                      <span style="font-size: 18px;">ðŸ”’</span>
-                      <span style="font-size: 12px; color: #64748B; text-align: center;">Your data is protected. NBF Connect uses encrypted, secure registration.</span>
-                    </div>
 
                 </form>
 
@@ -468,7 +391,7 @@
                 <!-- COLUMN 1 â€” BRAND SECTION -->
                 <div class="footer-col brand-col">
                     <a href="#" class="footer-logo">
-                        <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                        <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Emblem" class="navbar-emblem">
                         <span class="logo-text">NBF Connect</span>
                     </a>
                     <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."<br><br><strong>Ministry of Youth Affairs & Sports</strong></p>
@@ -570,14 +493,10 @@
     <!-- Scripts -->
     <script>
         // Character counter logic
-        const descEl = document.getElementById('description');
-        if (descEl) {
-            descEl.addEventListener('input', function() {
-                const count = this.value.length;
-                const counterEl = document.getElementById('descriptionCounter');
-                if (counterEl) counterEl.textContent = count + '/500';
-            });
-        }
+        document.getElementById('description').addEventListener('input', function() {
+            const count = this.value.length;
+            document.getElementById('descriptionCounter').textContent = count + '/500';
+        });
 
         // File upload click handlers
         document.querySelectorAll('.file-upload').forEach(area => {
@@ -618,17 +537,13 @@
 
         // Toggle error styles on checkbox change
         ['termsAccepted', 'noFeeDeclared', 'dataConsent'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                el.addEventListener('change', function() {
-                    if (this.checked) {
-                        this.parentElement.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                    }
-                });
-            }
+            document.getElementById(id).addEventListener('change', function() {
+                if (this.checked) {
+                    this.parentElement.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                }
+            });
         });
     </script>
-    <script type="module" src="./src/partnershipsignup.js"></script>
 
 </body>
 </html>

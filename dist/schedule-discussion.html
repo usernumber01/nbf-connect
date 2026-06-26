@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="footer.css">
     <!-- Gov Portal Overrides -->
     <style id="gov-overrides">
         :root {
@@ -443,6 +441,12 @@
             margin-top: 6px;
         }
     </style>
+  <script type="module" crossorigin src="/assets/schedulediscussion-pvE6b-CE.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-CwuZNuQA.js">
+  <link rel="modulepreload" crossorigin href="/assets/config-Dd28I3sq.js">
+  <link rel="modulepreload" crossorigin href="/assets/script-CofoBtwF.js">
+  <link rel="stylesheet" crossorigin href="/assets/footer-1SxhnhUq.css">
+  <link rel="stylesheet" crossorigin href="/assets/styles-XQbmIuif.css">
 </head>
 <body>
 
@@ -450,7 +454,7 @@
     <div class="gov-top-bar">
         <div class="container-wide">
             <div class="gov-left">
-                <img src="nbf-emblem.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
+                <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
                 <span>à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°à¥€à¤¯ à¤­à¤¾à¤°à¤¤ à¤¬à¤² | NATIONAL BHARAT FORCE</span>
             </div>
             <div class="gov-right">
@@ -465,7 +469,7 @@
     <nav class="navbar new-nav">
         <div class="container-wide nav-container">
             <a href="/index.html" class="logo new-logo">
-                <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Emblem" class="navbar-emblem">
                 <span class="logo-text nbf-brand">NBF <span class="brand-accent">Connect</span></span>
             </a>
             <div class="nav-links new-nav-links">
@@ -775,7 +779,7 @@
             <div class="footer-grid">
                 <div class="footer-col brand-col">
                     <a href="#" class="footer-logo">
-                        <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                        <img src="/assets/nbf-emblem-BDnffnHX.png" alt="NBF Connect Emblem" class="navbar-emblem">
                         <span class="logo-text">NBF Connect</span>
                     </a>
                     <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."<br><br><strong>Ministry of Youth Affairs & Sports</strong></p>
@@ -863,258 +867,7 @@
         </div>
     </footer>
 
-    <script type="module" src="script.js"></script>
     
     <!-- Inline Validation & Firebase Logic -->
-    <script type="module">
-        import { db } from "./src/firebase/config.js";
-        import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('discussion-form');
-            const submitBtn = document.getElementById('submit-btn');
-            
-            // Set Date Picker constraints
-            const dateInput = document.getElementById('date');
-            const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            
-            // Skip weekend for min date
-            while(tomorrow.getDay() === 0 || tomorrow.getDay() === 6) {
-                tomorrow.setDate(tomorrow.getDate() + 1);
-            }
-            
-            const maxDate = new Date(today);
-            maxDate.setDate(maxDate.getDate() + 14);
-            
-            dateInput.min = tomorrow.toISOString().split('T')[0];
-            dateInput.max = maxDate.toISOString().split('T')[0];
-
-            // Shurveer Type Pills Logic
-            const pills = document.querySelectorAll('.pill-btn');
-            let selectedTypes = [];
-
-            pills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    const value = pill.dataset.value;
-                    
-                    if (value === 'Any / No Preference') {
-                        if (!pill.classList.contains('active')) {
-                            pills.forEach(p => p.classList.remove('active'));
-                            pill.classList.add('active');
-                            selectedTypes = [value];
-                        }
-                    } else {
-                        const anyPill = Array.from(pills).find(p => p.dataset.value === 'Any / No Preference');
-                        if (anyPill) anyPill.classList.remove('active');
-                        
-                        if (pill.classList.contains('active')) {
-                            pill.classList.remove('active');
-                            selectedTypes = selectedTypes.filter(t => t !== value && t !== 'Any / No Preference');
-                        } else {
-                            pill.classList.add('active');
-                            selectedTypes = selectedTypes.filter(t => t !== 'Any / No Preference');
-                            selectedTypes.push(value);
-                        }
-                    }
-                    validateForm();
-                });
-            });
-
-            // Brief Requirement Char Count
-            const briefInput = document.getElementById('brief');
-            const briefCount = document.getElementById('brief-count');
-            briefInput.addEventListener('input', () => {
-                const len = briefInput.value.length;
-                briefCount.textContent = `${len} / 200`;
-            });
-
-            // Radio styling sync
-            const radios = document.querySelectorAll('input[name="meetingMode"]');
-            radios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    document.querySelectorAll('.radio-block').forEach(b => b.classList.remove('selected'));
-                    if(radio.checked) {
-                        radio.closest('.radio-block').classList.add('selected');
-                    }
-                    validateForm();
-                });
-            });
-
-            // Validation Functions
-            const showError = (elementId, show) => {
-                const el = document.getElementById(elementId);
-                const errorDiv = el.parentElement.querySelector('.error-message');
-                if(show) {
-                    el.classList.add('error');
-                    if(errorDiv) errorDiv.classList.add('show');
-                } else {
-                    el.classList.remove('error');
-                    if(errorDiv) errorDiv.classList.remove('show');
-                }
-            };
-
-            const validatePhone = (val) => {
-                const clean = val.replace(/\D/g, '');
-                return (clean.length === 10 || (clean.length === 12 && clean.startsWith('91')));
-            };
-
-            const validateEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-
-            const checkFormValidity = () => {
-                let isValid = true;
-                
-                // Text/Select fields
-                const requiredFields = ['fullName', 'designation', 'orgName', 'industry', 'purpose', 'requirement', 'timeline', 'time1', 'brief'];
-                requiredFields.forEach(id => {
-                    const el = document.getElementById(id);
-                    if(!el.value.trim()) { isValid = false; }
-                });
-
-                // Email
-                const email = document.getElementById('email').value;
-                if(!validateEmail(email)) isValid = false;
-
-                // Phone
-                const phone = document.getElementById('phone').value;
-                if(!validatePhone(phone)) isValid = false;
-
-                // Date
-                const dateVal = dateInput.value;
-                if(!dateVal) {
-                    isValid = false;
-                } else {
-                    const d = new Date(dateVal);
-                    if(d.getDay() === 0 || d.getDay() === 6) isValid = false; // Weekend
-                    if(d < tomorrow || d > maxDate) isValid = false;
-                }
-
-                // Alternate Time
-                const time1 = document.getElementById('time1').value;
-                const time2 = document.getElementById('time2').value;
-                if(time2 && time1 === time2) isValid = false;
-
-                // Pills
-                if(selectedTypes.length === 0) isValid = false;
-
-                // Meeting Mode
-                const modeSelected = document.querySelector('input[name="meetingMode"]:checked');
-                if(!modeSelected) isValid = false;
-
-                // Checkboxes
-                if(!document.getElementById('confirmDetails').checked) isValid = false;
-                if(!document.getElementById('dataConsent').checked) isValid = false;
-
-                return isValid;
-            };
-
-            const validateForm = () => {
-                if(checkFormValidity()) {
-                    submitBtn.disabled = false;
-                } else {
-                    submitBtn.disabled = true;
-                }
-            };
-
-            // Add blur/change events for inline validation
-            const validateField = (e) => {
-                const el = e.target;
-                const id = el.id;
-                
-                if(['fullName', 'designation', 'orgName', 'industry', 'purpose', 'requirement', 'timeline', 'time1', 'brief'].includes(id)) {
-                    showError(id, !el.value.trim());
-                } else if(id === 'email') {
-                    showError(id, !validateEmail(el.value));
-                } else if(id === 'phone') {
-                    showError(id, !validatePhone(el.value));
-                } else if(id === 'date') {
-                    if(!el.value) {
-                        showError(id, true);
-                    } else {
-                        const d = new Date(el.value);
-                        if(d.getDay() === 0 || d.getDay() === 6 || d < tomorrow || d > maxDate) {
-                            showError(id, true);
-                        } else {
-                            showError(id, false);
-                        }
-                    }
-                } else if(id === 'time2' || id === 'time1') {
-                    const t1 = document.getElementById('time1').value;
-                    const t2 = document.getElementById('time2').value;
-                    if(t2 && t1 === t2) {
-                        showError('time2', true);
-                    } else {
-                        showError('time2', false);
-                    }
-                }
-                validateForm();
-            };
-
-            form.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea').forEach(el => {
-                el.addEventListener('blur', validateField);
-                el.addEventListener('change', validateField);
-                el.addEventListener('input', validateForm);
-            });
-            
-            document.getElementById('confirmDetails').addEventListener('change', validateForm);
-            document.getElementById('dataConsent').addEventListener('change', validateForm);
-
-            // Handle Submit
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                if(!checkFormValidity()) {
-                    // Find first error and scroll to it
-                    const firstError = form.querySelector('.error');
-                    if(firstError) {
-                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                    return;
-                }
-
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-                document.getElementById('firebase-error').style.display = 'none';
-
-                const data = {
-                    fullName: document.getElementById('fullName').value.trim(),
-                    designation: document.getElementById('designation').value.trim(),
-                    orgName: document.getElementById('orgName').value.trim(),
-                    industry: document.getElementById('industry').value,
-                    email: document.getElementById('email').value.trim(),
-                    phone: document.getElementById('phone').value.trim(),
-                    orgWebsite: document.getElementById('orgWebsite').value.trim() || null,
-                    purposeOfDiscussion: document.getElementById('purpose').value,
-                    approximateRequirement: document.getElementById('requirement').value,
-                    timeline: document.getElementById('timeline').value,
-                    shurveertypes: selectedTypes,
-                    briefRequirement: document.getElementById('brief').value.trim(),
-                    preferredDate: document.getElementById('date').value,
-                    preferredTimeSlot: document.getElementById('time1').value,
-                    alternateTimeSlot: document.getElementById('time2').value || null,
-                    meetingMode: document.querySelector('input[name="meetingMode"]:checked').value,
-                    hearAboutUs: document.getElementById('source').value || null,
-                    confirmedDetails: document.getElementById('confirmDetails').checked,
-                    dataConsent: document.getElementById('dataConsent').checked,
-                    status: "pending",
-                    submittedAt: serverTimestamp()
-                };
-
-                try {
-                    await addDoc(collection(db, "discussions"), data);
-                    
-                    document.getElementById('discussion-form-panel').style.display = 'none';
-                    document.getElementById('success-card').style.display = 'block';
-                    
-                } catch (error) {
-                    console.error("Error writing document: ", error);
-                    document.getElementById('firebase-error').style.display = 'block';
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Request Discussion <i class="fas fa-arrow-right"></i>';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
