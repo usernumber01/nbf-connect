@@ -70,7 +70,100 @@ document.addEventListener("DOMContentLoaded", () => {
                 recordFailedAttempt();
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-arrow-right-to-bracket"></i> <span>Login</span>';
-                showError(getErrorMessage(err.code || err.message));
+                
+                if (err.message === "EMAIL_NOT_VERIFIED") {
+                    errorEl.style.display = "block";
+                    errorEl.style.color = "#ef4444";
+                    errorEl.style.borderColor = "#ef4444";
+                    errorEl.style.background = "rgba(239, 68, 68, 0.1)";
+                    errorEl.innerHTML = `
+                        <div style="text-align: left; margin-bottom: 8px;">
+                            Your email address has not been verified.<br>
+                            Please verify your email before logging in.
+                        </div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
+                            <button id="resend-verification-btn" type="button" style="padding: 6px 12px; background: #FF9933; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">
+                                Resend Verification Email
+                            </button>
+                            <button id="refresh-verification-btn" type="button" style="padding: 6px 12px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">
+                                Refresh Status
+                            </button>
+                        </div>
+                        <div id="resend-msg" style="margin-top: 8px; font-size: 0.85rem;"></div>
+                    `;
+
+                    setTimeout(() => {
+                        const resendBtn = document.getElementById("resend-verification-btn");
+                        const refreshBtn = document.getElementById("refresh-verification-btn");
+                        const resendMsg = document.getElementById("resend-msg");
+                        
+                        if (resendBtn) {
+                            resendBtn.addEventListener("click", async () => {
+                                try {
+                                    resendBtn.disabled = true;
+                                    resendBtn.textContent = 'Sending...';
+                                    const { resendVerificationEmail } = await import("./firebase/auth.js");
+                                    const { auth } = await import("./firebase/config.js");
+                                    
+                                    if (auth.currentUser) {
+                                        await resendVerificationEmail(auth.currentUser);
+                                        resendMsg.textContent = "Verification email sent successfully!";
+                                        resendMsg.style.color = "#10b981";
+                                    } else {
+                                        resendMsg.textContent = "Session lost. Please try logging in again.";
+                                        resendMsg.style.color = "#ef4444";
+                                    }
+
+                                    let timeLeft = 60;
+                                    const countdown = setInterval(() => {
+                                        timeLeft--;
+                                        resendBtn.textContent = `Wait ${timeLeft}s`;
+                                        if (timeLeft <= 0) {
+                                            clearInterval(countdown);
+                                            resendBtn.disabled = false;
+                                            resendBtn.textContent = 'Resend Verification Email';
+                                            resendMsg.textContent = "";
+                                        }
+                                    }, 1000);
+                                } catch (error) {
+                                    resendBtn.disabled = false;
+                                    resendBtn.textContent = 'Resend Verification Email';
+                                    resendMsg.textContent = "Failed to send email. Try again later.";
+                                    resendMsg.style.color = "#ef4444";
+                                }
+                            });
+                        }
+
+                        if (refreshBtn) {
+                            refreshBtn.addEventListener("click", async () => {
+                                try {
+                                    refreshBtn.disabled = true;
+                                    refreshBtn.textContent = 'Refreshing...';
+                                    const { auth } = await import("./firebase/config.js");
+                                    if (auth.currentUser) {
+                                        await auth.currentUser.reload();
+                                        if (auth.currentUser.emailVerified) {
+                                            window.location.href = "shurveerdashboard.html";
+                                        } else {
+                                            refreshBtn.disabled = false;
+                                            refreshBtn.textContent = 'Refresh Status';
+                                            resendMsg.textContent = "Email is still not verified.";
+                                            resendMsg.style.color = "#ef4444";
+                                        }
+                                    } else {
+                                        refreshBtn.disabled = false;
+                                        refreshBtn.textContent = 'Refresh Status';
+                                    }
+                                } catch (e) {
+                                    refreshBtn.disabled = false;
+                                    refreshBtn.textContent = 'Refresh Status';
+                                }
+                            });
+                        }
+                    }, 0);
+                } else {
+                    showError(getErrorMessage(err.code || err.message));
+                }
             }
         });
     }

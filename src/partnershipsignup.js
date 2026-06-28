@@ -1,4 +1,4 @@
-import { db, storage } from "./firebase/config.js";
+import { auth, db, storage } from "./firebase/config.js";
 import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -84,6 +84,13 @@ document.getElementById("partner-form").addEventListener("change", (e) => {
 
 document.getElementById("partner-form").addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const captchaResponse = hcaptcha.getResponse();
+    if (!captchaResponse) {
+        document.getElementById('captcha-error').style.display = 'block';
+        return;
+    }
+    document.getElementById('captcha-error').style.display = 'none';
     clearFieldErrors();
     
     let hasError = false;
@@ -156,7 +163,9 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
         showGlobalError();
         if (firstErrorEl) {
             firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstErrorEl.focus({ preventScroll: true });
         }
+        if (window.hcaptcha) hcaptcha.reset();
         return; // STOP execution, don't submit to Firebase
     }
 
@@ -166,12 +175,6 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
         return;
     }
 
-    const captchaResponse = hcaptcha.getResponse();
-    if (!captchaResponse) {
-        alert('Please complete the security check (CAPTCHA) before registering.');
-        document.querySelector('.h-captcha').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-    }
 
     const submitBtn = document.getElementById("btn-submit");
     submitBtn.disabled = true;
@@ -201,6 +204,12 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
             source: "partnershipsignup.html",
             submittedAt: serverTimestamp()
         };
+
+        if (auth.currentUser) {
+            partnerData.uid = auth.currentUser.uid;
+            // email is already captured from the form, but if you wanted the authenticated one:
+            partnerData.authEmail = auth.currentUser.email;
+        }
 
         // Save to Firestore
         await setDoc(docRef, partnerData);

@@ -12,10 +12,16 @@
     <meta property="og:description" content="India's first platform connecting NCC, NSS, Scouts, NYKS and Civil Defence youth with real opportunities.">
     <meta property="og:site_name" content="NBF Connect — National Bharat Force Connect">
     <link rel="canonical" href="https://nbfconnect.in"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="dns-prefetch" href="https://firebaseio.com">
+    <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com">
+    <link rel="preload" as="image" href="hero-shurveer.webp" type="image/webp" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="shurveers.css">
@@ -244,7 +250,7 @@
     <div class="gov-top-bar">
         <div class="container-wide">
             <div class="gov-left">
-                <img src="nbf-emblem.png" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
+                <img src="nbf-emblem.webp" alt="NBF Connect Logo" style="height:14px; vertical-align:middle; margin-right:6px;">
                 <span>राष्ट्रीय भारत बल | NATIONAL BHARAT FORCE</span>
             </div>
             <div class="gov-right">
@@ -259,7 +265,10 @@
     <nav class="navbar new-nav">
         <div class="container-wide nav-container">
             <a href="#" class="logo new-logo" title="NBF Connect — National Bharat Force Connect | India's Disciplined Youth Platform">
-                <img src="/nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                <picture>
+                    <source srcset="nbf-emblem.webp" type="image/webp">
+                    <img src="nbf-emblem.png" alt="NBF Connect Logo" class="navbar-emblem" width="56" height="56" loading="eager">
+                </picture>
                 <span class="logo-text nbf-brand">NBF <span class="brand-accent">Connect</span></span>
             </a>
             <div class="nav-links new-nav-links">
@@ -323,7 +332,10 @@
                     </div>
                 </div>
                 <div class="hero-image-container">
-                    <img src="hero-shurveer.jpg" alt="Disciplined Youth - Shurveers" class="hero-img">
+                    <picture>
+                        <source srcset="hero-shurveer.webp" type="image/webp">
+                        <img src="hero-shurveer.jpg" alt="NBF Connect Shurveers at India Gate" class="hero-img" width="720" height="480" loading="eager" fetchpriority="high" decoding="async">
+                    </picture>
                     <div class="image-overlay-glow"></div>
                 </div>
             </div>
@@ -378,7 +390,8 @@
             <span><i class="fas fa-lock" style="color: #4CAF50;"></i> Secure Platform</span>
             <span><i class="fas fa-check-circle" style="color: #2196F3;"></i> Trusted Organizations</span>
             <span><i class="fas fa-clipboard-check" style="color: #FF9800;"></i> Compliance & Transparent</span>
-            <span><img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag" style="height: 12px; margin-right:4px;"> Made in India</span>
+            <span><i class="fas fa-certificate" style="color: #FFD700;"></i> MSME Registered</span>
+            <span><img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag" style="height: 12px; margin-right:4px;" width="18" height="12" loading="lazy"> Made in India</span>
         </div>
     </div>
 
@@ -596,7 +609,10 @@
                 <!-- COLUMN 1 — BRAND SECTION -->
                 <div class="footer-col brand-col">
                     <a href="#" class="footer-logo">
-                        <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                        <picture>
+                            <source srcset="nbf-emblem.webp" type="image/webp">
+                            <img src="nbf-emblem.png" alt="NBF Connect Logo" class="navbar-emblem" width="56" height="56" loading="lazy">
+                        </picture>
                         <span class="logo-text">NBF Connect</span>
                     </a>
                     <p class="brand-desc">NBF Connect — National Bharat Force Connect<br>India's first platform connecting disciplined youth<br>with real opportunities.</p>
@@ -687,14 +703,17 @@
                     <p>© 2026 NBF Connect (National Bharat Force Connect) | All Rights Reserved. | Made in India</p>
                 </div>
                 <div class="bottom-center">
-                    <p style="font-size: 11px; color: #a0a0a0;">This site is best viewed in Chrome or Firefox. For support: nbfconnecthyd@gmail.com</p>
                 </div>
-                <div class="bottom-right"></div>
+                <div class="bottom-right" style="text-align: right;">
+                    <p style="font-size: 11px; color: #a0a0a0; margin-bottom: 6px;">This site is best viewed in Chrome or Firefox. For support: nbfconnecthyd@gmail.com</p>
+                    <p style="font-size: 11px; color: #a0a0a0; font-weight: 500; margin-bottom: 2px;"><i class="fas fa-certificate" style="color: #a0a0a0; margin-right: 4px;"></i>Registered MSME | Govt. of India</p>
+                    <p style="font-size: 11px; color: #a0a0a0; font-family: monospace;">UDYAM-TS-09-0253032</p>
+                </div>
                 </div>
             <div style="font-size: 11px; color: rgba(160, 160, 160, 0.6); text-align: center; max-width: 700px; margin: 16px auto 0 auto;">NBF Connect is an independent youth empowerment platform operated by National Bharat Force Connect. Not affiliated with or endorsed by any government ministry, bank, or financial institution.</div>
         </div>
     </footer>
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
 </body>
 </html>

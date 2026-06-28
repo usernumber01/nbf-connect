@@ -17,8 +17,13 @@ export async function registerWithEmail(email, password, profileData) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Send verification email immediately
-    await sendEmailVerification(user);
+    try {
+        await sendEmailVerification(user);
+        console.log("Verification email sent to:", user.email, "UID:", user.uid);
+    } catch (error) {
+        console.error("Error sending verification email:", error.code, error.message);
+        // Do not throw; we still want to save the user profile to Firestore
+    }
 
     // Save profile to Firestore
     await createUserProfile(user.uid, {
@@ -44,7 +49,6 @@ export async function loginWithEmail(email, password) {
     const user = userCredential.user;
 
     if (!user.emailVerified) {
-        await signOut(auth);
         throw new Error("EMAIL_NOT_VERIFIED");
     }
 
@@ -137,4 +141,11 @@ export async function logout() {
 // Call this once in your app root to track login state globally
 export function onAuthChange(callback) {
     return onAuthStateChanged(auth, callback);
+}
+
+// ─── RESEND VERIFICATION EMAIL ───────────────────────────────────────────────
+export async function resendVerificationEmail(user) {
+    if (!user) throw new Error("No user provided");
+    await sendEmailVerification(user);
+    console.log("Verification email resent to:", user.email);
 }

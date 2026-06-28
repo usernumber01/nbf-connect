@@ -83,7 +83,7 @@
             <img src="register-hero.png" alt="Disciplined Youth" class="hero-bg-img">
             <div class="hero-content">
                 <a href="/index.html" class="hero-logo">
-                    <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                    <img src="nbf-emblem.webp" alt="NBF Connect Emblem" class="navbar-emblem">
                     <span class="logo-text">NBF Connect</span>
                 </a>
                 <h1 class="hero-heading">Your Discipline<br>Is Your <span class="gold-text">Superpower</span></h1>
@@ -117,10 +117,18 @@
                     <div style="font-size: 4rem; color: #22c55e; margin-bottom: 1.5rem;">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <h2 style="color: #22c55e; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Registration Successfully Completed</h2>
-                    <p style="color: #555555; font-size: 1.1rem;">Please wait while we redirect you to the login page...</p>
+                    <h2 style="color: #22c55e; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Registration successful.</h2>
+                    <p style="color: #555555; font-size: 1.1rem; margin-bottom: 0.5rem;">A verification email has been sent to your registered email address.</p>
+                    <p style="color: #555555; font-size: 1.1rem; margin-bottom: 0.5rem;">Please verify your email before logging in.</p>
+                    <p style="color: #777777; font-size: 0.95rem; font-style: italic; margin-bottom: 2rem;">If you don't see the email, check your Spam or Promotions folder.</p>
+                    
+                    <button id="resend-verification-btn" class="btn-primary" style="margin-bottom: 1rem;">
+                        <i class="fas fa-envelope"></i> Resend Verification Email
+                    </button>
+                    <div id="resend-msg" style="font-size: 0.9rem; margin-top: 0.5rem;"></div>
+
                     <div style="margin-top: 2rem;">
-                        <i class="fas fa-spinner fa-spin" style="color: #FF9933; font-size: 2rem;"></i>
+                        <a href="login.html" style="color: #FF9933; text-decoration: underline; font-weight: 500;">Proceed to Login</a>
                     </div>
                 </div>
 
@@ -386,15 +394,11 @@
 
                     <!-- CAPTCHA -->
                     <div class="captcha-wrapper" style="margin-bottom: 16px; display: flex; flex-direction: column; align-items: center;">
-                        <!-- 
-                          TODO: Replace YOUR_HCAPTCHA_SITE_KEY with your actual key.
-                          Get your free site key at: https://dashboard.hcaptcha.com
-                          Sign up free → Add Site → Copy Site Key → paste here.
-                          Also add your Secret Key to Firebase Functions or 
-                          your backend for server-side verification.
-                        -->
-                        <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY" data-theme="dark" data-size="normal"></div>
-                        <p style="font-size: 12px; color: #64748B; margin-top: 6px;">Complete the security check to register.</p>
+                        <!-- hCaptcha Widget -->
+                        <div class="h-captcha" data-sitekey="00809a90-2cd2-4e52-b064-b87ed61c6f9e" data-theme="light"></div>
+                        <div id="captcha-error" style="color:#e05a1e; font-size:12px; margin-top:4px; display:none">
+                          Please complete the CAPTCHA to continue.
+                        </div>
                     </div>
 
                     <!-- Submit -->
@@ -406,7 +410,7 @@
                     <p style="color: #64748B; font-size: 12px; text-align: center; margin-top: 12px;">For security, login is temporarily locked after 5 failed attempts.</p>
 
                     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
-                      <span style="font-size: 18px;">ðŸ”’</span>
+                      <span style="font-size: 18px;">🔒</span>
                       <span style="font-size: 12px; color: #64748B; text-align: center;">Your data is protected. NBF Connect uses encrypted, secure registration.</span>
                     </div>
 
@@ -441,10 +445,10 @@
                 <!-- COLUMN 1 — BRAND SECTION -->
                 <div class="footer-col brand-col">
                     <a href="#" class="footer-logo">
-                        <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                        <img src="nbf-emblem.webp" alt="NBF Connect Emblem" class="navbar-emblem">
                         <span class="logo-text">NBF Connect</span>
                     </a>
-                    <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."<br><br><strong>Ministry of Youth Affairs & Sports</strong></p>
+                    <p class="brand-desc">NBF Connect — National Bharat Force Connect<br>India's first platform connecting disciplined youth<br>with real opportunities.</p>
                     <div class="social-icons">
                         <a href="https://www.youtube.com/@NationalBharatForce" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -482,9 +486,9 @@
                 <div class="footer-col">
                     <h4 class="footer-heading">Govt Policies</h4>
                     <ul class="footer-links">
-                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
-                        <li><a href="/grievance.html">Grievance Redressal</a></li>
+                        <li><a href="#footer">Privacy Policy (Coming Soon)</a></li>
+                        <li><a href="#footer">Terms & Conditions (Coming Soon)</a></li>
+                        <li><a href="#footer">Grievance Redressal (Coming Soon)</a></li>
                         <li><a href="#">RTI Directory</a></li>
                     </ul>
                 </div>
@@ -526,17 +530,20 @@
                 </div>
             </div>
 
+            <div style="font-size: 12px; color: #a0a0a0; text-align: center; max-width: 600px; margin: 0 auto 12px auto;">NBF = National Bharat Force — India's disciplined youth force comprising NCC, NSS, Scouts & Guides, NYKS and Civil Defence members.</div>
             <div class="footer-bottom">
                 <div class="bottom-left">
-                    <p>© 2026 NBF Connect | All Rights Reserved.</p>
+                    <p>© 2026 NBF Connect (National Bharat Force Connect) | All Rights Reserved. | Made in India</p>
                 </div>
                 <div class="bottom-center">
-                    <p style="font-size: 11px; color: #a0a0a0;">This site is best viewed in Chrome, Firefox at 1024x768 resolution.</p>
                 </div>
-                <div class="bottom-right">
-                    <p>Made in India</p>
+                <div class="bottom-right" style="text-align: right;">
+                    <p style="font-size: 11px; color: #a0a0a0; margin-bottom: 6px;">This site is best viewed in Chrome or Firefox. For support: nbfconnecthyd@gmail.com</p>
+                    <p style="font-size: 11px; color: #a0a0a0; font-weight: 500; margin-bottom: 2px;"><i class="fas fa-certificate" style="color: #a0a0a0; margin-right: 4px;"></i>Registered MSME | Govt. of India</p>
+                    <p style="font-size: 11px; color: #a0a0a0; font-family: monospace;">UDYAM-TS-09-0253032</p>
                 </div>
-            </div>
+                </div>
+            <div style="font-size: 11px; color: rgba(160, 160, 160, 0.6); text-align: center; max-width: 700px; margin: 16px auto 0 auto;">NBF Connect is an independent youth empowerment platform operated by National Bharat Force Connect. Not affiliated with or endorsed by any government ministry, bank, or financial institution.</div>
         </div>
     </footer>
 
@@ -600,7 +607,7 @@
                 el.style.color = 'rgba(255,255,255,0.4)';
                 const icon = el.querySelector('.check-icon');
                 if (icon) {
-                  icon.textContent = 'â—';
+                  icon.textContent = '•';
                   icon.style.color = 'rgba(255,255,255,0.4)';
                 }
               }

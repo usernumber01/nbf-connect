@@ -142,6 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
             data.status = "pending_review";
             data.postedAt = new Date().toISOString();
             data.postedBy = "partner";
+
+            if (auth.currentUser) {
+                data.uid = auth.currentUser.uid;
+                data.email = auth.currentUser.email;
+            }
             
             await addDoc(collection(db, "partners"), data);
             

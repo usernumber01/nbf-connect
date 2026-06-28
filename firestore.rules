@@ -12,23 +12,37 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    // Shurveers — authenticated user can only read/write their own doc
-    match /shurveers/{userId} {
+    // Users — authenticated user can only read/write their own doc
+    match /users/{userId} {
       allow read, update, delete: if request.auth != null 
         && request.auth.uid == userId;
       allow create: if request.auth != null;
     }
 
-    // Partner signups — authenticated user reads only their own doc
+    // Partner signups — allow unauthenticated creation, strict read/update
     match /partnerSignups/{docId} {
-      allow create: if request.auth != null;
+      allow create: if true;
       allow read, update, delete: if request.auth != null 
         && request.auth.uid == resource.data.uid;
     }
 
-    // Discussions (schedule-discussion.html submissions)
+    // Partners — allow unauthenticated creation, strict read/update
+    match /partners/{docId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null 
+        && request.auth.uid == resource.data.uid;
+    }
+
+    // Discussions (schedule-discussion.html submissions) — strictly enforce creation by authenticated owner
     match /discussions/{docId} {
-      allow create: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow read, update, delete: if request.auth != null 
+        && request.auth.uid == resource.data.uid;
+    }
+
+    // Applications — strictly enforce creation by authenticated owner
+    match /applications/{docId} {
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
       allow read, update, delete: if request.auth != null 
         && request.auth.uid == resource.data.uid;
     }

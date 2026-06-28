@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,6 +14,18 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+// App Check — prevents unauthorized API access
+// Only initialize in production to allow seamless local development testing
+let appCheck = null;
+if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+  appCheck = initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider(
+      import.meta.env.VITE_RECAPTCHA_SITE_KEY
+    ),
+    isTokenAutoRefreshEnabled: true
+  });
+}
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #f5f5f0; color: #222; }
@@ -188,6 +189,11 @@
         <textarea id="g-resolution" placeholder="What outcome are you expecting from this complaint?" style="min-height:80px"></textarea>
       </div>
 
+      <div class="h-captcha" data-sitekey="00809a90-2cd2-4e52-b064-b87ed61c6f9e" data-theme="light"></div>
+      <div id="captcha-error" style="color:#e05a1e; font-size:12px; margin-top:4px; margin-bottom:12px; display:none;">
+        Please complete the CAPTCHA to continue.
+      </div>
+
       <button class="btn-submit" onclick="submitGrievance()">
         Submit Complaint
       </button>
@@ -208,10 +214,10 @@
                 <!-- COLUMN 1 — BRAND SECTION -->
                 <div class="footer-col brand-col">
                     <a href="#" class="footer-logo">
-                        <img src="nbf-emblem.png" alt="NBF Connect Emblem" class="navbar-emblem">
+                        <img src="nbf-emblem.webp" alt="NBF Connect Emblem" class="navbar-emblem">
                         <span class="logo-text">NBF Connect</span>
                     </a>
-                    <p class="brand-desc">"Connecting disciplined youth with real opportunities and building a stronger, self-reliant Bharat."<br><br><strong>Ministry of Youth Affairs & Sports</strong></p>
+                    <p class="brand-desc">NBF Connect — National Bharat Force Connect<br>India's first platform connecting disciplined youth<br>with real opportunities.</p>
                     <div class="social-icons">
                         <a href="https://www.youtube.com/@NationalBharatForce" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.instagram.com/nbf.connect/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -249,9 +255,9 @@
                 <div class="footer-col">
                     <h4 class="footer-heading">Govt Policies</h4>
                     <ul class="footer-links">
-                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
-                        <li><a href="/grievance.html">Grievance Redressal</a></li>
+                        <li><a href="#footer">Privacy Policy (Coming Soon)</a></li>
+                        <li><a href="#footer">Terms & Conditions (Coming Soon)</a></li>
+                        <li><a href="#footer">Grievance Redressal (Coming Soon)</a></li>
                         <li><a href="#">RTI Directory</a></li>
                     </ul>
                 </div>
@@ -293,17 +299,20 @@
                 </div>
             </div>
 
+            <div style="font-size: 12px; color: #a0a0a0; text-align: center; max-width: 600px; margin: 0 auto 12px auto;">NBF = National Bharat Force — India's disciplined youth force comprising NCC, NSS, Scouts & Guides, NYKS and Civil Defence members.</div>
             <div class="footer-bottom">
                 <div class="bottom-left">
-                    <p>© 2026 NBF Connect | All Rights Reserved.</p>
+                    <p>© 2026 NBF Connect (National Bharat Force Connect) | All Rights Reserved. | Made in India</p>
                 </div>
                 <div class="bottom-center">
-                    <p style="font-size: 11px; color: #a0a0a0;">This site is best viewed in Chrome, Firefox at 1024x768 resolution.</p>
                 </div>
-                <div class="bottom-right">
-                    <p>Made in India</p>
+                <div class="bottom-right" style="text-align: right;">
+                    <p style="font-size: 11px; color: #a0a0a0; margin-bottom: 6px;">This site is best viewed in Chrome or Firefox. For support: nbfconnecthyd@gmail.com</p>
+                    <p style="font-size: 11px; color: #a0a0a0; font-weight: 500; margin-bottom: 2px;"><i class="fas fa-certificate" style="color: #a0a0a0; margin-right: 4px;"></i>Registered MSME | Govt. of India</p>
+                    <p style="font-size: 11px; color: #a0a0a0; font-family: monospace;">UDYAM-TS-09-0253032</p>
                 </div>
-            </div>
+                </div>
+            <div style="font-size: 11px; color: rgba(160, 160, 160, 0.6); text-align: center; max-width: 700px; margin: 16px auto 0 auto;">NBF Connect is an independent youth empowerment platform operated by National Bharat Force Connect. Not affiliated with or endorsed by any government ministry, bank, or financial institution.</div>
         </div>
     </footer>
 
@@ -317,8 +326,16 @@
 
       if (!name || !email || !mobile || !type || !description) {
         alert('Please fill all required fields before submitting.');
+        if (window.hcaptcha) hcaptcha.reset();
         return;
       }
+
+      const captchaResponse = hcaptcha.getResponse();
+      if (!captchaResponse) {
+        document.getElementById('captcha-error').style.display = 'block';
+        return;
+      }
+      document.getElementById('captcha-error').style.display = 'none';
 
       // Generate reference ID
       const refId = 'NBF-GRV-' + Date.now().toString().slice(-6);

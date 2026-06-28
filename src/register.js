@@ -153,16 +153,147 @@ emailInput.addEventListener("blur", async () => {
 document.getElementById("register-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const captchaResponse = hcaptcha.getResponse();
+    if (!captchaResponse) {
+        document.getElementById('captcha-error').style.display = 'block';
+        return;
+    }
+    document.getElementById('captcha-error').style.display = 'none';
+
+    // Form Validation for required fields
+    let hasEmptyRequiredFields = false;
+    const requiredFields = ['fullName', 'mobile', 'email', 'password', 'confirmPassword', 'dob', 'gender', 'state', 'district', 'orgType', 'availability', 'resume', 'photo'];
+    
+    // Clear old inline errors
+    document.querySelectorAll('.empty-field-error').forEach(el => el.remove());
+    document.querySelectorAll('.input-wrapper').forEach(el => el.style.border = '');
+    document.querySelectorAll('.file-upload').forEach(el => el.style.border = '');
+
+    requiredFields.forEach(fieldId => {
+        const el = document.getElementById(fieldId);
+        if (el && (!el.value || !el.value.trim())) {
+            hasEmptyRequiredFields = true;
+            if (el.parentElement.classList.contains('input-wrapper') || el.parentElement.classList.contains('file-upload')) {
+                el.parentElement.style.border = '1px solid #ef4444';
+                
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'empty-field-error';
+                errorMsg.style.color = '#ef4444';
+                errorMsg.style.fontSize = '0.85rem';
+                errorMsg.style.marginTop = '4px';
+                errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error';
+                
+                el.parentElement.insertAdjacentElement('afterend', errorMsg);
+            }
+        }
+    });
+
+    const skillsChecked = document.querySelectorAll('input[name="skills"]:checked');
+    if (skillsChecked.length === 0) {
+        hasEmptyRequiredFields = true;
+        const skillsContainer = document.querySelector('.skills-grid');
+        if (skillsContainer) {
+            skillsContainer.style.border = '1px solid #ef4444';
+            skillsContainer.style.borderRadius = '8px';
+            skillsContainer.style.padding = '8px';
+            
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'empty-field-error';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.fontSize = '0.85rem';
+            errorMsg.style.marginTop = '4px';
+            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error';
+            skillsContainer.insertAdjacentElement('afterend', errorMsg);
+        }
+    } else {
+        const skillsContainer = document.querySelector('.skills-grid');
+        if (skillsContainer) {
+            skillsContainer.style.border = 'none';
+            skillsContainer.style.padding = '0';
+        }
+    }
+
+    if (hasEmptyRequiredFields) {
+        showError("Please fill out all required fields marked in red.");
+        return;
+    }
+
     const declarationCheckbox = document.getElementById('declaration');
     const declarationWrapper = document.querySelector('.declaration-wrapper');
     const declarationError = document.getElementById('declaration-error');
 
-    if (!isPasswordStrong || !isConfirmMatch || !isPhoneValid || !isEmailAvailable || !declarationCheckbox.checked) {
-        showError("Please fix the errors above before continuing.");
-        if (!declarationCheckbox.checked) {
-            declarationWrapper.style.borderColor = '#ff4444';
-            declarationError.style.display = 'block';
+    let hasInvalidFields = false;
+
+    // Check specific validation flags
+    if (!isPasswordStrong) {
+        hasInvalidFields = true;
+        const el = document.getElementById('password');
+        if (el && el.parentElement) {
+            el.parentElement.style.border = '1px solid #ef4444';
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'empty-field-error';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.fontSize = '0.85rem';
+            errorMsg.style.marginTop = '4px';
+            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error (password not strong enough)';
+            el.parentElement.insertAdjacentElement('afterend', errorMsg);
         }
+    }
+
+    if (!isConfirmMatch) {
+        hasInvalidFields = true;
+        const el = document.getElementById('confirmPassword');
+        if (el && el.parentElement) {
+            el.parentElement.style.border = '1px solid #ef4444';
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'empty-field-error';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.fontSize = '0.85rem';
+            errorMsg.style.marginTop = '4px';
+            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error (passwords do not match)';
+            el.parentElement.insertAdjacentElement('afterend', errorMsg);
+        }
+    }
+
+    if (!isPhoneValid) {
+        hasInvalidFields = true;
+        const el = document.getElementById('mobile');
+        if (el && el.parentElement) {
+            el.parentElement.style.border = '1px solid #ef4444';
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'empty-field-error';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.fontSize = '0.85rem';
+            errorMsg.style.marginTop = '4px';
+            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error (invalid phone)';
+            el.parentElement.insertAdjacentElement('afterend', errorMsg);
+        }
+    }
+
+    if (!isEmailAvailable) {
+        hasInvalidFields = true;
+        const el = document.getElementById('email');
+        if (el && el.parentElement) {
+            el.parentElement.style.border = '1px solid #ef4444';
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'empty-field-error';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.fontSize = '0.85rem';
+            errorMsg.style.marginTop = '4px';
+            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error (email invalid/used)';
+            el.parentElement.insertAdjacentElement('afterend', errorMsg);
+        }
+    }
+
+    if (!declarationCheckbox.checked) {
+        hasInvalidFields = true;
+        declarationWrapper.style.borderColor = '#ff4444';
+        declarationError.style.display = 'block';
+    }
+
+    if (hasEmptyRequiredFields || hasInvalidFields) {
+        showError("Please fill out all required fields marked in red.");
+        if (window.hcaptcha) hcaptcha.reset();
         return;
     }
 
@@ -172,12 +303,6 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         return;
     }
 
-    const captchaResponse = hcaptcha.getResponse();
-    if (!captchaResponse) {
-        showError('Please complete the security check (CAPTCHA) before registering.');
-        document.querySelector('.h-captcha').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-    }
 
     const submitBtn = document.getElementById("btn-submit");
     submitBtn.disabled = true;
@@ -246,9 +371,49 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
 
         clearRateLimit();
 
-        setTimeout(() => {
-            window.location.href = "login.html";
-        }, 10000);
+        // Setup Resend Verification logic
+        const resendBtn = document.getElementById("resend-verification-btn");
+        const resendMsg = document.getElementById("resend-msg");
+        if (resendBtn) {
+            resendBtn.addEventListener("click", async () => {
+                try {
+                    resendBtn.disabled = true;
+                    resendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    
+                    const { resendVerificationEmail } = await import("./firebase/auth.js");
+                    // auth.currentUser is set automatically upon registration
+                    const { auth } = await import("./firebase/config.js");
+                    
+                    if (auth.currentUser) {
+                        await resendVerificationEmail(auth.currentUser);
+                        resendMsg.textContent = "Verification email sent successfully!";
+                        resendMsg.style.color = "#22c55e";
+                    } else {
+                        resendMsg.textContent = "Error: User session not found.";
+                        resendMsg.style.color = "#ef4444";
+                    }
+
+                    // 60-second cooldown
+                    let timeLeft = 60;
+                    const countdown = setInterval(() => {
+                        timeLeft--;
+                        resendBtn.innerHTML = `Wait ${timeLeft}s`;
+                        if (timeLeft <= 0) {
+                            clearInterval(countdown);
+                            resendBtn.disabled = false;
+                            resendBtn.innerHTML = '<i class="fas fa-envelope"></i> Resend Verification Email';
+                            resendMsg.textContent = "";
+                        }
+                    }, 1000);
+                } catch (err) {
+                    resendBtn.disabled = false;
+                    resendBtn.innerHTML = '<i class="fas fa-envelope"></i> Resend Verification Email';
+                    resendMsg.textContent = "Failed to send email. Please try again later.";
+                    resendMsg.style.color = "#ef4444";
+                    console.error("Resend error:", err);
+                }
+            });
+        }
 
     } catch (err) {
         recordFailedAttempt();
@@ -279,7 +444,7 @@ function getErrorMessage(code) {
         "EMAIL_NOT_VERIFIED": "Please verify your email before logging in. Check your inbox.",
         "COMMITMENT_REQUIRED": "You must accept the discipline and integrity declaration to register.",
     };
-    return messages[code] || "Something went wrong. Please try again.";
+    return messages[code] || `Something went wrong. Please try again. (Debug: ${code})`;
 }
 
 function showError(message) {
