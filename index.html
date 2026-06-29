@@ -12,17 +12,10 @@
     <meta property="og:description" content="India's first platform connecting NCC, NSS, Scouts, NYKS and Civil Defence youth with real opportunities.">
     <meta property="og:site_name" content="NBF Connect — National Bharat Force Connect">
     <link rel="canonical" href="https://nbfconnect.in"/>
-    <link rel="preload" as="image" href="hero-shurveer.webp" type="image/webp" fetchpriority="high">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.gstatic.com">
-    <link rel="dns-prefetch" href="https://firebaseio.com">
-    <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    </noscript>
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"></noscript>
     <link rel="stylesheet" href="styles.css">
@@ -128,10 +121,11 @@
         }
         .btn-hero-orange {
             background: var(--gov-saffron) !important;
-            color: #fff !important;
+            color: #000 !important;
             border: none !important;
+            font-weight: 800 !important;
         }
-        .btn-hero-orange:hover { background: #e68a2e !important; }
+        .btn-hero-orange:hover { background: #e68a2e !important; color: #000 !important; }
         
         .btn-hero-outline {
             background: transparent !important;
@@ -269,7 +263,7 @@
         <div class="container-wide nav-container">
             <a href="#" class="logo new-logo" title="NBF Connect — National Bharat Force Connect | India's Disciplined Youth Platform">
                 <picture>
-                    <source srcset="nbf-emblem-120.webp" type="image/webp">
+                    <source srcset="nbf-emblem.webp" type="image/webp">
                     <img src="nbf-emblem.png" alt="NBF Connect Logo" class="navbar-emblem" width="56" height="56" loading="eager">
                 </picture>
                 <span class="logo-text nbf-brand">NBF <span class="brand-accent">Connect</span></span>
@@ -336,12 +330,7 @@
                     </div>
                 </div>
                 <div class="hero-image-container">
-                    <picture>
-                        <source media="(max-width: 480px)" srcset="hero-shurveer-480.webp" type="image/webp">
-                        <source media="(max-width: 768px)" srcset="hero-shurveer-768.webp" type="image/webp">
-                        <source srcset="hero-shurveer.webp" type="image/webp">
-                        <img src="hero-shurveer.jpg" alt="NBF Connect Shurveers at India Gate" width="465" height="277" loading="eager" fetchpriority="high" decoding="async" class="hero-img">
-                    </picture>
+                    <img src="hero-shurveer.jpg" alt="Disciplined Youth - Shurveers" class="hero-img" width="720" height="480" loading="eager" fetchpriority="high" decoding="async">
                     <div class="image-overlay-glow"></div>
                 </div>
             </div>
@@ -606,6 +595,7 @@
     </section>
 
     <!-- Old Impact Section removed -->
+
     </main>
 
     <!-- Premium Footer Section -->
