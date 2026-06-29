@@ -2,8 +2,10 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
+  publicDir: "public",
   assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif', '**/*.svg', '**/*.webp', '**/*.woff', '**/*.woff2'],
   build: {
+    outDir: "dist",
     assetsInlineLimit: 0,
     rollupOptions: {
       input: {
