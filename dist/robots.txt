@@ -1,13 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block admin and private paths
-Disallow: /admin/
-Disallow: /firebase-config.js
-Disallow: /.env
-
-# Sitemap location
 Sitemap: https://nbfconnect.in/sitemap.xml
-
-# Crawl delay for respectful indexing
-Crawl-delay: 10
