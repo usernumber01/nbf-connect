@@ -214,6 +214,25 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
         // Save to Firestore
         await setDoc(docRef, partnerData);
 
+        try {
+            await fetch('/.netlify/functions/send-partner-alert', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    companyName: partnerData.companyName,
+                    contactPerson: partnerData.contactPerson,
+                    email: partnerData.email,
+                    phone: partnerData.phone,
+                    requirementType: partnerData.requirementType,
+                    numberOfShurveers: partnerData.numberOfShurveers,
+                    locationAndDates: partnerData.locationAndDates,
+                    description: partnerData.description
+                })
+            });
+        } catch (emailError) {
+            console.warn('Partner alert email failed:', emailError);
+        }
+
         // Success Flow
         document.getElementById("form-header").style.display = "none";
         document.getElementById("partner-form").style.display = "none";

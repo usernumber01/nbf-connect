@@ -339,3 +339,21 @@ function renderCertificateStatus(profileData) {
         });
     }
 }
+
+// Added per user request: Email trigger after application is saved
+export async function sendApplicationEmail(opportunity, currentUser) {
+    try {
+        await fetch('/.netlify/functions/send-application', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                applicantName: currentUser.displayName,
+                applicantEmail: currentUser.email,
+                opportunityTitle: opportunity.title,
+                orgName: opportunity.orgName
+            })
+        });
+    } catch (emailError) {
+        console.warn('Application email failed:', emailError);
+    }
+}

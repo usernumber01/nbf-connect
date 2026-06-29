@@ -356,6 +356,20 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
             });
         }
 
+        try {
+            await fetch('/.netlify/functions/send-welcome', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: fullName,
+                    email: email
+                })
+            });
+        } catch (emailError) {
+            console.warn('Welcome email failed:', emailError);
+            // Don't block registration if email fails
+        }
+
         // 4. Show success message and redirect
         const formHeader = document.getElementById("form-header");
         const registerForm = document.getElementById("register-form");
