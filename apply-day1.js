@@ -75,7 +75,7 @@ content = content.replace(
 // Change 10
 content = content.replace(
     /This site is best viewed in Chrome, Firefox at 1024x768 resolution\./,
-    `This site is best viewed in Chrome or Firefox. For support: nbfconnecthyd@gmail.com`
+    `This site is best viewed in Chrome or Firefox. For support: support@nbfconnect.in`
 );
 
 fs.writeFileSync('index.html', content, 'utf8');
