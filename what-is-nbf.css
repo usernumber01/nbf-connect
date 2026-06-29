@@ -1,5 +1,14 @@
 /* WHAT IS NBF CONNECT - Premium Homepage Section Styles */
 
+@font-face {
+  font-family: 'Font Awesome 6 Solid';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-display: swap;
+}
+
 :root {
     --nbf-dark: #04342C;
     --nbf-medium: #1D9E75;
