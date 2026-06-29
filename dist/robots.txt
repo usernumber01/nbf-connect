@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard.html
+Disallow: /shurveerdashboard.html
+Disallow: /admin.html
+Disallow: /.netlify/
 
 Sitemap: https://nbfconnect.in/sitemap.xml
