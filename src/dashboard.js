@@ -1,20 +1,28 @@
-import { requireAuth } from "./utils/authGuard.js";
 import { logout } from "./firebase/auth.js";
 import { db } from "./firebase/config.js";
 import { doc, getDoc, collection, query, where, getDocs, limit } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+const auth = getAuth();
+document.documentElement.style.visibility = "hidden"; // hide page instantly
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "/login.html";
+  } else if (!user.emailVerified) {
+    window.location.href = "/login.html?error=verify-email";
+  } else {
+    document.documentElement.style.visibility = "visible";
+    // User is logged in and verified.
+    if (document.readyState === 'loading') {
+        document.addEventListener("DOMContentLoaded", () => initDashboard(user));
+    } else {
+        initDashboard(user);
+    }
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Enforce route protection
-    requireAuth(
-        (user) => {
-            // User is logged in and verified.
-            initDashboard(user);
-        },
-        () => {
-            // Fails: redirect to login
-            window.location.href = "login.html";
-        }
-    );
 
     // 2. Wire logout buttons (Sidebar and Mobile)
     const sidebarLogout = document.getElementById("sidebar-logout");

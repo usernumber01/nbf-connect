@@ -153,6 +153,19 @@ emailInput.addEventListener("blur", async () => {
 document.getElementById("register-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const passwordVal = document.getElementById("password").value;
+    const confirmPasswordVal = document.getElementById("confirmPassword").value;
+    const errorBox = document.getElementById("registerError");
+
+    if (passwordVal !== confirmPasswordVal) {
+        if(errorBox) {
+            errorBox.textContent = "Passwords do not match.";
+            errorBox.style.display = "block";
+            errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return; // stops the form from continuing
+    }
+
     const captchaResponse = hcaptcha.getResponse();
     if (!captchaResponse) {
         document.getElementById('captcha-error').style.display = 'block';
@@ -165,6 +178,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     const requiredFields = ['fullName', 'mobile', 'email', 'password', 'confirmPassword', 'dob', 'gender', 'state', 'district', 'orgType', 'availability', 'resume', 'photo'];
     
     // Clear old inline errors
+    if(document.getElementById('registerError')) document.getElementById('registerError').style.display = 'none';
     document.querySelectorAll('.empty-field-error').forEach(el => el.remove());
     document.querySelectorAll('.input-wrapper').forEach(el => el.style.border = '');
     document.querySelectorAll('.file-upload').forEach(el => el.style.border = '');
@@ -434,7 +448,19 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         if (window.hcaptcha) hcaptcha.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-rocket"></i> <span>Join Mission</span>';
-        showError(getErrorMessage(err.code || err.message));
+        
+        const errorBox = document.getElementById("registerError");
+        if (errorBox) {
+            if (err.code === "auth/email-already-in-use") {
+                errorBox.textContent = "This email is already registered. Try logging in instead.";
+            } else {
+                errorBox.textContent = "Something went wrong. Please try again.";
+            }
+            errorBox.style.display = "block";
+            errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            showError(getErrorMessage(err.code || err.message));
+        }
     }
 });
 

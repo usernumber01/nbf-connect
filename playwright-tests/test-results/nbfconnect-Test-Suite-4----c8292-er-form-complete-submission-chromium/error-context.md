@@ -1,0 +1,294 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: nbfconnect.spec.js >> Test Suite 4 - Partner Form >> Test 15: Partner form complete submission
+- Location: nbfconnect.spec.js:211:3
+
+# Error details
+
+```
+Test timeout of 8000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - img "NBF Connect Logo" [ref=e5]
+      - text: राष्ट्रीय भारत बल | NATIONAL BHARAT FORCE
+    - generic [ref=e6]:
+      - link "Skip to main content" [ref=e7] [cursor=pointer]:
+        - /url: /#home-hero
+      - link "Screen Reader Access" [ref=e8] [cursor=pointer]:
+        - /url: "#"
+      - link "हिंदी" [ref=e9] [cursor=pointer]:
+        - /url: "#"
+  - link " Back to Home" [ref=e10] [cursor=pointer]:
+    - /url: /
+    - generic [ref=e11]: 
+    - generic [ref=e12]: Back to Home
+  - generic [ref=e13]:
+    - generic [ref=e14]:
+      - img "Disciplined Youth" [ref=e16]
+      - generic [ref=e17]:
+        - link "NBF Connect Emblem NBF Connect" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - img "NBF Connect Emblem" [ref=e19]
+          - generic [ref=e20]: NBF Connect
+        - heading "Partner With NBF Connect" [level=1] [ref=e21]:
+          - text: Partner With
+          - text: NBF Connect
+        - paragraph [ref=e22]: Access India's largest network of disciplined, verified youth.
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25]: 
+            - generic [ref=e26]: Verified
+            - generic [ref=e27]: Candidates
+          - generic [ref=e28]:
+            - generic [ref=e29]: 
+            - generic [ref=e30]: Free
+            - generic [ref=e31]: to Post
+          - generic [ref=e32]:
+            - generic [ref=e33]: 
+            - generic [ref=e34]: Pan-India
+            - generic [ref=e35]: Reach
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - heading "Organisation Partnership" [level=2] [ref=e39]
+        - paragraph [ref=e40]: Join us to create opportunities and build leaders.
+      - text: 
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]: 
+          - text: "Section 1: Contact Information"
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: Contact Person Name *
+            - generic [ref=e47]:
+              - generic: 
+              - textbox "Contact Person Name *" [ref=e48]:
+                - /placeholder: Enter full name
+          - generic [ref=e49]:
+            - generic [ref=e50]: Designation *
+            - generic [ref=e51]:
+              - generic: 
+              - textbox "Designation *" [ref=e52]:
+                - /placeholder: e.g. HR Manager, Founder, Operations Head
+        - generic [ref=e53]:
+          - generic [ref=e54]: Email Address *
+          - generic [ref=e55]:
+            - generic: 
+            - textbox "Email Address *" [ref=e56]:
+              - /placeholder: official email address
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - generic [ref=e59]: Phone Number *
+            - generic [ref=e60]:
+              - generic: "+91"
+              - textbox "Phone Number *" [ref=e61]:
+                - /placeholder: 10 digit mobile number
+          - generic [ref=e62]:
+            - generic [ref=e63]: Alternate Contact
+            - generic [ref=e64]:
+              - generic: 
+              - textbox "Alternate Contact" [ref=e65]:
+                - /placeholder: Backup phone or email for urgent coordination
+        - generic [ref=e66]:
+          - generic [ref=e67]: 
+          - text: "Section 2: Additional Info"
+        - generic [ref=e68]:
+          - generic [ref=e69]: How did you hear about NBF Connect?
+          - generic [ref=e70]:
+            - generic: 
+            - combobox "How did you hear about NBF Connect?" [ref=e71]:
+              - option "Select an option" [disabled] [selected]
+              - option "Social Media"
+              - option "Referral"
+              - option "Search Engine"
+              - option "Event"
+              - option "News Article"
+              - option "Other"
+        - generic [ref=e72]:
+          - generic [ref=e73]: 
+          - text: "Section 3: Declarations"
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - checkbox "Terms Agreement * I agree to NBF Connect's Partner Terms & Conditions and understand the platform's role as a connector, not an employment agency." [ref=e76] [cursor=pointer]
+            - generic [ref=e77] [cursor=pointer]:
+              - strong [ref=e78]: Terms Agreement *
+              - text: I agree to NBF Connect's
+              - link "Partner Terms & Conditions" [ref=e79]:
+                - /url: /terms-and-conditions
+              - text: and understand the platform's role as a connector, not an employment agency.
+          - generic [ref=e80]:
+            - checkbox "No-Fee Declaration * I confirm that our organisation will NOT charge any Shurveer fees, deposits, or payments at any stage of recruitment or placement." [ref=e81] [cursor=pointer]
+            - generic [ref=e82] [cursor=pointer]:
+              - strong [ref=e83]: No-Fee Declaration *
+              - text: I confirm that our organisation will NOT charge any Shurveer fees, deposits, or payments at any stage of recruitment or placement.
+          - generic [ref=e84]:
+            - checkbox "Data Consent * I consent to NBF Connect storing our organisation's information for the purpose of matching with suitable Shurveer candidates. See our Privacy Policy." [ref=e85] [cursor=pointer]
+            - generic [ref=e86] [cursor=pointer]:
+              - strong [ref=e87]: Data Consent *
+              - text: I consent to NBF Connect storing our organisation's information for the purpose of matching with suitable Shurveer candidates. See our
+              - link "Privacy Policy" [ref=e88]:
+                - /url: /privacy-policy
+              - text: .
+        - text:  
+        - iframe [ref=e91]:
+          - generic [ref=f2e2] [cursor=pointer]:
+            - checkbox "'I am human', Select in order to trigger the challenge, or to bypass it if you have an accessibility cookie" [ref=f2e7]
+            - generic [ref=f2e11]: I am human
+            - generic [ref=f2e12]:
+              - generic "hCaptcha" [ref=f2e13]:
+                - button "hCaptcha logo, opens new window with more information" [ref=f2e14]:
+                  - img [ref=f2e16]
+              - generic [ref=f2e78]:
+                - link "hCaptcha Privacy Policy, opens in a new tab" [ref=f2e79]:
+                  - /url: https://hcaptcha.com/privacy?ref=nbfconnect.in&utm_campaign=00809a90-2cd2-4e52-b064-b87ed61c6f9e&utm_medium=checkbox&hl=en
+                  - text: Privacy
+                - text: "-"
+                - link "hCaptcha Terms of Service, opens in a new tab" [ref=f2e80]:
+                  - /url: https://hcaptcha.com/terms?ref=nbfconnect.in&utm_campaign=00809a90-2cd2-4e52-b064-b87ed61c6f9e&utm_medium=checkbox&hl=en
+                  - text: Terms
+        - button " Submit" [ref=e92] [cursor=pointer]:
+          - generic [ref=e93]: 
+          - generic [ref=e94]: Submit
+        - paragraph [ref=e95]: For security, login is temporarily locked after 5 failed attempts.
+        - generic [ref=e96]:
+          - generic [ref=e97]: 🔒
+          - generic [ref=e98]: Your data is protected. NBF Connect uses encrypted, secure registration.
+  - contentinfo [ref=e99]:
+    - generic [ref=e100]:
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - link "NBF Connect Emblem NBF Connect" [ref=e103] [cursor=pointer]:
+            - /url: "#"
+            - img "NBF Connect Emblem" [ref=e104]
+            - generic [ref=e105]: NBF Connect
+          - paragraph [ref=e106]:
+            - text: NBF Connect — National Bharat Force Connect
+            - text: India's first platform connecting disciplined youth
+            - text: with real opportunities.
+          - generic [ref=e107]:
+            - link "" [ref=e108] [cursor=pointer]:
+              - /url: https://www.youtube.com/@NationalBharatForce
+              - generic [ref=e109]: 
+            - link "" [ref=e110] [cursor=pointer]:
+              - /url: https://www.instagram.com/nbf.connect/
+              - generic [ref=e111]: 
+            - link "" [ref=e112] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/nbf-connect-7037a6414/
+              - generic [ref=e113]: 
+            - link "" [ref=e114] [cursor=pointer]:
+              - /url: https://x.com/nbfconnect
+              - generic [ref=e115]: 
+            - link "" [ref=e116] [cursor=pointer]:
+              - /url: https://www.instagram.com/nbf.connect/
+              - generic [ref=e117]: 
+        - generic [ref=e118]:
+          - heading "Quick Links" [level=2] [ref=e119]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "About NBF CONNECT" [ref=e122] [cursor=pointer]:
+                - /url: /#home-hero
+            - listitem [ref=e123]:
+              - link "Opportunities" [ref=e124] [cursor=pointer]:
+                - /url: /opportunities
+            - listitem [ref=e125]:
+              - link "How It Works" [ref=e126] [cursor=pointer]:
+                - /url: /#how-it-works
+            - listitem [ref=e127]:
+              - link "Shurveers" [ref=e128] [cursor=pointer]:
+                - /url: /#who-are-shurveers
+            - listitem [ref=e129]:
+              - link "Contact Us" [ref=e130] [cursor=pointer]:
+                - /url: mailto:contact@nbfconnect.in
+        - generic [ref=e131]:
+          - heading "Resources" [level=2] [ref=e132]
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - link "Career Guide" [ref=e135] [cursor=pointer]:
+                - /url: /resources#shurveer-tools
+            - listitem [ref=e136]:
+              - link "Government Schemes" [ref=e137] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e138]:
+              - link "Interview Prep" [ref=e139] [cursor=pointer]:
+                - /url: /resources#shurveer-tools
+            - listitem [ref=e140]:
+              - link "FAQs" [ref=e141] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e142]:
+              - link "Partner Downloads" [ref=e143] [cursor=pointer]:
+                - /url: /resources#partner-tools
+        - generic [ref=e144]:
+          - heading "Govt Policies" [level=2] [ref=e145]
+          - list [ref=e146]:
+            - listitem [ref=e147]:
+              - link "Privacy Policy (Coming Soon)" [ref=e148] [cursor=pointer]:
+                - /url: "#footer"
+            - listitem [ref=e149]:
+              - link "Terms & Conditions (Coming Soon)" [ref=e150] [cursor=pointer]:
+                - /url: "#footer"
+            - listitem [ref=e151]:
+              - link "Grievance Redressal (Coming Soon)" [ref=e152] [cursor=pointer]:
+                - /url: "#footer"
+            - listitem [ref=e153]:
+              - link "RTI Directory" [ref=e154] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e155]:
+          - heading "Download App" [level=2] [ref=e156]
+          - generic [ref=e157]:
+            - link " GET IT ON Google Play" [ref=e158] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e159]: 
+              - generic [ref=e160]:
+                - generic [ref=e161]: GET IT ON
+                - strong [ref=e162]: Google Play
+            - link " Download on the App Store" [ref=e163] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e164]: 
+              - generic [ref=e165]:
+                - generic [ref=e166]: Download on the
+                - strong [ref=e167]: App Store
+          - generic [ref=e168]: Coming Soon
+        - generic [ref=e169]:
+          - heading "Newsletter" [level=2] [ref=e170]
+          - paragraph [ref=e171]: Stay updated with the latest opportunities and mission updates.
+          - generic [ref=e173]:
+            - textbox "Email Address" [ref=e174]
+            - button "Subscribe" [ref=e175] [cursor=pointer]:
+              - generic [ref=e176]: 
+      - generic [ref=e177]: NBF = National Bharat Force — India's disciplined youth force comprising NCC, NSS, Scouts & Guides, NYKS and Civil Defence members.
+      - generic [ref=e178]:
+        - paragraph [ref=e180]: © 2026 NBF Connect (National Bharat Force Connect) | All Rights Reserved. | Made in India
+        - generic [ref=e181]:
+          - paragraph [ref=e182]:
+            - text: "Support:"
+            - link "support@nbfconnect.in" [ref=e183] [cursor=pointer]:
+              - /url: mailto:support@nbfconnect.in
+            - text: "| General:"
+            - link "hello@nbfconnect.in" [ref=e184] [cursor=pointer]:
+              - /url: mailto:hello@nbfconnect.in
+            - text: "| Careers:"
+            - link "careers@nbfconnect.in" [ref=e185] [cursor=pointer]:
+              - /url: mailto:careers@nbfconnect.in
+            - text: "Admin:"
+            - link "admin@nbfconnect.in" [ref=e186] [cursor=pointer]:
+              - /url: mailto:admin@nbfconnect.in
+            - text: "| Contact:"
+            - link "contact@nbfconnect.in" [ref=e187] [cursor=pointer]:
+              - /url: mailto:contact@nbfconnect.in
+          - paragraph [ref=e188]:
+            - generic [ref=e189]: 
+            - text: Registered MSME | Govt. of India
+          - paragraph [ref=e190]: UDYAM-TS-09-0253032
+      - generic [ref=e191]: NBF Connect is an independent youth empowerment platform operated by National Bharat Force Connect. Not affiliated with or endorsed by any government ministry, bank, or financial institution.
+```
