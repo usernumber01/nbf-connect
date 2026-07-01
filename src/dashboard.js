@@ -99,7 +99,7 @@ async function initDashboard(user) {
 
     } catch (error) {
         console.error("Error initializing dashboard:", error);
-        alert("Unable to load data. Please refresh.");
+        alert("Unable to load data: " + (error.message || "Please refresh."));
     }
 }
 
