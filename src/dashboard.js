@@ -1,6 +1,6 @@
 import { logout } from "./firebase/auth.js";
 import { db } from "./firebase/config.js";
-import { doc, getDoc, collection, query, where, getDocs, limit } from "firebase/firestore";
+import { doc, getDoc, collection, query, where, getDocs, limit, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const auth = getAuth();
@@ -51,6 +51,13 @@ async function initDashboard(user) {
         let profileData = {};
         if (userSnap.exists()) {
             profileData = userSnap.data();
+            
+            // Sync email verification status from Firebase Auth to Firestore profile
+            if (user.emailVerified && profileData.emailVerified === false) {
+                await updateDoc(userDocRef, { emailVerified: true });
+                profileData.emailVerified = true;
+                console.log("Synced email verification status to Firestore.");
+            }
         } else {
             console.warn("No user profile found in Firestore.");
         }
