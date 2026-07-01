@@ -80,7 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
               })
               .catch((error) => {
                 recordFailedAttempt();
-                document.getElementById("loginError").textContent = "Invalid email or password.";
+                console.error(error);
+                document.getElementById("loginError").textContent = "Login failed: " + (error.message || "Invalid credentials.");
                 document.getElementById("loginError").style.display = "block";
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-arrow-right-to-bracket"></i> <span>Login</span>';
