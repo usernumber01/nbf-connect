@@ -1,4 +1,5 @@
 import { db } from "./firebase/config.js";
+import DOMPurify from "dompurify";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 document.addEventListener("DOMContentLoaded", async () => {

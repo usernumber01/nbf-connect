@@ -1,4 +1,5 @@
 import { auth, db } from "./firebase/config.js";
+import DOMPurify from "dompurify";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 

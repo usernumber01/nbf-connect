@@ -2,6 +2,7 @@ import { logout } from "./firebase/auth.js";
 import { db } from "./firebase/config.js";
 import { doc, getDoc, collection, query, where, getDocs, limit, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import DOMPurify from "dompurify";
 
 const auth = getAuth();
 document.documentElement.style.visibility = "hidden"; // hide page instantly
