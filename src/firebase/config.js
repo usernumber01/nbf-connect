@@ -21,12 +21,15 @@ const app = initializeApp(firebaseConfig);
 // Only initialize in production to allow seamless local development testing
 let appCheck = null;
 if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+  // temporarily disabled App Check because Cloudflare hCaptcha breaks reCAPTCHA v3 tokens
+  /*
   appCheck = initializeAppCheck(app, {
     provider: new ReCaptchaV3Provider(
       import.meta.env.VITE_RECAPTCHA_SITE_KEY
     ),
     isTokenAutoRefreshEnabled: true
   });
+  */
 }
 
 export const auth = getAuth(app);

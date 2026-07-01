@@ -2,6 +2,7 @@ import { registerWithEmail } from "./firebase/auth.js";
 import { auth, storage } from "./firebase/config.js";
 import { fetchSignInMethodsForEmail } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { updateUserProfile } from "./firebase/firestore.js";
 
 function checkRateLimit() {
     try {
@@ -394,7 +395,6 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         // 3. Update the Firestore profile with the new URLs
         if (resumeURL || photoURL) {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Finalizing profile...</span>';
-            const { updateUserProfile } = await import("./firebase/firestore.js");
             await updateUserProfile(user.uid, { 
                 ...(resumeURL && { resumeURL }), 
                 ...(photoURL && { photoURL }) 

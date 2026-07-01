@@ -10,7 +10,7 @@ import {
     onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "./config.js";
-import { createUserProfile } from "./firestore.js";
+import { createUserProfile, getUserProfile } from "./firestore.js";
 
 // ─── EMAIL REGISTER ───────────────────────────────────────────────────────────
 export async function registerWithEmail(email, password, profileData) {
@@ -64,7 +64,6 @@ export async function loginWithGoogle() {
     const user = userCredential.user;
 
     // Create profile only if first-time Google login
-    const { getUserProfile } = await import("./firestore.js");
     const existingProfile = await getUserProfile(user.uid);
 
     if (!existingProfile) {
