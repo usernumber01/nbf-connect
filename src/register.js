@@ -4,6 +4,15 @@ import { fetchSignInMethodsForEmail } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateUserProfile } from "./firebase/firestore.js";
 
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
 function checkRateLimit() {
     try {
         const attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
@@ -378,21 +387,15 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         let resumeURL = null, photoURL = null;
 
         if (resumeFile) {
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Uploading resume...</span>';
-            const resumeRef = ref(storage, `resumes/${user.uid}/resume.pdf`);
-            await uploadBytes(resumeRef, resumeFile);
-            resumeURL = await getDownloadURL(resumeRef);
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Processing resume...</span>';
+            resumeURL = await fileToBase64(resumeFile);
         }
         if (photoFile) {
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Uploading photo...</span>';
-            // Use original extension if available, else default to .jpg
-            const ext = photoFile.name.split('.').pop() || 'jpg';
-            const photoRef = ref(storage, `photos/${user.uid}/profile.${ext}`);
-            await uploadBytes(photoRef, photoFile);
-            photoURL = await getDownloadURL(photoRef);
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Processing photo...</span>';
+            photoURL = await fileToBase64(photoFile);
         }
 
-        // 3. Update the Firestore profile with the new URLs
+        // 3. Update the Firestore profile with the new URLs (Base64 strings)
         if (resumeURL || photoURL) {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Finalizing profile...</span>';
             await updateUserProfile(user.uid, { 
