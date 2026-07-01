@@ -4,24 +4,30 @@ import { fetchSignInMethodsForEmail } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function checkRateLimit() {
-    const attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
-    const lockoutUntil = parseInt(localStorage.getItem('nbf_auth_lockout_until') || '0');
-    const now = Date.now();
-    if (lockoutUntil && now < lockoutUntil) {
-        const minutesLeft = Math.ceil((lockoutUntil - now) / 60000);
-        return { locked: true, minutesLeft };
+    try {
+        const attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
+        const lockoutUntil = parseInt(localStorage.getItem('nbf_auth_lockout_until') || '0');
+        const now = Date.now();
+        if (lockoutUntil && now < lockoutUntil) {
+            const minutesLeft = Math.ceil((lockoutUntil - now) / 60000);
+            return { locked: true, minutesLeft };
+        }
+    } catch (e) {
+        console.warn('localStorage not available', e);
     }
     return { locked: false };
 }
 
 function recordFailedAttempt() {
-    let attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
-    attempts++;
-    localStorage.setItem('nbf_auth_attempts', attempts);
-    if (attempts >= 5) {
-        const lockoutUntil = Date.now() + (15 * 60 * 1000);
-        localStorage.setItem('nbf_auth_lockout_until', lockoutUntil);
-    }
+    try {
+        let attempts = parseInt(localStorage.getItem('nbf_auth_attempts') || '0');
+        attempts++;
+        localStorage.setItem('nbf_auth_attempts', attempts);
+        if (attempts >= 5) {
+            const lockoutUntil = Date.now() + (15 * 60 * 1000);
+            localStorage.setItem('nbf_auth_lockout_until', lockoutUntil);
+        }
+    } catch (e) {}
 }
 
 function clearRateLimit() {
@@ -80,45 +86,29 @@ function checkConfirmPassword() {
 
 confirmPasswordInput.addEventListener("input", checkConfirmPassword);
 
-mobileInput.addEventListener("focus", () => {
-    if (!mobileInput.value) {
-        mobileInput.value = "+91";
-    }
+mobileInput.addEventListener('input', function() {
+  let val = this.value.replace(/\D/g, '');
+  if (val.startsWith('91') && val.length > 10) {
+    val = val.substring(2);
+  }
+  if (val.length > 10) val = val.slice(0, 10);
+  this.value = val;
+  mobileError.style.display = "none";
+  mobileSuccess.style.display = "none";
 });
 
-mobileInput.addEventListener("input", () => {
-    mobileError.style.display = "none";
+mobileInput.addEventListener('blur', function() {
+  const digits = this.value.replace(/\D/g, '');
+  if (digits.length !== 10) {
+    mobileError.textContent = "Enter valid 10-digit Indian mobile number";
+    mobileError.style.display = "block";
     mobileSuccess.style.display = "none";
-});
-
-mobileInput.addEventListener("blur", () => {
-    let val = mobileInput.value.trim();
-    if (!val || val === "+91") {
-        isPhoneValid = false;
-        return;
-    }
-    
-    val = val.replace(/[^\d+]/g, '');
-    if (val.startsWith("+91") && val.length === 13) {
-        // ok
-    } else if (val.startsWith("91") && val.length === 12) {
-        val = "+" + val;
-    } else if (val.length === 10 && !val.startsWith("+")) {
-        val = "+91" + val;
-    }
-    
-    mobileInput.value = val;
-    
-    if (/^\+91\d{10}$/.test(val)) {
-        mobileError.style.display = "none";
-        mobileSuccess.style.display = "block";
-        isPhoneValid = true;
-    } else {
-        mobileError.textContent = "Enter valid 10-digit Indian mobile number";
-        mobileError.style.display = "block";
-        mobileSuccess.style.display = "none";
-        isPhoneValid = false;
-    }
+    isPhoneValid = false;
+  } else {
+    mobileError.style.display = "none";
+    mobileSuccess.style.display = "block";
+    isPhoneValid = true;
+  }
 });
 
 emailInput.addEventListener("input", () => {
@@ -126,28 +116,51 @@ emailInput.addEventListener("input", () => {
     emailSuccess.style.display = "none";
 });
 
-emailInput.addEventListener("blur", async () => {
-    const val = emailInput.value.trim();
-    if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        isEmailAvailable = false;
-        return;
+emailInput.addEventListener('blur', async function() {
+  const email = this.value.trim();
+  
+  if (emailError) emailError.style.display = 'none';
+  if (emailSuccess) emailSuccess.style.display = 'none';
+  if (this.parentElement) this.parentElement.style.border = '';
+  this.style.borderColor = '#e0e0e0';
+  
+  if (!email) {
+      isEmailAvailable = false;
+      return;
+  }
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    if (emailError) {
+      emailError.innerHTML = '⚠️ Please enter a valid email address (e.g. name@gmail.com)';
+      emailError.style.display = 'block';
     }
+    this.style.borderColor = '#e05a1e';
+    isEmailAvailable = false;
+    return;
+  }
+  
+  try {
+    const methods = await fetchSignInMethodsForEmail(auth, email);
     
-    try {
-        const methods = await fetchSignInMethodsForEmail(auth, val);
-        if (methods && methods.length > 0) {
-            emailError.innerHTML = 'This email is already registered. <a href="login.html" class="login-instead-link">Login instead &rarr;</a>';
-            emailError.style.display = "block";
-            emailSuccess.style.display = "none";
-            isEmailAvailable = false;
-        } else {
-            emailError.style.display = "none";
-            emailSuccess.style.display = "block";
-            isEmailAvailable = true;
-        }
-    } catch (err) {
-        console.error("Email check error:", err);
+    if (methods && methods.length > 0) {
+      if (emailError) {
+        emailError.innerHTML = '✉️ This email is already registered. <a href="/login.html" style="color:#1a3a5c;font-weight:600;text-decoration:underline">Login instead →</a>';
+        emailError.style.display = 'block';
+      }
+      this.style.borderColor = '#e05a1e';
+      isEmailAvailable = false;
+    } else {
+      this.style.borderColor = '#22c55e';
+      if (emailError) emailError.style.display = 'none';
+      if (emailSuccess) emailSuccess.style.display = 'block';
+      isEmailAvailable = true;
     }
+  } catch (checkError) {
+    console.warn('Email check failed:', checkError);
+    // Allow submit if check fails
+    isEmailAvailable = true;
+  }
 });
 
 document.getElementById("register-form").addEventListener("submit", async (e) => {
@@ -166,7 +179,17 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         return; // stops the form from continuing
     }
 
-    const captchaResponse = hcaptcha.getResponse();
+    let captchaResponse = "";
+    try {
+        if (typeof hcaptcha !== 'undefined') {
+            captchaResponse = hcaptcha.getResponse();
+        } else if (typeof grecaptcha !== 'undefined') {
+            captchaResponse = grecaptcha.getResponse();
+        }
+    } catch (e) {
+        console.warn("CAPTCHA check failed:", e);
+    }
+
     if (!captchaResponse) {
         document.getElementById('captcha-error').style.display = 'block';
         return;
@@ -269,33 +292,41 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         }
     }
 
-    if (!isPhoneValid) {
-        hasInvalidFields = true;
-        const el = document.getElementById('mobile');
-        if (el && el.parentElement) {
-            el.parentElement.style.border = '1px solid #ef4444';
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'empty-field-error';
-            errorMsg.style.color = '#ef4444';
-            errorMsg.style.fontSize = '0.85rem';
-            errorMsg.style.marginTop = '4px';
-            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error (invalid phone)';
-            el.parentElement.insertAdjacentElement('afterend', errorMsg);
+    // Check Phone Synchronously
+    const mobileEl = document.getElementById('mobile');
+    if (mobileEl && mobileEl.value) {
+        const digits = mobileEl.value.replace(/\D/g, '');
+        if (digits.length !== 10) {
+            hasInvalidFields = true;
+            if (mobileEl.parentElement) {
+                mobileEl.parentElement.style.border = '1px solid #ef4444';
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'empty-field-error';
+                errorMsg.style.color = '#ef4444';
+                errorMsg.style.fontSize = '0.85rem';
+                errorMsg.style.marginTop = '4px';
+                errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Enter valid 10-digit Indian mobile number';
+                mobileEl.parentElement.insertAdjacentElement('afterend', errorMsg);
+            }
         }
     }
 
-    if (!isEmailAvailable) {
-        hasInvalidFields = true;
-        const el = document.getElementById('email');
-        if (el && el.parentElement) {
-            el.parentElement.style.border = '1px solid #ef4444';
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'empty-field-error';
-            errorMsg.style.color = '#ef4444';
-            errorMsg.style.fontSize = '0.85rem';
-            errorMsg.style.marginTop = '4px';
-            errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> please fix error (email invalid/used)';
-            el.parentElement.insertAdjacentElement('afterend', errorMsg);
+    // Check Email Format Synchronously
+    const emailEl = document.getElementById('email');
+    if (emailEl && emailEl.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailEl.value.trim())) {
+            hasInvalidFields = true;
+            if (emailEl.parentElement) {
+                emailEl.parentElement.style.border = '1px solid #ef4444';
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'empty-field-error';
+                errorMsg.style.color = '#ef4444';
+                errorMsg.style.fontSize = '0.85rem';
+                errorMsg.style.marginTop = '4px';
+                errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address';
+                emailEl.parentElement.insertAdjacentElement('afterend', errorMsg);
+            }
         }
     }
 
@@ -307,7 +338,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
 
     if (hasEmptyRequiredFields || hasInvalidFields) {
         showError("Please fill out all required fields marked in red.");
-        if (window.hcaptcha) hcaptcha.reset();
+        if (window.grecaptcha) grecaptcha.reset();
         return;
     }
 
@@ -445,17 +476,13 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
 
     } catch (err) {
         recordFailedAttempt();
-        if (window.hcaptcha) hcaptcha.reset();
+        if (window.grecaptcha) grecaptcha.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-rocket"></i> <span>Join Mission</span>';
         
         const errorBox = document.getElementById("registerError");
         if (errorBox) {
-            if (err.code === "auth/email-already-in-use") {
-                errorBox.textContent = "This email is already registered. Try logging in instead.";
-            } else {
-                errorBox.textContent = "Something went wrong. Please try again.";
-            }
+            errorBox.innerHTML = getErrorMessage(err.code || err.message);
             errorBox.style.display = "block";
             errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
@@ -477,9 +504,11 @@ function isStrongPassword(password) {
 // Map Firebase error codes to user-friendly messages
 function getErrorMessage(code) {
     const messages = {
-        "auth/email-already-in-use": "This email is already registered. Try logging in.",
-        "auth/invalid-email": "Please enter a valid email address.",
-        "auth/weak-password": "Password must be at least 6 characters.",
+        'auth/email-already-in-use': 'This email is already registered. <a href="/login.html" style="color:#e05a1e; font-weight:600">Login to your account →</a>',
+        'auth/invalid-email': 'Please enter a valid email address.',
+        'auth/weak-password': 'Password must be at least 6 characters.',
+        'auth/network-request-failed': 'No internet connection. Please check and retry.',
+        'auth/too-many-requests': 'Too many attempts. Please wait a few minutes.',
         "WEAK_PASSWORD": "Password needs: 8+ chars, 1 uppercase, 1 number, 1 special character.",
         "EMAIL_NOT_VERIFIED": "Please verify your email before logging in. Check your inbox.",
         "COMMITMENT_REQUIRED": "You must accept the discipline and integrity declaration to register.",
@@ -490,7 +519,7 @@ function getErrorMessage(code) {
 function showError(message) {
     const errorEl = document.getElementById("error-message");
     if (errorEl) {
-        errorEl.textContent = message;
+        errorEl.innerHTML = message;
         errorEl.style.display = "block";
         errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }

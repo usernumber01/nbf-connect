@@ -12,25 +12,25 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    // Users — authenticated user can only read/write their own doc
+    // Users — authenticated user can only read/write their own doc, admins can read all
     match /users/{userId} {
       allow read, update, delete: if request.auth != null 
-        && request.auth.uid == userId;
+        && (request.auth.uid == userId || request.auth.token.admin == true);
       allow create: if request.auth != null;
     }
 
-    // Partner signups — allow unauthenticated creation, strict read/update
+    // Partner signups — allow unauthenticated creation, strict read/update (plus admin)
     match /partnerSignups/{docId} {
       allow create: if true;
       allow read, update, delete: if request.auth != null 
-        && request.auth.uid == resource.data.uid;
+        && (request.auth.uid == resource.data.uid || request.auth.token.admin == true);
     }
 
-    // Partners — allow unauthenticated creation, strict read/update
+    // Partners — allow unauthenticated creation, strict read/update (plus admin)
     match /partners/{docId} {
       allow create: if true;
       allow read, update, delete: if request.auth != null 
-        && request.auth.uid == resource.data.uid;
+        && (request.auth.uid == resource.data.uid || request.auth.token.admin == true);
     }
 
     // Discussions (schedule-discussion.html submissions) — strictly enforce creation by authenticated owner

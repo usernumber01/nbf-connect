@@ -7,9 +7,8 @@ exports.handler = async (event) => {
 
   try {
     const { 
-      companyName, contactPerson, email, 
-      phone, requirementType, numberOfShurveers,
-      locationAndDates, description 
+      contactPerson, designation, email, 
+      phone, alternateContact, hearAboutUs 
     } = JSON.parse(event.body);
     
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -56,8 +55,7 @@ exports.handler = async (event) => {
               <p style="color:#444;line-height:1.7">
                 Dear ${contactPerson},<br><br>
                 Thank you for reaching out to NBF Connect. 
-                We have received your partnership request from 
-                <strong>${companyName}</strong> and our team will 
+                We have received your partnership request and our team will 
                 review it within <strong>24 hours</strong>.
               </p>
 
@@ -67,20 +65,24 @@ exports.handler = async (event) => {
                   Your submission summary:
                 </p>
                 <div class="detail-row">
-                  <span class="detail-label">Company</span>
-                  <span class="detail-val">${companyName}</span>
+                  <span class="detail-label">Contact Person</span>
+                  <span class="detail-val">${contactPerson}</span>
                 </div>
                 <div class="detail-row">
-                  <span class="detail-label">Requirement Type</span>
-                  <span class="detail-val">${requirementType}</span>
+                  <span class="detail-label">Designation</span>
+                  <span class="detail-val">${designation}</span>
                 </div>
                 <div class="detail-row">
-                  <span class="detail-label">Shurveers Needed</span>
-                  <span class="detail-val">${numberOfShurveers}</span>
+                  <span class="detail-label">Email</span>
+                  <span class="detail-val">${email}</span>
                 </div>
                 <div class="detail-row">
-                  <span class="detail-label">Location & Dates</span>
-                  <span class="detail-val">${locationAndDates}</span>
+                  <span class="detail-label">Phone</span>
+                  <span class="detail-val">${phone}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Alternate Contact</span>
+                  <span class="detail-val">${alternateContact || 'N/A'}</span>
                 </div>
               </div>
 
@@ -109,17 +111,15 @@ exports.handler = async (event) => {
     await resend.emails.send({
       from: 'NBF Connect <support@nbfconnect.in>',
       to: process.env.ADMIN_EMAIL,
-      subject: '🤝 New Partner Request: ' + companyName,
+      subject: '🤝 New Partner Request from ' + contactPerson,
       html: `
         <h2>New Partnership Request</h2>
-        <p><strong>Company:</strong> ${companyName}</p>
         <p><strong>Contact:</strong> ${contactPerson}</p>
+        <p><strong>Designation:</strong> ${designation}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Type:</strong> ${requirementType}</p>
-        <p><strong>Shurveers:</strong> ${numberOfShurveers}</p>
-        <p><strong>Location:</strong> ${locationAndDates}</p>
-        <p><strong>Description:</strong> ${description}</p>
+        <p><strong>Alternate Contact:</strong> ${alternateContact || 'N/A'}</p>
+        <p><strong>Heard About Us:</strong> ${hearAboutUs}</p>
         <p><strong>Time:</strong> 
           ${new Date().toLocaleString('en-IN', 
             { timeZone: 'Asia/Kolkata' })}

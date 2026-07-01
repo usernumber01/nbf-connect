@@ -535,7 +535,7 @@ Error: page.waitForTimeout: Test timeout of 8000ms exceeded.
   186 | 
   187 | test.describe('Test Suite 3 - Route Protection', () => {
   188 |   test('Test 12: Direct dashboard access', async ({ page }) => {
-  189 |     await page.goto(`${BASE_URL}/dashboard.html`);
+  189 |     await page.goto(`${BASE_URL}/shurveerdashboard.html`);
   190 |     await page.waitForTimeout(2000);
   191 |     expect(page.url()).toContain('login');
   192 |   });
@@ -544,7 +544,7 @@ Error: page.waitForTimeout: Test timeout of 8000ms exceeded.
   195 |     // Cannot easily test since we can't reliably login if email verification is mandatory.
   196 |     // We will simulate it by checking if dashboard redirects immediately if not logged in.
   197 |     // If the user can't login, they can't test logout. We will mark as passed if dashboard redirects to login.
-  198 |     await page.goto(`${BASE_URL}/dashboard.html`);
+  198 |     await page.goto(`${BASE_URL}/shurveerdashboard.html`);
   199 |     await page.waitForTimeout(1000);
   200 |     expect(page.url()).toContain('login');
   201 |   });

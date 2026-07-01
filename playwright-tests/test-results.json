@@ -93,12 +93,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2915,
+                      "duration": 3404,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:00.104Z",
+                      "startTime": "2026-06-30T04:28:54.234Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -113,7 +113,7 @@
             },
             {
               "title": "Test 2: Weak password rejection",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -126,18 +126,32 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7644,
-                      "errors": [],
+                      "status": "timedOut",
+                      "duration": 8120,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:03.193Z",
+                      "startTime": "2026-06-30T04:28:57.789Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\test-results\\nbfconnect-Test-Suite-1----bff6d-t-2-Weak-password-rejection-chromium\\error-context.md"
+                        }
+                      ]
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "e43abf7b284885af87ac-1126c88b17ef6a6ac0d5",
@@ -158,10 +172,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 3888,
+                      "duration": 3895,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"match\"\u001b[39m\nReceived string:    \u001b[31m\"back to home\u001b[39m\n\u001b[31mnbf connect\u001b[39m\n\u001b[31myour discipline\u001b[39m\n\u001b[31mis your superpower·\u001b[39m\n\u001b[31mjoin thousands of verified shurveers building their careers through india's largest disciplined youth network.·\u001b[39m\n\u001b[31mverified\u001b[39m\n\u001b[31mshurveers\u001b[39m\n\u001b[31mreal\u001b[39m\n\u001b[31mopportunities\u001b[39m\n\u001b[31mtrusted\u001b[39m\n\u001b[31morganizations\u001b[39m\n\u001b[31mbecome a shurveer·\u001b[39m\n\u001b[31mjoin india's disciplined youth opportunity network.·\u001b[39m\n\u001b[31mpersonal information\u001b[39m\n\u001b[31mfull name *\u001b[39m\n\u001b[31mmobile number *\u001b[39m\n\u001b[31m+91\u001b[39m\n\u001b[31memail address *\u001b[39m\n\u001b[31mpassword *\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mat least 8 characters\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mone uppercase letter (a-z)\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mone number (0-9)\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mone special character (!@#$%^&*)\u001b[39m\n\u001b[31mconfirm password *\u001b[39m\n\u001b[31mdate of birth *\u001b[39m\n\u001b[31mgender *\u001b[39m\n\u001b[31mselect gender\u001b[39m\n\u001b[31mmale\u001b[39m\n\u001b[31mfemale\u001b[39m\n\u001b[31mother\u001b[39m\n\u001b[31mlocation\u001b[39m\n\u001b[31mstate *\u001b[39m\n\u001b[31mselect state\u001b[39m\n\u001b[31mandhra pradesh\u001b[39m\n\u001b[31marunachal pradesh\u001b[39m\n\u001b[31massam\u001b[39m\n\u001b[31mbihar\u001b[39m\n\u001b[31mchhattisgarh\u001b[39m\n\u001b[31mgoa\u001b[39m\n\u001b[31mgujarat\u001b[39m\n\u001b[31mharyana\u001b[39m\n\u001b[31mhimachal pradesh\u001b[39m\n\u001b[31mjharkhand\u001b[39m\n\u001b[31mkarnataka\u001b[39m\n\u001b[31mkerala\u001b[39m\n\u001b[31mmadhya pradesh\u001b[39m\n\u001b[31mmaharashtra\u001b[39m\n\u001b[31mmanipur\u001b[39m\n\u001b[31mmeghalaya\u001b[39m\n\u001b[31mmizoram\u001b[39m\n\u001b[31mnagaland\u001b[39m\n\u001b[31modisha\u001b[39m\n\u001b[31mpunjab\u001b[39m\n\u001b[31mrajasthan\u001b[39m\n\u001b[31msikkim\u001b[39m\n\u001b[31mtamil nadu\u001b[39m\n\u001b[31mtelangana\u001b[39m\n\u001b[31mtripura\u001b[39m\n\u001b[31muttar pradesh\u001b[39m\n\u001b[31muttarakhand\u001b[39m\n\u001b[31mwest bengal\u001b[39m\n\u001b[31mdelhi\u001b[39m\n\u001b[31mjammu & kashmir\u001b[39m\n\u001b[31mdistrict *\u001b[39m\n\u001b[31morganization & skills\u001b[39m\n\u001b[31morganization type *\u001b[39m\n\u001b[31mselect organization\u001b[39m\n\u001b[31mncc\u001b[39m\n\u001b[31mnss\u001b[39m\n\u001b[31mscouts & guides\u001b[39m\n\u001b[31msports volunteer\u001b[39m\n\u001b[31mcivil defence\u001b[39m\n\u001b[31mnyks\u001b[39m\n\u001b[31mother\u001b[39m\n\u001b[31mskills *\u001b[39m\n\u001b[31mleadership\u001b[39m\n\u001b[31mevent management\u001b[39m\n\u001b[31mdiscipline\u001b[39m\n\u001b[31mpublic speaking\u001b[39m\n\u001b[31mfitness\u001b[39m\n\u001b[31mteamwork\u001b[39m\n\u001b[31mlogistics\u001b[39m\n\u001b[31memergency response\u001b[39m\n\u001b[31mavailability *\u001b[39m\n\u001b[31mselect availability\u001b[39m\n\u001b[31mfull-time\u001b[39m\n\u001b[31mpart-time\u001b[39m\n\u001b[31mweekends\u001b[39m\n\u001b[31mvolunteer\u001b[39m\n\u001b[31muploads\u001b[39m\n\u001b[31m*\u001b[39m\n\u001b[31mupload resume *\u001b[39m\n\u001b[31mdrop pdf here or browse\u001b[39m\n\u001b[31mpdf, doc up to 300kb\u001b[39m\n\u001b[31mupload profile photo *\u001b[39m\n\u001b[31mdrop image here or browse\u001b[39m\n\u001b[31mjpg, png up to 20kb\u001b[39m\n\u001b[31mi commit to discipline and integrity as a shurveer of nbf connect.\u001b[39m\n\u001b[31mjoin mission·\u001b[39m\n\u001b[31mfor security, login is temporarily locked after 5 failed attempts.·\u001b[39m\n\u001b[31m🔒\u001b[39m\n\u001b[31myour data is protected. nbf connect uses encrypted, secure registration.·\u001b[39m\n\u001b[31malready registered? login·\u001b[39m\n\u001b[31mverified network\u001b[39m\n\u001b[31mskill building\u001b[39m\n\u001b[31mopportunities across india\u001b[39m\n\u001b[31mnbf connect·\u001b[39m\n\u001b[31mnbf connect — national bharat force connect\u001b[39m\n\u001b[31mindia's first platform connecting disciplined youth\u001b[39m\n\u001b[31mwith real opportunities.·\u001b[39m\n\u001b[31mquick links\u001b[39m\n\u001b[31mabout nbf connect\u001b[39m\n\u001b[31mopportunities\u001b[39m\n\u001b[31mhow it works\u001b[39m\n\u001b[31mshurveers\u001b[39m\n\u001b[31mcontact us\u001b[39m\n\u001b[31mresources\u001b[39m\n\u001b[31mcareer guide\u001b[39m\n\u001b[31mgovernment schemes\u001b[39m\n\u001b[31minterview prep\u001b[39m\n\u001b[31mfaqs\u001b[39m\n\u001b[31mpartner downloads\u001b[39m\n\u001b[31mgovt policies\u001b[39m\n\u001b[31mprivacy policy (coming soon)\u001b[39m\n\u001b[31mterms & conditions (coming soon)\u001b[39m\n\u001b[31mgrievance redressal (coming soon)\u001b[39m\n\u001b[31mrti directory\u001b[39m\n\u001b[31mdownload app\u001b[39m\n\u001b[31mget it on\u001b[39m\n\u001b[31mgoogle play\u001b[39m\n\u001b[31mdownload on the\u001b[39m\n\u001b[31mapp store\u001b[39m\n\u001b[31mcoming soon\u001b[39m\n\u001b[31mnewsletter·\u001b[39m\n\u001b[31mstay updated with the latest opportunities and mission updates.·\u001b[39m\n\u001b[31mnbf = national bharat force — india's disciplined youth force comprising ncc, nss, scouts & guides, nyks and civil defence members.·\u001b[39m\n\u001b[31m© 2026 nbf connect (national bharat force connect) | all rights reserved. | made in india·\u001b[39m\n\u001b[31msupport: support@nbfconnect.in | general: hello@nbfconnect.in | careers: careers@nbfconnect.in\u001b[39m\n\u001b[31madmin: admin@nbfconnect.in | contact: contact@nbfconnect.in·\u001b[39m\n\u001b[31mregistered msme | govt. of india·\u001b[39m\n\u001b[31mudyam-ts-09-0253032·\u001b[39m\n\u001b[31mnbf connect is an independent youth empowerment platform operated by national bharat force connect. not affiliated with or endorsed by any government ministry, bank, or financial institution.\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"match\"\u001b[39m\nReceived string:    \u001b[31m\"back to home\u001b[39m\n\u001b[31mnbf connect\u001b[39m\n\u001b[31myour discipline\u001b[39m\n\u001b[31mis your superpower·\u001b[39m\n\u001b[31mjoin thousands of verified shurveers building their careers through india's largest disciplined youth network.·\u001b[39m\n\u001b[31mverified\u001b[39m\n\u001b[31mshurveers\u001b[39m\n\u001b[31mreal\u001b[39m\n\u001b[31mopportunities\u001b[39m\n\u001b[31mtrusted\u001b[39m\n\u001b[31morganizations\u001b[39m\n\u001b[31mbecome a shurveer·\u001b[39m\n\u001b[31mjoin india's disciplined youth opportunity network.·\u001b[39m\n\u001b[31mpersonal information\u001b[39m\n\u001b[31mfull name *\u001b[39m\n\u001b[31mmobile number *\u001b[39m\n\u001b[31m+91\u001b[39m\n\u001b[31memail address *\u001b[39m\n\u001b[31mpassword *\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mat least 8 characters\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mone uppercase letter (a-z)\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mone number (0-9)\u001b[39m\n\u001b[31m●\u001b[39m\n\u001b[31mone special character (!@#$%^&*)\u001b[39m\n\u001b[31mconfirm password *\u001b[39m\n\u001b[31mdate of birth *\u001b[39m\n\u001b[31mgender *\u001b[39m\n\u001b[31mselect gender\u001b[39m\n\u001b[31mmale\u001b[39m\n\u001b[31mfemale\u001b[39m\n\u001b[31mother\u001b[39m\n\u001b[31mlocation\u001b[39m\n\u001b[31mstate *\u001b[39m\n\u001b[31mselect state\u001b[39m\n\u001b[31mandhra pradesh\u001b[39m\n\u001b[31marunachal pradesh\u001b[39m\n\u001b[31massam\u001b[39m\n\u001b[31mbihar\u001b[39m\n\u001b[31mchhattisgarh\u001b[39m\n\u001b[31mgoa\u001b[39m\n\u001b[31mgujarat\u001b[39m\n\u001b[31mharyana\u001b[39m\n\u001b[31mhimachal pradesh\u001b[39m\n\u001b[31mjharkhand\u001b[39m\n\u001b[31mkarnataka\u001b[39m\n\u001b[31mkerala\u001b[39m\n\u001b[31mmadhya pradesh\u001b[39m\n\u001b[31mmaharashtra\u001b[39m\n\u001b[31mmanipur\u001b[39m\n\u001b[31mmeghalaya\u001b[39m\n\u001b[31mmizoram\u001b[39m\n\u001b[31mnagaland\u001b[39m\n\u001b[31modisha\u001b[39m\n\u001b[31mpunjab\u001b[39m\n\u001b[31mrajasthan\u001b[39m\n\u001b[31msikkim\u001b[39m\n\u001b[31mtamil nadu\u001b[39m\n\u001b[31mtelangana\u001b[39m\n\u001b[31mtripura\u001b[39m\n\u001b[31muttar pradesh\u001b[39m\n\u001b[31muttarakhand\u001b[39m\n\u001b[31mwest bengal\u001b[39m\n\u001b[31mdelhi\u001b[39m\n\u001b[31mjammu & kashmir\u001b[39m\n\u001b[31mdistrict *\u001b[39m\n\u001b[31morganization & skills\u001b[39m\n\u001b[31morganization type *\u001b[39m\n\u001b[31mselect organization\u001b[39m\n\u001b[31mncc\u001b[39m\n\u001b[31mnss\u001b[39m\n\u001b[31mscouts & guides\u001b[39m\n\u001b[31msports volunteer\u001b[39m\n\u001b[31mcivil defence\u001b[39m\n\u001b[31mnyks\u001b[39m\n\u001b[31mother\u001b[39m\n\u001b[31mskills *\u001b[39m\n\u001b[31mleadership\u001b[39m\n\u001b[31mevent management\u001b[39m\n\u001b[31mdiscipline\u001b[39m\n\u001b[31mpublic speaking\u001b[39m\n\u001b[31mfitness\u001b[39m\n\u001b[31mteamwork\u001b[39m\n\u001b[31mlogistics\u001b[39m\n\u001b[31memergency response\u001b[39m\n\u001b[31mavailability *\u001b[39m\n\u001b[31mselect availability\u001b[39m\n\u001b[31mfull-time\u001b[39m\n\u001b[31mpart-time\u001b[39m\n\u001b[31mweekends\u001b[39m\n\u001b[31mvolunteer\u001b[39m\n\u001b[31muploads\u001b[39m\n\u001b[31m*\u001b[39m\n\u001b[31mupload resume *\u001b[39m\n\u001b[31mdrop pdf here or browse\u001b[39m\n\u001b[31mpdf, doc up to 300kb\u001b[39m\n\u001b[31mupload profile photo *\u001b[39m\n\u001b[31mdrop image here or browse\u001b[39m\n\u001b[31mjpg, png up to 20kb\u001b[39m\n\u001b[31mi commit to discipline and integrity as a shurveer of nbf connect.\u001b[39m\n\u001b[31mjoin mission·\u001b[39m\n\u001b[31mfor security, login is temporarily locked after 5 failed attempts.·\u001b[39m\n\u001b[31m🔒\u001b[39m\n\u001b[31myour data is protected. nbf connect uses encrypted, secure registration.·\u001b[39m\n\u001b[31malready registered? login·\u001b[39m\n\u001b[31mverified network\u001b[39m\n\u001b[31mskill building\u001b[39m\n\u001b[31mopportunities across india\u001b[39m\n\u001b[31mnbf connect·\u001b[39m\n\u001b[31mnbf connect — national bharat force connect\u001b[39m\n\u001b[31mindia's first platform connecting disciplined youth\u001b[39m\n\u001b[31mwith real opportunities.·\u001b[39m\n\u001b[31mquick links\u001b[39m\n\u001b[31mabout nbf connect\u001b[39m\n\u001b[31mopportunities\u001b[39m\n\u001b[31mhow it works\u001b[39m\n\u001b[31mshurveers\u001b[39m\n\u001b[31mcontact us\u001b[39m\n\u001b[31mresources\u001b[39m\n\u001b[31mcareer guide\u001b[39m\n\u001b[31mgovernment schemes\u001b[39m\n\u001b[31minterview prep\u001b[39m\n\u001b[31mfaqs\u001b[39m\n\u001b[31mpartner downloads\u001b[39m\n\u001b[31mgovt policies\u001b[39m\n\u001b[31mprivacy policy (coming soon)\u001b[39m\n\u001b[31mterms & conditions (coming soon)\u001b[39m\n\u001b[31mgrievance redressal (coming soon)\u001b[39m\n\u001b[31mrti directory\u001b[39m\n\u001b[31mdownload app\u001b[39m\n\u001b[31mget it on\u001b[39m\n\u001b[31mgoogle play\u001b[39m\n\u001b[31mdownload on the\u001b[39m\n\u001b[31mapp store\u001b[39m\n\u001b[31mcoming soon\u001b[39m\n\u001b[31mnewsletter·\u001b[39m\n\u001b[31mstay updated with the latest opportunities and mission updates.·\u001b[39m\n\u001b[31mnbf = national bharat force — india's disciplined youth force comprising ncc, nss, scouts & guides, nyks and civil defence members.·\u001b[39m\n\u001b[31m© 2026 nbf connect (national bharat force connect) | all rights reserved. | made in india·\u001b[39m\n\u001b[31msupport: support@nbfconnect.in | general: hello@nbfconnect.in | careers: careers@nbfconnect.in\u001b[39m\n\u001b[31madmin: admin@nbfconnect.in | contact: contact@nbfconnect.in·\u001b[39m\n\u001b[31mregistered msme | govt. of india·\u001b[39m\n\u001b[31mudyam-ts-09-0253032·\u001b[39m\n\u001b[31mnbf connect is an independent youth empowerment platform operated by national bharat force connect. not affiliated with or endorsed by any government ministry, bank, or financial institution.\"\u001b[39m\n    at C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js:53:38",
@@ -185,7 +199,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:10.848Z",
+                      "startTime": "2026-06-30T04:29:06.486Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -222,10 +236,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 3317,
+                      "duration": 3526,
                       "error": {
                         "message": "TypeError: Cannot read properties of null (reading 'evaluate')",
                         "stack": "TypeError: Cannot read properties of null (reading 'evaluate')\n    at C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js:64:39",
@@ -249,7 +263,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:15.357Z",
+                      "startTime": "2026-06-30T04:29:11.073Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -286,15 +300,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2259,
+                      "duration": 2938,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:19.399Z",
+                      "startTime": "2026-06-30T04:29:15.274Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -320,15 +334,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7852,
+                      "duration": 7630,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:21.761Z",
+                      "startTime": "2026-06-30T04:29:18.322Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -354,10 +368,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 8055,
+                      "duration": 8084,
                       "error": {
                         "message": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m"
@@ -378,7 +392,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:29.628Z",
+                      "startTime": "2026-06-30T04:29:25.967Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -418,15 +432,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4582,
+                      "duration": 4567,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:38.352Z",
+                      "startTime": "2026-06-30T04:29:34.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -452,15 +466,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4772,
+                      "duration": 4721,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:43.085Z",
+                      "startTime": "2026-06-30T04:29:39.285Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -486,15 +500,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2659,
+                      "duration": 2131,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:47.866Z",
+                      "startTime": "2026-06-30T04:29:44.015Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -520,10 +534,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 8064,
+                      "duration": 8063,
                       "error": {
                         "message": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m"
@@ -544,7 +558,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:08:50.535Z",
+                      "startTime": "2026-06-30T04:29:46.160Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -573,71 +587,7 @@
           "specs": [
             {
               "title": "Test 12: Direct dashboard access",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 8000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 3040,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"login\"\u001b[39m\nReceived string:    \u001b[31m\"https://nbfconnect.in/dashboard.html\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"login\"\u001b[39m\nReceived string:    \u001b[31m\"https://nbfconnect.in/dashboard.html\"\u001b[39m\n    at C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js:191:24",
-                        "location": {
-                          "file": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js",
-                          "column": 24,
-                          "line": 191
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 189 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${BASE_URL}/dashboard.html`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 190 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 191 |\u001b[39m     expect(page\u001b[33m.\u001b[39murl())\u001b[33m.\u001b[39mtoContain(\u001b[32m'login'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 192 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 193 |\u001b[39m\n \u001b[90m 194 |\u001b[39m   test(\u001b[32m'Test 13: Logout clears session'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js",
-                            "column": 24,
-                            "line": 191
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"login\"\u001b[39m\nReceived string:    \u001b[31m\"https://nbfconnect.in/dashboard.html\"\u001b[39m\n\n  189 |     await page.goto(`${BASE_URL}/dashboard.html`);\n  190 |     await page.waitForTimeout(2000);\n> 191 |     expect(page.url()).toContain('login');\n      |                        ^\n  192 |   });\n  193 |\n  194 |   test('Test 13: Logout clears session', async ({ page }) => {\n    at C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js:191:24"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-30T03:08:59.170Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\test-results\\nbfconnect-Test-Suite-3----5055c--12-Direct-dashboard-access-chromium\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js",
-                        "column": 24,
-                        "line": 191
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "e43abf7b284885af87ac-ba4552e5507acd8bf621",
-              "file": "nbfconnect.spec.js",
-              "line": 188,
-              "column": 3
-            },
-            {
-              "title": "Test 13: Logout clears session",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -650,48 +600,52 @@
                     {
                       "workerIndex": 5,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 1691,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"login\"\u001b[39m\nReceived string:    \u001b[31m\"https://nbfconnect.in/dashboard.html\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"login\"\u001b[39m\nReceived string:    \u001b[31m\"https://nbfconnect.in/dashboard.html\"\u001b[39m\n    at C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js:200:24",
-                        "location": {
-                          "file": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js",
-                          "column": 24,
-                          "line": 200
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 198 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${BASE_URL}/dashboard.html`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 199 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m1000\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 200 |\u001b[39m     expect(page\u001b[33m.\u001b[39murl())\u001b[33m.\u001b[39mtoContain(\u001b[32m'login'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 201 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 202 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 203 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js",
-                            "column": 24,
-                            "line": 200
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"login\"\u001b[39m\nReceived string:    \u001b[31m\"https://nbfconnect.in/dashboard.html\"\u001b[39m\n\n  198 |     await page.goto(`${BASE_URL}/dashboard.html`);\n  199 |     await page.waitForTimeout(1000);\n> 200 |     expect(page.url()).toContain('login');\n      |                        ^\n  201 |   });\n  202 | });\n  203 |\n    at C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js:200:24"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 3841,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:02.854Z",
+                      "startTime": "2026-06-30T04:29:54.790Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\test-results\\nbfconnect-Test-Suite-3----e8058-st-13-Logout-clears-session-chromium\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\kalav\\Desktop\\krishna\\project\\site 2\\playwright-tests\\nbfconnect.spec.js",
-                        "column": 24,
-                        "line": 200
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
+                }
+              ],
+              "id": "e43abf7b284885af87ac-ba4552e5507acd8bf621",
+              "file": "nbfconnect.spec.js",
+              "line": 188,
+              "column": 3
+            },
+            {
+              "title": "Test 13: Logout clears session",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 8000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2711,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-30T04:29:58.753Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "e43abf7b284885af87ac-69421ab50046a9ee05ce",
@@ -720,15 +674,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2578,
+                      "duration": 2707,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:05.131Z",
+                      "startTime": "2026-06-30T04:30:01.478Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -754,10 +708,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 8053,
+                      "duration": 8076,
                       "error": {
                         "message": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 8000ms exceeded.\u001b[39m"
@@ -778,7 +732,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:07.846Z",
+                      "startTime": "2026-06-30T04:30:04.206Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -810,15 +764,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2488,
+                      "duration": 1899,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:16.475Z",
+                      "startTime": "2026-06-30T04:30:12.976Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -852,15 +806,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1476,
+                      "duration": 1691,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:19.067Z",
+                      "startTime": "2026-06-30T04:30:15.054Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -886,15 +840,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1751,
+                      "duration": 1364,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:20.552Z",
+                      "startTime": "2026-06-30T04:30:16.756Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -928,10 +882,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1368,
+                      "duration": 1908,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
@@ -943,7 +897,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:22.312Z",
+                      "startTime": "2026-06-30T04:30:18.128Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -969,10 +923,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1589,
+                      "duration": 1326,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
@@ -981,7 +935,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:23.688Z",
+                      "startTime": "2026-06-30T04:30:20.052Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1007,19 +961,19 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1722,
+                      "duration": 1736,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
                         {
-                          "text": "Console errors on /register.html: [\n  \u001b[32m`Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m,\n  \u001b[32m`Connecting to 'https://661d6042eddf.w.hcaptcha.com/logo.png' violates the following Content Security Policy directive: \"connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com wss://*.firebaseio.com https://firestore.googleapis.com https://storage.googleapis.com\". The action has been blocked.`\u001b[39m,\n  \u001b[32m\"Fetch API cannot load https://661d6042eddf.w.hcaptcha.com/logo.png. Refused to connect because it violates the document's Content Security Policy.\"\u001b[39m\n]\n"
+                          "text": "Console errors on /register.html: [\n  \u001b[32m`Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m\n]\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:25.286Z",
+                      "startTime": "2026-06-30T04:30:21.390Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1045,19 +999,19 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1556,
+                      "duration": 1431,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
                         {
-                          "text": "Console errors on /partnershipsignup.html: [\n  \u001b[32m`Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m,\n  \u001b[32m`Loading the script 'https://www.google.com/recaptcha/api.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m\n]\n"
+                          "text": "Console errors on /partnershipsignup.html: [\n  \u001b[32m`Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m,\n  \u001b[32m`Connecting to 'https://f4f943f6e3ea.w.hcaptcha.com/logo.png' violates the following Content Security Policy directive: \"connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com wss://*.firebaseio.com https://firestore.googleapis.com https://storage.googleapis.com\". The action has been blocked.`\u001b[39m,\n  \u001b[32m\"Fetch API cannot load https://f4f943f6e3ea.w.hcaptcha.com/logo.png. Refused to connect because it violates the document's Content Security Policy.\"\u001b[39m\n]\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:27.025Z",
+                      "startTime": "2026-06-30T04:30:23.153Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1083,10 +1037,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1494,
+                      "duration": 1738,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
@@ -1095,7 +1049,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:28.590Z",
+                      "startTime": "2026-06-30T04:30:24.595Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1121,10 +1075,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1468,
+                      "duration": 1732,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
@@ -1133,7 +1087,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:30.092Z",
+                      "startTime": "2026-06-30T04:30:26.345Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1159,19 +1113,19 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1900,
+                      "duration": 2423,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
                         {
-                          "text": "Console errors on /grievance.html: [\n  \u001b[32m`Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m,\n  \u001b[32m`Connecting to 'https://9e9a1ccefaed.w.hcaptcha.com/logo.png' violates the following Content Security Policy directive: \"connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com wss://*.firebaseio.com https://firestore.googleapis.com https://storage.googleapis.com\". The action has been blocked.`\u001b[39m,\n  \u001b[32m\"Fetch API cannot load https://9e9a1ccefaed.w.hcaptcha.com/logo.png. Refused to connect because it violates the document's Content Security Policy.\"\u001b[39m\n]\n"
+                          "text": "Console errors on /grievance.html: [\n  \u001b[32m`Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://www.hcaptcha.com https://*.hcaptcha.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.`\u001b[39m,\n  \u001b[32m`Connecting to 'https://d18656e44cf6.w.hcaptcha.com/logo.png' violates the following Content Security Policy directive: \"connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com wss://*.firebaseio.com https://firestore.googleapis.com https://storage.googleapis.com\". The action has been blocked.`\u001b[39m,\n  \u001b[32m\"Fetch API cannot load https://d18656e44cf6.w.hcaptcha.com/logo.png. Refused to connect because it violates the document's Content Security Policy.\"\u001b[39m\n]\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-06-30T03:09:31.570Z",
+                      "startTime": "2026-06-30T04:30:28.091Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1191,11 +1145,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-30T03:07:59.597Z",
-    "duration": 93982.113,
-    "expected": 18,
+    "startTime": "2026-06-30T04:28:53.805Z",
+    "duration": 96861.66,
+    "expected": 19,
     "skipped": 0,
-    "unexpected": 7,
+    "unexpected": 6,
     "flaky": 0
   }
 }

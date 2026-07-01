@@ -1,0 +1,414 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: nbfconnect.spec.js >> Test Suite 1 - Registration Edge Cases >> Test 2: Weak password rejection
+- Location: nbfconnect.spec.js:15:3
+
+# Error details
+
+```
+Test timeout of 8000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link " Back to Home" [ref=e2] [cursor=pointer]:
+    - /url: /
+    - generic [ref=e3]: 
+    - generic [ref=e4]: Back to Home
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - img "Disciplined Youth" [ref=e8]
+      - generic [ref=e9]:
+        - link "NBF Connect Emblem NBF Connect" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "NBF Connect Emblem" [ref=e11]
+          - generic [ref=e12]: NBF Connect
+        - heading "Your Discipline Is Your Superpower" [level=1] [ref=e13]:
+          - text: Your Discipline
+          - text: Is Your Superpower
+        - paragraph [ref=e14]: Join thousands of verified Shurveers building their careers through India's largest disciplined youth network.
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e17]: Verified
+            - generic [ref=e18]: Shurveers
+          - generic [ref=e19]:
+            - generic [ref=e20]: Real
+            - generic [ref=e21]: Opportunities
+          - generic [ref=e22]:
+            - generic [ref=e23]: Trusted
+            - generic [ref=e24]: Organizations
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - heading "Become a Shurveer" [level=2] [ref=e28]
+        - paragraph [ref=e29]: Join India's disciplined youth opportunity network.
+      - text:  
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: 
+          - text: Personal Information
+        - generic [ref=e33]:
+          - generic [ref=e34]: Full Name *
+          - generic [ref=e35]:
+            - generic: 
+            - textbox "Full Name *" [ref=e36]:
+              - /placeholder: Enter your full name
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: Mobile Number *
+            - generic [ref=e40]:
+              - generic: "+91"
+              - textbox "Mobile Number *" [ref=e41]:
+                - /placeholder: Enter mobile number
+            - text: 
+          - generic [ref=e42]:
+            - generic [ref=e43]: Email Address *
+            - generic [ref=e44]:
+              - generic: 
+              - textbox "Email Address *" [ref=e45]:
+                - /placeholder: Enter email address
+            - text: 
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: Password *
+            - generic [ref=e49]:
+              - generic: 
+              - textbox "Password *" [ref=e50]:
+                - /placeholder: Create password
+              - button "" [ref=e51] [cursor=pointer]:
+                - generic [ref=e52]: 
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: ●
+                - text: At least 8 characters
+              - generic [ref=e57]:
+                - generic [ref=e58]: ●
+                - text: One uppercase letter (A-Z)
+              - generic [ref=e59]:
+                - generic [ref=e60]: ●
+                - text: One number (0-9)
+              - generic [ref=e61]:
+                - generic [ref=e62]: ●
+                - text: One special character (!@#$%^&*)
+          - generic [ref=e63]:
+            - generic [ref=e64]: Confirm Password *
+            - generic [ref=e65]:
+              - generic: 
+              - textbox "Confirm Password *" [ref=e66]:
+                - /placeholder: Confirm password
+              - button "" [ref=e67] [cursor=pointer]:
+                - generic [ref=e68]: 
+            - text: 
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e71]: Date of Birth *
+            - generic [ref=e72]:
+              - generic: 
+              - textbox "Date of Birth *" [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Gender *
+            - generic [ref=e76]:
+              - generic: 
+              - combobox "Gender *" [ref=e77]:
+                - option "Select gender" [disabled] [selected]
+                - option "Male"
+                - option "Female"
+                - option "Other"
+        - generic [ref=e78]:
+          - generic [ref=e79]: 
+          - text: Location
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - generic [ref=e82]: State *
+            - generic [ref=e83]:
+              - generic: 
+              - combobox "State *" [ref=e84]:
+                - option "Select state" [disabled] [selected]
+                - option "Andhra Pradesh"
+                - option "Arunachal Pradesh"
+                - option "Assam"
+                - option "Bihar"
+                - option "Chhattisgarh"
+                - option "Goa"
+                - option "Gujarat"
+                - option "Haryana"
+                - option "Himachal Pradesh"
+                - option "Jharkhand"
+                - option "Karnataka"
+                - option "Kerala"
+                - option "Madhya Pradesh"
+                - option "Maharashtra"
+                - option "Manipur"
+                - option "Meghalaya"
+                - option "Mizoram"
+                - option "Nagaland"
+                - option "Odisha"
+                - option "Punjab"
+                - option "Rajasthan"
+                - option "Sikkim"
+                - option "Tamil Nadu"
+                - option "Telangana"
+                - option "Tripura"
+                - option "Uttar Pradesh"
+                - option "Uttarakhand"
+                - option "West Bengal"
+                - option "Delhi"
+                - option "Jammu & Kashmir"
+          - generic [ref=e85]:
+            - generic [ref=e86]: District *
+            - generic [ref=e87]:
+              - generic: 
+              - textbox "District *" [ref=e88]:
+                - /placeholder: Enter district
+        - generic [ref=e89]:
+          - generic [ref=e90]: 
+          - text: Organization & Skills
+        - generic [ref=e91]:
+          - generic [ref=e92]: Organization Type *
+          - generic [ref=e93]:
+            - generic: 
+            - combobox "Organization Type *" [ref=e94]:
+              - option "Select organization" [disabled] [selected]
+              - option "NCC"
+              - option "NSS"
+              - option "Scouts & Guides"
+              - option "Sports Volunteer"
+              - option "Civil Defence"
+              - option "NYKS"
+              - option "Other"
+        - generic [ref=e95]:
+          - generic [ref=e96]: Skills *
+          - generic [ref=e97]:
+            - generic [ref=e99] [cursor=pointer]:
+              - generic [ref=e100]: 
+              - text: Leadership
+            - generic [ref=e102] [cursor=pointer]:
+              - generic [ref=e103]: 
+              - text: Event Management
+            - generic [ref=e105] [cursor=pointer]:
+              - generic [ref=e106]: 
+              - text: Discipline
+            - generic [ref=e108] [cursor=pointer]:
+              - generic [ref=e109]: 
+              - text: Public Speaking
+            - generic [ref=e111] [cursor=pointer]:
+              - generic [ref=e112]: 
+              - text: Fitness
+            - generic [ref=e114] [cursor=pointer]:
+              - generic [ref=e115]: 
+              - text: Teamwork
+            - generic [ref=e117] [cursor=pointer]:
+              - generic [ref=e118]: 
+              - text: Logistics
+            - generic [ref=e120] [cursor=pointer]:
+              - generic [ref=e121]: 
+              - text: Emergency Response
+        - generic [ref=e122]:
+          - generic [ref=e123]: Availability *
+          - generic [ref=e124]:
+            - generic: 
+            - combobox "Availability *" [ref=e125]:
+              - option "Select availability" [disabled] [selected]
+              - option "Full-time"
+              - option "Part-time"
+              - option "Weekends"
+              - option "Volunteer"
+        - generic [ref=e126]:
+          - generic [ref=e127]: 
+          - text: Uploads
+          - generic [ref=e128]: "*"
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - generic [ref=e131]: Upload Resume *
+            - generic [ref=e132] [cursor=pointer]:
+              - generic [ref=e133]: 
+              - generic [ref=e134]:
+                - text: Drop PDF here or
+                - emphasis [ref=e135]: browse
+              - generic [ref=e136]: PDF, DOC up to 300KB
+          - generic [ref=e137]:
+            - generic [ref=e138]: Upload Profile Photo *
+            - generic [ref=e139] [cursor=pointer]:
+              - generic [ref=e140]: 
+              - generic [ref=e141]:
+                - text: Drop image here or
+                - emphasis [ref=e142]: browse
+              - generic [ref=e143]: JPG, PNG up to 20KB
+        - generic [ref=e145]:
+          - checkbox "I commit to discipline and integrity as a Shurveer of NBF Connect." [ref=e146] [cursor=pointer]
+          - generic [ref=e147] [cursor=pointer]:
+            - text: I commit to
+            - strong [ref=e148]: discipline and integrity
+            - text: as a Shurveer of NBF Connect.
+        - iframe [ref=e151]:
+          - generic [ref=f4e2] [cursor=pointer]:
+            - checkbox "'I am human', Select in order to trigger the challenge, or to bypass it if you have an accessibility cookie" [ref=f4e7]
+            - generic [ref=f4e11]: I am human
+            - generic [ref=f4e12]:
+              - generic "hCaptcha" [ref=f4e13]:
+                - button "hCaptcha logo, opens new window with more information" [ref=f4e14]:
+                  - img [ref=f4e16]
+              - generic [ref=f4e78]:
+                - link "hCaptcha Privacy Policy, opens in a new tab" [ref=f4e79]:
+                  - /url: https://hcaptcha.com/privacy?ref=nbfconnect.in&utm_campaign=00809a90-2cd2-4e52-b064-b87ed61c6f9e&utm_medium=checkbox&hl=en
+                  - text: Privacy
+                - text: "-"
+                - link "hCaptcha Terms of Service, opens in a new tab" [ref=f4e80]:
+                  - /url: https://hcaptcha.com/terms?ref=nbfconnect.in&utm_campaign=00809a90-2cd2-4e52-b064-b87ed61c6f9e&utm_medium=checkbox&hl=en
+                  - text: Terms
+        - button " Join Mission" [ref=e152] [cursor=pointer]:
+          - generic [ref=e153]: 
+          - generic [ref=e154]: Join Mission
+        - paragraph [ref=e155]: For security, login is temporarily locked after 5 failed attempts.
+        - generic [ref=e156]:
+          - generic [ref=e157]: 🔒
+          - generic [ref=e158]: Your data is protected. NBF Connect uses encrypted, secure registration.
+        - paragraph [ref=e159]:
+          - text: Already registered?
+          - link "Login" [ref=e160] [cursor=pointer]:
+            - /url: /login
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - generic [ref=e163]: 
+          - generic [ref=e164]: Verified Network
+        - generic [ref=e165]:
+          - generic [ref=e166]: 
+          - generic [ref=e167]: Skill Building
+        - generic [ref=e168]:
+          - generic [ref=e169]: 
+          - generic [ref=e170]: Opportunities Across India
+  - contentinfo [ref=e171]:
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - link "NBF Connect Emblem NBF Connect" [ref=e175] [cursor=pointer]:
+            - /url: "#"
+            - img "NBF Connect Emblem" [ref=e176]
+            - generic [ref=e177]: NBF Connect
+          - paragraph [ref=e178]:
+            - text: NBF Connect — National Bharat Force Connect
+            - text: India's first platform connecting disciplined youth
+            - text: with real opportunities.
+          - generic [ref=e179]:
+            - link "" [ref=e180] [cursor=pointer]:
+              - /url: https://www.youtube.com/@NationalBharatForce
+              - generic [ref=e181]: 
+            - link "" [ref=e182] [cursor=pointer]:
+              - /url: https://www.instagram.com/nbf.connect/
+              - generic [ref=e183]: 
+            - link "" [ref=e184] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/nbf-connect-7037a6414/
+              - generic [ref=e185]: 
+            - link "" [ref=e186] [cursor=pointer]:
+              - /url: https://x.com/nbfconnect
+              - generic [ref=e187]: 
+            - link "" [ref=e188] [cursor=pointer]:
+              - /url: https://www.instagram.com/nbf.connect/
+              - generic [ref=e189]: 
+        - generic [ref=e190]:
+          - heading "Quick Links" [level=2] [ref=e191]
+          - list [ref=e192]:
+            - listitem [ref=e193]:
+              - link "About NBF CONNECT" [ref=e194] [cursor=pointer]:
+                - /url: /#home-hero
+            - listitem [ref=e195]:
+              - link "Opportunities" [ref=e196] [cursor=pointer]:
+                - /url: /opportunities
+            - listitem [ref=e197]:
+              - link "How It Works" [ref=e198] [cursor=pointer]:
+                - /url: /#how-it-works
+            - listitem [ref=e199]:
+              - link "Shurveers" [ref=e200] [cursor=pointer]:
+                - /url: /#who-are-shurveers
+            - listitem [ref=e201]:
+              - link "Contact Us" [ref=e202] [cursor=pointer]:
+                - /url: mailto:contact@nbfconnect.in
+        - generic [ref=e203]:
+          - heading "Resources" [level=2] [ref=e204]
+          - list [ref=e205]:
+            - listitem [ref=e206]:
+              - link "Career Guide" [ref=e207] [cursor=pointer]:
+                - /url: /resources#shurveer-tools
+            - listitem [ref=e208]:
+              - link "Government Schemes" [ref=e209] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e210]:
+              - link "Interview Prep" [ref=e211] [cursor=pointer]:
+                - /url: /resources#shurveer-tools
+            - listitem [ref=e212]:
+              - link "FAQs" [ref=e213] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e214]:
+              - link "Partner Downloads" [ref=e215] [cursor=pointer]:
+                - /url: /resources#partner-tools
+        - generic [ref=e216]:
+          - heading "Govt Policies" [level=2] [ref=e217]
+          - list [ref=e218]:
+            - listitem [ref=e219]:
+              - link "Privacy Policy (Coming Soon)" [ref=e220] [cursor=pointer]:
+                - /url: "#footer"
+            - listitem [ref=e221]:
+              - link "Terms & Conditions (Coming Soon)" [ref=e222] [cursor=pointer]:
+                - /url: "#footer"
+            - listitem [ref=e223]:
+              - link "Grievance Redressal (Coming Soon)" [ref=e224] [cursor=pointer]:
+                - /url: "#footer"
+            - listitem [ref=e225]:
+              - link "RTI Directory" [ref=e226] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e227]:
+          - heading "Download App" [level=2] [ref=e228]
+          - generic [ref=e229]:
+            - link " GET IT ON Google Play" [ref=e230] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e231]: 
+              - generic [ref=e232]:
+                - generic [ref=e233]: GET IT ON
+                - strong [ref=e234]: Google Play
+            - link " Download on the App Store" [ref=e235] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e236]: 
+              - generic [ref=e237]:
+                - generic [ref=e238]: Download on the
+                - strong [ref=e239]: App Store
+          - generic [ref=e240]: Coming Soon
+        - generic [ref=e241]:
+          - heading "Newsletter" [level=2] [ref=e242]
+          - paragraph [ref=e243]: Stay updated with the latest opportunities and mission updates.
+          - generic [ref=e245]:
+            - textbox "Email Address" [ref=e246]
+            - button "Subscribe" [ref=e247] [cursor=pointer]:
+              - generic [ref=e248]: 
+      - generic [ref=e249]: NBF = National Bharat Force — India's disciplined youth force comprising NCC, NSS, Scouts & Guides, NYKS and Civil Defence members.
+      - generic [ref=e250]:
+        - paragraph [ref=e252]: © 2026 NBF Connect (National Bharat Force Connect) | All Rights Reserved. | Made in India
+        - generic [ref=e253]:
+          - paragraph [ref=e254]:
+            - text: "Support:"
+            - link "support@nbfconnect.in" [ref=e255] [cursor=pointer]:
+              - /url: mailto:support@nbfconnect.in
+            - text: "| General:"
+            - link "hello@nbfconnect.in" [ref=e256] [cursor=pointer]:
+              - /url: mailto:hello@nbfconnect.in
+            - text: "| Careers:"
+            - link "careers@nbfconnect.in" [ref=e257] [cursor=pointer]:
+              - /url: mailto:careers@nbfconnect.in
+            - text: "Admin:"
+            - link "admin@nbfconnect.in" [ref=e258] [cursor=pointer]:
+              - /url: mailto:admin@nbfconnect.in
+            - text: "| Contact:"
+            - link "contact@nbfconnect.in" [ref=e259] [cursor=pointer]:
+              - /url: mailto:contact@nbfconnect.in
+          - paragraph [ref=e260]:
+            - generic [ref=e261]: 
+            - text: Registered MSME | Govt. of India
+          - paragraph [ref=e262]: UDYAM-TS-09-0253032
+      - generic [ref=e263]: NBF Connect is an independent youth empowerment platform operated by National Bharat Force Connect. Not affiliated with or endorsed by any government ministry, bank, or financial institution.
+```

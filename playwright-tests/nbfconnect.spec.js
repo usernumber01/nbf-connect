@@ -186,7 +186,7 @@ test.describe('Test Suite 2 - Login Edge Cases', () => {
 
 test.describe('Test Suite 3 - Route Protection', () => {
   test('Test 12: Direct dashboard access', async ({ page }) => {
-    await page.goto(`${BASE_URL}/dashboard.html`);
+    await page.goto(`${BASE_URL}/shurveerdashboard.html`);
     await page.waitForTimeout(2000);
     expect(page.url()).toContain('login');
   });
@@ -195,7 +195,7 @@ test.describe('Test Suite 3 - Route Protection', () => {
     // Cannot easily test since we can't reliably login if email verification is mandatory.
     // We will simulate it by checking if dashboard redirects immediately if not logged in.
     // If the user can't login, they can't test logout. We will mark as passed if dashboard redirects to login.
-    await page.goto(`${BASE_URL}/dashboard.html`);
+    await page.goto(`${BASE_URL}/shurveerdashboard.html`);
     await page.waitForTimeout(1000);
     expect(page.url()).toContain('login');
   });

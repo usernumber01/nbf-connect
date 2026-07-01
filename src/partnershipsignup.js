@@ -85,7 +85,7 @@ document.getElementById("partner-form").addEventListener("change", (e) => {
 document.getElementById("partner-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const captchaResponse = hcaptcha.getResponse();
+    const captchaResponse = grecaptcha.getResponse();
     if (!captchaResponse) {
         document.getElementById('captcha-error').style.display = 'block';
         return;
@@ -165,7 +165,7 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
             firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
             firstErrorEl.focus({ preventScroll: true });
         }
-        if (window.hcaptcha) hcaptcha.reset();
+        if (window.grecaptcha) grecaptcha.reset();
         return; // STOP execution, don't submit to Firebase
     }
 
@@ -219,14 +219,12 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    companyName: partnerData.companyName,
                     contactPerson: partnerData.contactPerson,
+                    designation: partnerData.designation,
                     email: partnerData.email,
                     phone: partnerData.phone,
-                    requirementType: partnerData.requirementType,
-                    numberOfShurveers: partnerData.numberOfShurveers,
-                    locationAndDates: partnerData.locationAndDates,
-                    description: partnerData.description
+                    alternateContact: partnerData.alternateContact,
+                    hearAboutUs: partnerData.hearAboutUs
                 })
             });
         } catch (emailError) {
@@ -245,7 +243,7 @@ document.getElementById("partner-form").addEventListener("submit", async (e) => 
     } catch (err) {
         console.error("Partner Registration Error: ", err);
         recordFailedAttempt();
-        if (window.hcaptcha) hcaptcha.reset();
+        if (window.grecaptcha) grecaptcha.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit</span>';
         

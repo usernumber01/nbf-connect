@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #f5f5f0; color: #222; }
@@ -193,7 +193,8 @@
         <textarea id="g-resolution" placeholder="What outcome are you expecting from this complaint?" style="min-height:80px"></textarea>
       </div>
 
-      <div class="h-captcha" data-sitekey="00809a90-2cd2-4e52-b064-b87ed61c6f9e" data-theme="light"></div>
+      <!-- Google reCAPTCHA Widget -->
+      <div class="g-recaptcha" data-sitekey="6Leb5D4tAAAAALB8tLO7Ce_RqT_7bOYpGmSc4Nh8"></div>
       <div id="captcha-error" style="color:#e05a1e; font-size:12px; margin-top:4px; margin-bottom:12px; display:none;">
         Please complete the CAPTCHA to continue.
       </div>
@@ -330,11 +331,11 @@
 
       if (!name || !email || !mobile || !type || !description) {
         alert('Please fill all required fields before submitting.');
-        if (window.hcaptcha) hcaptcha.reset();
+        if (window.grecaptcha) grecaptcha.reset();
         return;
       }
 
-      const captchaResponse = hcaptcha.getResponse();
+      const captchaResponse = grecaptcha.getResponse();
       if (!captchaResponse) {
         document.getElementById('captcha-error').style.display = 'block';
         return;
